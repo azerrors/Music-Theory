@@ -7,7 +7,7 @@ export function Select({className, children, ...props}: SelectHTMLAttributes<HTM
     return (
         <div className={cn("relative inline-flex", className)}>
             <select
-                className="h-9 w-full appearance-none rounded-lg border border-stone-300 bg-white pr-9 pl-3 text-sm font-medium hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900"
+                className="h-9 w-full appearance-none pointer-coarse:h-11 rounded-lg border border-stone-300 bg-white pr-9 pl-3 text-sm font-medium hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900"
                 {...props}
             >
                 {children}

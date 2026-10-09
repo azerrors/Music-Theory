@@ -62,7 +62,7 @@ export default function GlossaryPage() {
                                         <div className="flex flex-wrap items-center gap-3 pt-1">
                                             {term.example && <ExampleButton example={term.example}/>}
                                             {term.link && (
-                                                <Link to={term.link} className="inline-flex items-center gap-1 text-xs font-medium text-brand-700 hover:underline dark:text-brand-400">
+                                                <Link to={term.link} className="inline-flex min-h-6 items-center pointer-coarse:min-h-10 gap-1 text-xs font-medium text-brand-700 hover:underline dark:text-brand-400">
                                                     {t("seeOnSite")} <ArrowRight className="size-3.5"/>
                                                 </Link>
                                             )}

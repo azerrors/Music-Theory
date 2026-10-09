@@ -168,7 +168,7 @@ export function ChordDiagram({voicing, root, chordNotes, title, className}: Chor
                         y={TOP + gridHeight + 16}
                         textAnchor="middle"
                         className={cn(
-                            "text-[9px] font-medium",
+                            "text-[10px] font-medium",
                             chroma(pitch) === rootChroma ? "fill-brand-700 dark:fill-brand-400" : "fill-stone-500",
                         )}
                     >

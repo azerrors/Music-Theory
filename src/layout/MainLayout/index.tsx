@@ -93,7 +93,7 @@ export function MainLayout() {
     const {theme, toggleTheme} = useTheme()
 
     const navLinkClass = ({isActive}: {isActive: boolean}) => cn(
-        "rounded-lg px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-colors",
+        "rounded-lg px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-colors pointer-coarse:py-2.5",
         isActive
             ? "bg-brand-100 text-brand-800 dark:bg-brand-950 dark:text-brand-200"
             : "text-stone-600 hover:bg-stone-200/60 hover:text-stone-900 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-100",

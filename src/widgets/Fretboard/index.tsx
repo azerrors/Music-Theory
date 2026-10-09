@@ -150,7 +150,7 @@ export function Fretboard({markers, fretCount = DEFAULT_FRET_COUNT, onPositionCl
                             y={stringY(marker.string) + (marker.small ? 3 : 4)}
                             textAnchor="middle"
                             className={cn(
-                                marker.small ? "text-[8px] font-medium" : "text-[11px] font-semibold",
+                                marker.small ? "text-[9px] font-medium" : "text-[11px] font-semibold",
                                 marker.textClass ?? (marker.isRoot ? "fill-white" : "fill-white dark:fill-stone-900"),
                             )}
                         >

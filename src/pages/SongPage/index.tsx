@@ -77,7 +77,7 @@ function ChordChips({chords, className}: {chords: SongChord[]; className?: strin
                 <Link
                     key={index}
                     to={PATHS.chord(chord.root, chord.type, chord.bass)}
-                    className="rounded-lg border border-stone-300 bg-white px-2.5 py-1 text-sm font-semibold hover:border-brand-500 dark:border-stone-700 dark:bg-stone-900"
+                    className="rounded-lg border border-stone-300 bg-white px-2.5 py-1 text-sm font-semibold hover:border-brand-500 pointer-coarse:py-2.5 dark:border-stone-700 dark:bg-stone-900"
                 >
                     {chordName(chord, notation)}
                 </Link>
@@ -167,7 +167,7 @@ export default function SongPage() {
                                 key={example}
                                 type="button"
                                 onClick={() => updateText(example)}
-                                className="rounded-md bg-stone-100 px-2 py-1 font-mono text-xs hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700"
+                                className="rounded-md bg-stone-100 px-2 py-1 font-mono text-xs hover:bg-stone-200 pointer-coarse:py-2.5 dark:bg-stone-800 dark:hover:bg-stone-700"
                             >
                                 {example}
                             </button>
@@ -278,7 +278,7 @@ function KeySection({tonic, mode, chords, isManual, alternatives, onPick, onAuto
                     </div>
                     <Link
                         to={`${PATHS.progressions}?key=${rootToSlug(tonic)}&mode=${mode}${preset ? `&preset=${preset.id}` : ""}`}
-                        className="inline-flex items-center gap-1 text-sm font-medium text-brand-700 hover:underline dark:text-brand-400"
+                        className="inline-flex min-h-6 items-center pointer-coarse:min-h-10 gap-1 text-sm font-medium text-brand-700 hover:underline dark:text-brand-400"
                     >
                         {t("song.key.openProgressions")} <ArrowRight className="size-4"/>
                     </Link>
@@ -312,7 +312,7 @@ function KeySection({tonic, mode, chords, isManual, alternatives, onPick, onAuto
                                 key={`${item.tonic}-${item.mode}`}
                                 type="button"
                                 onClick={() => onPick(item.tonic, item.mode)}
-                                className="rounded-lg border border-stone-300 px-2.5 py-1 font-medium hover:border-stone-500 dark:border-stone-700"
+                                className="rounded-lg border border-stone-300 px-2.5 py-1 font-medium hover:border-stone-500 pointer-coarse:py-2.5 dark:border-stone-700"
                             >
                                 {keyLabel(item.tonic, item.mode, notation, t)}
                             </button>
@@ -336,7 +336,7 @@ function KeySection({tonic, mode, chords, isManual, alternatives, onPick, onAuto
                             <span className="block p-2.5 text-center">
                                 <span className="block text-lg font-bold">{chordName(item.chord, notation)}</span>
                                 <span className="block text-sm font-semibold text-brand-700 dark:text-brand-400">{item.roman}</span>
-                                <span className={cn("block text-[11px] font-medium", FIT_STYLES[item.fit])}>{t(`song.fits.${item.fit}`)}</span>
+                                <span className={cn("block text-xs font-medium", FIT_STYLES[item.fit])}>{t(`song.fits.${item.fit}`)}</span>
                             </span>
                         </Link>
                     ))}
@@ -467,7 +467,7 @@ function CapoSection({target, mode, chords, picked, onPick}: CapoSectionProps) {
                             <div key={name} className="flex flex-col items-center gap-1">
                                 <span className="font-bold">{name}</span>
                                 {voicing && info
-                                    ? <ChordDiagram voicing={voicing} root={chord.root} chordNotes={chord.bass ? [...info.notes, chord.bass] : info.notes} title={name} className="max-w-28"/>
+                                    ? <ChordDiagram voicing={voicing} root={chord.root} chordNotes={chord.bass ? [...info.notes, chord.bass] : info.notes} title={name} className="max-w-32"/>
                                     : <span className="py-6 text-xs text-stone-500">{t("noVoicings")}</span>}
                             </div>
                         )

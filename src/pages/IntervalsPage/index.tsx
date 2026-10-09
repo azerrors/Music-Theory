@@ -110,7 +110,7 @@ export default function IntervalsPage() {
                                 onClick={() => toggle(interval.id)}
                                 title={t(`intervals.names.${interval.id}`)}
                                 className={cn(
-                                    "inline-flex h-8 min-w-10 items-center justify-center gap-1.5 rounded-lg border px-2.5 text-sm font-semibold transition-colors",
+                                    "inline-flex h-8 min-w-10 items-center justify-center gap-1.5 rounded-lg border px-2.5 text-sm font-semibold transition-colors pointer-coarse:h-10 pointer-coarse:min-w-11",
                                     isOn
                                         ? cn("border-transparent text-white", INTERVAL_COLOURS[interval.id]?.bg)
                                         : "border-stone-300 text-stone-500 hover:border-stone-500 dark:border-stone-700",

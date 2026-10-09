@@ -13,9 +13,9 @@ export const buttonVariants = cva(
                 ghost: "hover:bg-stone-200/60 dark:hover:bg-stone-800",
             },
             size: {
-                sm: "h-8 px-3",
-                md: "h-9 px-4",
-                icon: "size-9",
+                sm: "h-8 px-3 pointer-coarse:h-10",
+                md: "h-9 px-4 pointer-coarse:h-11",
+                icon: "size-9 pointer-coarse:size-11",
             },
         },
         defaultVariants: {

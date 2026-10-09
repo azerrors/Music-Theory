@@ -168,7 +168,7 @@ function StepTile({index, step, isSelected, isPlaying, canRemove, onSelect, onRe
                         root={step.root}
                         chordNotes={step.bass ? [...chordNotes, step.bass] : chordNotes}
                         title={step.name}
-                        className="max-w-28"
+                        className="max-w-36"
                     />
                 )}
             </button>
@@ -217,7 +217,7 @@ function OptionChips({options, current, onPick}: Pick<OptionGroupProps, "options
                             onClick={() => onPick(option)}
                             aria-pressed={isCurrent}
                             className={cn(
-                                "flex items-baseline gap-1.5 rounded-lg border px-2.5 py-1.5 text-sm transition-colors",
+                                "flex items-baseline gap-1.5 rounded-lg border px-2.5 py-1.5 text-sm transition-colors pointer-coarse:py-2.5",
                                 isCurrent
                                     ? "border-brand-600 bg-brand-600 text-white"
                                     : "border-stone-300 bg-white hover:border-stone-500 dark:border-stone-700 dark:bg-stone-900 dark:hover:border-stone-500",
@@ -362,7 +362,7 @@ function KeyChordTable({tonic, mode, onAdd}: {tonic: NoteName; mode: KeyMode; on
                 type="button"
                 onClick={() => onAdd(chord)}
                 title={t("progressions.add", {chord: name})}
-                className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium hover:bg-stone-100 dark:hover:bg-stone-800"
+                className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium hover:bg-stone-100 pointer-coarse:py-2.5 dark:hover:bg-stone-800"
             >
                 {name} <Plus className="size-3 text-stone-400"/>
             </button>
@@ -436,7 +436,7 @@ function ChromaticChords({tonic, mode, onAdd}: {tonic: NoteName; mode: KeyMode; 
                                             type="button"
                                             onClick={() => onAdd(chord)}
                                             title={t("progressions.add", {chord: name})}
-                                            className="flex items-baseline gap-1.5 rounded-lg border border-stone-300 px-2.5 py-1.5 text-sm hover:border-stone-500 dark:border-stone-700"
+                                            className="flex items-baseline gap-1.5 rounded-lg border border-stone-300 px-2.5 py-1.5 text-sm hover:border-stone-500 pointer-coarse:py-2.5 dark:border-stone-700"
                                         >
                                             <span className="font-semibold">{name}</span>
                                             <span className="text-xs text-stone-500">{chord.roman}</span>

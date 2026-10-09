@@ -107,7 +107,8 @@ export default function BuilderPage() {
     const activeTour = tour ? BUILDER_TOURS.find(item => item.id === tour.id) : undefined
 
     return (
-        <div className="space-y-8">
+        // Bottom padding on small screens leaves room for the fixed result bar.
+        <div className="space-y-8 pb-20 lg:pb-0">
             <PageHeader title={tCommon("nav.builder")} description={<TermText text={t("builder.description")}/>}/>
 
             <Card className="space-y-3">
@@ -215,7 +216,7 @@ export default function BuilderPage() {
                                 <>
                                     <ChordDiagram voicing={voicing} root={root} chordNotes={chord.notes} title={title}/>
                                     {chord.impliedFifth && <p className="text-center text-xs text-stone-500">{t("builder.diagramWithFifth")}</p>}
-                                    <Link to={PATHS.chord(root, chord.type.symbol)} className="inline-flex items-center gap-1 text-sm font-medium text-brand-700 hover:underline dark:text-brand-400">
+                                    <Link to={PATHS.chord(root, chord.type.symbol)} className="inline-flex min-h-6 items-center pointer-coarse:min-h-10 gap-1 text-sm font-medium text-brand-700 hover:underline dark:text-brand-400">
                                         {t("builder.openChord")} <ArrowRight className="size-4"/>
                                     </Link>
                                 </>
@@ -229,6 +230,22 @@ export default function BuilderPage() {
                 <h2 className="text-xl font-semibold tracking-tight">{t("onFretboard")}</h2>
                 <Fretboard markers={markers} ariaLabel={`${title} — ${t("onFretboard")}`}/>
             </section>
+
+            {/* Small screens: the result card scrolls away above the controls, so keep the chord in view. */}
+            <div
+                aria-live="polite"
+                className="fixed inset-x-0 bottom-0 z-20 border-t border-stone-200 bg-stone-50/95 px-4 py-2 backdrop-blur lg:hidden dark:border-stone-800 dark:bg-stone-950/95"
+            >
+                <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
+                    <div className="min-w-0">
+                        <p className="truncate text-xl font-bold tracking-tight">{title}</p>
+                        <p className="truncate text-xs text-stone-500">{chord.degrees.join(" – ")}</p>
+                    </div>
+                    <Button size="sm" onClick={() => void player.strum(builderMidi(root, state))} aria-label={t("builder.playChord")}>
+                        {player.isLoading ? <Loader2 className="animate-spin"/> : <Volume2/>}
+                    </Button>
+                </div>
+            </div>
         </div>
     )
 }

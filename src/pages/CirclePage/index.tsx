@@ -181,7 +181,7 @@ export default function CirclePage() {
                                         <Link
                                             key={chord.roman}
                                             to={PATHS.chord(chord.root, chord.type)}
-                                            className="flex items-baseline gap-1.5 rounded-lg border border-stone-300 px-2.5 py-1 text-sm hover:border-brand-500 dark:border-stone-700"
+                                            className="flex items-baseline gap-1.5 rounded-lg border border-stone-300 px-2.5 py-1 text-sm hover:border-brand-500 pointer-coarse:py-2.5 dark:border-stone-700"
                                         >
                                             <span className="font-semibold">{info ? formatChordName(info, notation) : chord.root}</span>
                                             <span className="text-xs text-brand-700 dark:text-brand-400">{chord.roman}</span>
@@ -191,10 +191,10 @@ export default function CirclePage() {
                             </div>
                         </div>
                         <div className="flex flex-wrap gap-x-5 gap-y-2 border-t border-stone-200 pt-4 text-sm dark:border-stone-800">
-                            <Link to={`${PATHS.progressions}?key=${rootToSlug(tonic)}&mode=${mode}`} className="inline-flex items-center gap-1 font-medium text-brand-700 hover:underline dark:text-brand-400">
+                            <Link to={`${PATHS.progressions}?key=${rootToSlug(tonic)}&mode=${mode}`} className="inline-flex min-h-6 items-center pointer-coarse:min-h-10 gap-1 font-medium text-brand-700 hover:underline dark:text-brand-400">
                                 {t("circle.openProgressions")} <ArrowRight className="size-4"/>
                             </Link>
-                            <Link to={`${PATHS.scales}?root=${rootToSlug(tonic)}&scale=${mode}`} className="inline-flex items-center gap-1 font-medium text-brand-700 hover:underline dark:text-brand-400">
+                            <Link to={`${PATHS.scales}?root=${rootToSlug(tonic)}&scale=${mode}`} className="inline-flex min-h-6 items-center pointer-coarse:min-h-10 gap-1 font-medium text-brand-700 hover:underline dark:text-brand-400">
                                 {t("circle.openScales")} <ArrowRight className="size-4"/>
                             </Link>
                         </div>

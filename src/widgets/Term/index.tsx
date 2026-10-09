@@ -32,7 +32,7 @@ export function ExampleButton({example, className}: {example: GlossaryExample; c
         <button
             type="button"
             onClick={play}
-            className={className ?? "inline-flex items-center gap-1.5 rounded-md bg-stone-100 px-2 py-1 text-xs font-medium hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700"}
+            className={className ?? "inline-flex items-center gap-1.5 rounded-md bg-stone-100 px-2 py-1 text-xs font-medium hover:bg-stone-200 pointer-coarse:min-h-10 pointer-coarse:px-3 dark:bg-stone-800 dark:hover:bg-stone-700"}
         >
             {player.isLoading ? <Loader2 className="size-3.5 animate-spin"/> : <Volume2 className="size-3.5"/>}
             {t("actions.play")}
@@ -141,7 +141,7 @@ export function Term({id, children}: TermProps) {
                         <Link
                             to={`${PATHS.glossary}#${term.id}`}
                             onClick={() => setOpen(false)}
-                            className="inline-flex items-center gap-1.5 text-xs font-medium text-brand-700 hover:underline dark:text-brand-400"
+                            className="inline-flex min-h-6 items-center pointer-coarse:min-h-10 gap-1.5 text-xs font-medium text-brand-700 hover:underline dark:text-brand-400"
                         >
                             <BookOpen className="size-3.5"/> {t("openGlossary")}
                         </Link>
