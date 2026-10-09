@@ -1,0 +1,566 @@
+{
+  "root": "Kök not",
+  "formula": "Formul",
+  "notes": "Notlar",
+  "voicings": "Çalınma formaları",
+  "onFretboard": "Qrifdə bütün akor notları",
+  "scaleOnFretboard": "Qrifdə qamma",
+  "noVoicings": "Bu akor üçün hələ diaqram əlavə olunmayıb.",
+  "chordCount": "{{count}} akor",
+  "shapes": {
+    "open": "Açıq akor",
+    "E": "E-forması · kök 6-cı simdə",
+    "A": "A-forması · kök 5-ci simdə",
+    "D": "D-forması · kök 4-cü simdə",
+    "C": "C-forması · kök 5-ci simdə",
+    "slash6": "Bas 6-cı simdə",
+    "slash5": "Bas 5-ci simdə",
+    "slash4": "Bas 4-cü simdə",
+    "G": "G-forması · kök 6-cı simdə"
+  },
+  "chordCategories": {
+    "open": "Açıq akorlar",
+    "triad": "Triadalar",
+    "sus": "Sus akorlar",
+    "sixth": "6 və add",
+    "seventh": "7-li akorlar",
+    "extended": "9, 11, 13",
+    "power": "Power akorlar",
+    "slash": "Slash akorlar"
+  },
+  "chordCategoryDescriptions": {
+    "open": "Birinci pozisiyada, [[openChord|açıq simlərlə]] çalınan akorlar. Gitaraya başlayanların ilk öyrəndiyi formalardır.",
+    "triad": "Üç notdan ibarət əsas akorlar, yəni [[triad|triadalar]]. [[major|Major]] (1–3–5) işıqlı, [[minor|minor]] (1–♭3–5) kədərli səslənir.",
+    "sus": "[[third|Tersiya]] əvəzinə 2-ci (sus2) və ya 4-cü (sus4) [[degree|pillə]] işlənir. Akor nə major, nə minor olur, ona görə həll olunmamış, havada qalmış kimi səslənir.",
+    "sixth": "[[triad|Triadaya]] 6-cı və ya 9-cu pillə əlavə olunur, amma 7-ci pillə olmur.",
+    "seventh": "Triadanın üstünə 7-ci pillə, yəni [[seventh|septima]] gəlir. Caz, blues və funk-un əsas rəngidir.",
+    "extended": "[[seventhChord|Septakkordun]] üstünə 9, 11 və 13-cü pillələr ([[extension|genişlənmələr]]) gəlir. Gitarada barmaq çatmadığı üçün bəzi notlar, çox vaxt 5-ci pillə, buraxılır.",
+    "power": "Yalnız [[root|kök]] və [[fifth|kvinta]] (1–5). Tersiya olmadığı üçün nə major, nə minor sayılır. Rok və metalın əsasıdır.",
+    "slash": "[[slashChord|Slash akorda]] (C/E) xəttdən sonrakı not basda çalınır. Akor eyni qalır, ən aşağı səs dəyişir, buna [[inversion|çevirmə]] deyilir. Bu, bas xəttini hamar edir: C – G/B – Am kimi."
+  },
+  "chordTypes": {
+    "5": "Power akor",
+    "6": "Major 6",
+    "7": "Dominant 7",
+    "9": "Dominant 9",
+    "11": "Dominant 11",
+    "13": "Dominant 13",
+    "69": "Major 6/9",
+    "M": "Major",
+    "m": "Minor",
+    "dim": "Azaldılmış",
+    "aug": "Artırılmış",
+    "sus2": "Sus2",
+    "sus4": "Sus4",
+    "7sus4": "Dominant 7 sus4",
+    "m6": "Minor 6",
+    "add9": "Add 9",
+    "maj7": "Major 7",
+    "m7": "Minor 7",
+    "m7b5": "Yarımazaldılmış",
+    "dim7": "Azaldılmış 7",
+    "mMaj7": "Minor-major 7",
+    "maj9": "Major 9",
+    "m9": "Minor 9",
+    "m11": "Minor 11",
+    "9sus4": "Dominant 9 sus4",
+    "madd9": "Minor add 9",
+    "7#5": "Dominant 7♯5",
+    "7b5": "Dominant 7♭5",
+    "7b9": "Dominant 7♭9",
+    "7#9": "Dominant 7♯9 (Hendrix)",
+    "maj7#11": "Major 7♯11 (lidiya)",
+    "maj13": "Major 13",
+    "m13": "Minor 13"
+  },
+  "scale": "Qamma",
+  "scaleGroups": {
+    "basic": "Əsas",
+    "pentatonic": "Pentatonika və blues",
+    "mode": "Modlar",
+    "minorVariant": "Minor variantları"
+  },
+  "scales": {
+    "major": "Major",
+    "minor": "Natural minor",
+    "majorPentatonic": "Major pentatonika",
+    "minorPentatonic": "Minor pentatonika",
+    "blues": "Blues",
+    "ionian": "İon",
+    "dorian": "Dor",
+    "phrygian": "Frigiya",
+    "lydian": "Lidiya",
+    "mixolydian": "Miksolidiya",
+    "aeolian": "Eol",
+    "locrian": "Lokriya",
+    "harmonicMinor": "Harmonik minor",
+    "melodicMinor": "Melodik minor"
+  },
+  "diatonic": {
+    "title": "Tonallıqdakı akorlar",
+    "description": "Qammanın hər [[degree|pilləsi]] üzərində qurulan [[diatonic|diatonik]] akorlar. Mahnıların çoxu bu akorlardan istifadə edir.",
+    "degree": "Pillə",
+    "triad": "Triada",
+    "seventh": "Septakkord"
+  },
+  "detector": {
+    "title": "Akor tanıyıcı",
+    "description": "Hər simdə bir lada klikləyin. Eyni lada yenidən klikləsəniz seçim silinir. Sayt seçdiyiniz notlardan hansı akorun alındığını tapır.",
+    "selected": "Seçilmiş notlar",
+    "result": "Akor",
+    "empty": "Ən azı iki not seçin.",
+    "unknown": "Bu notlar tanınmış akor yaratmır."
+  },
+  "mobility": {
+    "title": "Sürüşən və sabit formalar",
+    "movable": "Sürüşən",
+    "fixed": "Sabit",
+    "movableHint": "Açıq sim yoxdur. Formanı qrif boyunca sürüşdürsən, eyni akor növü başqa kökdən alınır: hər [[fret|lad]] [[semitone|yarım ton]] deməkdir.",
+    "fixedHint": "[[openChord|Açıq simlər]] səslənir, ona görə forma yalnız bu yerdə həmin akoru verir. Başqa lada keçirsən, akor dəyişir.",
+    "show": "Göstər",
+    "filters": {
+      "all": "Hamısı",
+      "movable": "Sürüşən",
+      "fixed": "Sabit"
+    },
+    "empty": "Bu seçimə uyğun akor yoxdur.",
+    "slideHint": "Sürüşən formanı 1 lad yuxarı çəksən {{up}}, 1 lad aşağı çəksən {{down}} alınır. 12 lad yuxarıda yenə {{twelve}} olur."
+  },
+  "slash": {
+    "bass": "bas",
+    "overBass": "{{chord}}, basda {{bass}}",
+    "explain": "Bu, {{chord}} akorudur, amma ən aşağı səs {{bass}} notudur (kökdən {{degree}}).",
+    "inversions": {
+      "0": "Bas notu akora daxil deyil, ona görə akora əlavə rəng verir.",
+      "1": "Bu, 1-ci [[inversion|çevirmədir]]: basda [[third|tersiya]] var.",
+      "2": "Bu, 2-ci [[inversion|çevirmədir]]: basda [[fifth|kvinta]] var.",
+      "3": "Bu, 3-cü [[inversion|çevirmədir]]: basda [[seventh|septima]] var."
+    },
+    "backToChord": "Əsas {{chord}} akoruna bax",
+    "inversionsTitle": "Slash variantları",
+    "inversionsHint": "Eyni akor, amma basda başqa akor notu, yəni [[inversion|çevirmə]]. Bas xəttini addım-addım aparmaq üçün işlənir."
+  },
+  "progressions": {
+    "description": "Üç addım var: [[key|tonallığı]] seç, hazır [[progression|proqressiya]] götür, sonra istədiyin akoru klikləyib dəyiş. Rənglər hər akorun proqressiyada nə iş gördüyünü, yəni [[harmonicFunction|funksiyasını]] göstərir.",
+    "steps": {
+      "key": "Tonallığı seç",
+      "preset": "Proqressiya seç",
+      "play": "Dinlə və dəyiş"
+    },
+    "mode": "Lad",
+    "modes": {
+      "major": "Major",
+      "minor": "Minor"
+    },
+    "modeHints": {
+      "major": "işıqlı, şən",
+      "minor": "tutqun, kədərli"
+    },
+    "playScale": "Qammanı dinlə",
+    "playAll": "Hamısını çal",
+    "reset": "Sıfırla",
+    "listen": "Dinlə:",
+    "addChord": "Akor əlavə et",
+    "add": "{{chord}} əlavə et",
+    "remove": "{{chord}} akorunu sil",
+    "removeShort": "Sil",
+    "selected": "{{n}}. akor",
+    "openChord": "Akor səhifəsi",
+    "editHint": "Hər hansı akora klikləsən, altda onun yerinə nə çalmaq olar, görəcəksən.",
+    "howToRead": "Necə oxumalı ([[romanNumerals|rum rəqəmləri]]): böyük hərf (I, IV, V) [[major|major]] akordur, kiçik hərf (ii, vi) [[minor|minor]], ° [[diminished|azaldılmış]] akor. \"/3\" isə basda tersiya deməkdir ([[slashChord|slash akor]]).",
+    "functions": {
+      "tonic": "Tonika",
+      "subdominant": "Subdominanta",
+      "dominant": "Dominanta"
+    },
+    "functionShort": {
+      "tonic": "T",
+      "subdominant": "S",
+      "dominant": "D"
+    },
+    "functionHints": {
+      "tonic": "sabitlik, \"ev\" hissi. Proqressiya çox vaxt burada bitir.",
+      "subdominant": "evdən uzaqlaşır, hərəkət yaradır.",
+      "dominant": "gərginlik yaradır, qulaq tonikaya qayıtmaq istəyir."
+    },
+    "groups": {
+      "key": {
+        "title": "Başqa akorla əvəz et",
+        "hint": "Tonallığın 7 [[diatonic|diatonik]] akoru. Hər biri bu yerə uyğun gəlir."
+      },
+      "colour": {
+        "title": "Rəngini dəyiş",
+        "hint": "[[root|Kök]] eyni qalır, səslənmə dəyişir: maj7 yumşaq, [[sus|sus]] asılı qalmış, add9 parlaq səslənir."
+      },
+      "bass": {
+        "title": "Bas notunu dəyiş",
+        "hint": "Akor eyni qalır, ən aşağı not dəyişir ([[slashChord|slash akor]]). Bas xətti hamar addımlayır."
+      },
+      "outside": {
+        "title": "Tonallıqdan kənar",
+        "hint": "Daha cəsarətli seçimlər: [[secondaryDominant|ikinci dominant]] və [[borrowedChord|eyniadlı laddan götürülən]] akorlar."
+      }
+    },
+    "sources": {
+      "diatonic": "Tonallıqdan",
+      "secondary": "İkinci dominant",
+      "harmonic": "Harmonik minor",
+      "borrowed": "Eyniadlı laddan"
+    },
+    "sourceHints": {
+      "diatonic": "yalnız qammanın notları",
+      "secondary": "V7/x: növbəti akora güclü çəkir",
+      "harmonic": "yüksəldilmiş 7-ci pillə ilə",
+      "borrowed": "eyniadlı major/minordan götürülüb"
+    },
+    "keyTable": {
+      "title": "Tonallığın akorları",
+      "hint": "Qammanın hər pilləsi üzərində qurulan [[diatonic|diatonik]] akorlar. Klikləsən, proqressiyanın sonuna əlavə olunur.",
+      "degree": "Pillə",
+      "function": "Funksiya"
+    },
+    "chromatic": {
+      "title": "Tonallıqdan kənar akorlar",
+      "badge": "irəli səviyyə",
+      "hint": {
+        "major": "Majorda tez-tez işlənən \"kənar\" akorlar: [[secondaryDominant|ikinci dominantlar]] və [[parallelKey|eyniadlı minordan]] götürülən akorlar (iv, ♭VI, ♭VII…).",
+        "minor": "Minorda tez-tez işlənən \"kənar\" akorlar: [[harmonicMinor|harmonik minorun]] major V-si, [[secondaryDominant|ikinci dominantlar]] və [[parallelKey|eyniadlı majordan]] götürülən akorlar."
+      }
+    },
+    "presets": {
+      "pop": "Pop",
+      "fifties": "50-ci illər",
+      "threeChord": "Üç akor",
+      "jazzTwoFiveOne": "Caz ii–V–I",
+      "sensitive": "Həssas",
+      "royalRoad": "Royal road",
+      "canon": "Pachelbel kanonu",
+      "descendingBass": "Enən bas",
+      "mixolydianRock": "Rok (♭VII)",
+      "blues": "12 taktlıq blues",
+      "minorBasic": "Əsas minor",
+      "epic": "Epik",
+      "minorRock": "Minor rok",
+      "andalusian": "Andalus",
+      "minorTwoFiveOne": "Minor caz ii–V–i",
+      "circle": "Kvinta dairəsi",
+      "dramatic": "Dramatik",
+      "lineCliche": "Enən xətt (line cliché)"
+    },
+    "presetHints": {
+      "pop": "Son 20 ilin ən çox işlənən gedişi, minlərlə pop mahnısında var.",
+      "fifties": "50-ci illərin doo-wop balladalarının gedişi.",
+      "threeChord": "Rok-n-roll və folkun əsası: [[tonic|tonika]], [[subdominant|subdominanta]], [[dominant|dominanta]].",
+      "jazzTwoFiveOne": "Cazın əsas kadansı: hər [[seventhChord|septakkord]] növbətisinə [[fifth|kvinta]] aşağı keçir.",
+      "sensitive": "Pop gedişinin minordan başlayan variantı, daha kədərli səslənir.",
+      "royalRoad": "Yapon pop və anime musiqisində çox sevilən gediş.",
+      "canon": "Bas notu pillə-pillə enir. [[slashChord|Slash akorlar]] bunu mümkün edir.",
+      "descendingBass": "Akorlar dəyişir, bas isə hər dəfə bir pillə enir. Ballada və rokda çox işlənir.",
+      "mixolydianRock": "Majorda ♭VII akoru, [[borrowedChord|borc alınmış]] akordur. Klassik rokun səsidir.",
+      "blues": "Blues-un klassik 12 taktlıq forması, bütün akorlar dominant 7-dir.",
+      "minorBasic": "Minorun əsas üç akoru: i, iv, v.",
+      "epic": "Film və oyun musiqisində çox işlənən, güclü səslənən gediş.",
+      "minorRock": "Rok və metalda minor gediş.",
+      "andalusian": "Flamenkonun səsi: hər akor bir pillə enir, sonda [[harmonicMinor|harmonik minordan]] major V gəlir.",
+      "minorTwoFiveOne": "Minorda caz kadansı: yarımazaldılmış ii, dominant V.",
+      "circle": "Akorlar kvinta dairəsi üzrə addımlayır. Caz standartlarında çox var.",
+      "dramatic": "Major V sonda güclü gərginlik yaradır və tonikaya qaytarır.",
+      "lineCliche": "Akor dəyişmir, amma basda bir not yarım ton-yarım ton enir."
+    },
+    "solo": {
+      "title": "Solo xəritəsi",
+      "hint": "Solo üçün notlar: arxa fonda [[scale|qamma]] ({{scale}}), üstdə isə seçilmiş akorun öz notları. Akorun notlarında dayanmaq ən təhlükəsizdir. Proqressiyanı çalanda xəritə akorla birlikdə dəyişir.",
+      "kinds": {
+        "pentatonic": "Pentatonika",
+        "full": "Tam qamma"
+      },
+      "playing": "İndi çalınır:",
+      "selected": "Seçilmiş akor:",
+      "roles": {
+        "chordRoot": "akorun kökü",
+        "chordTone": "akorun notu: burada dayan",
+        "outside": "qammada yoxdur, yalnız bu akorda çal",
+        "scale": "qamma notu: keçid üçün"
+      }
+    }
+  },
+  "song": {
+    "description": "Mahnının akorlarını yaz: sayt onun [[key|tonallığını]] tapacaq, hər akorun rolunu izah edəcək, istədiyin tonallığa köçürəcək və ən rahat [[capo|kapo]] yerini göstərəcək.",
+    "steps": {
+      "input": "Akorları yaz",
+      "key": "Tonallıq və analiz",
+      "transpose": "Transpozisiya",
+      "capo": "Kapo"
+    },
+    "placeholder": "Məsələn: G Em C D  və ya  Am | F | C | G/B",
+    "examples": "Nümunələr:",
+    "unknown": "Bunlar akor kimi tanınmadı və nəzərə alınmadı: {{tokens}}",
+    "simplified": "{{from}} kataloqda yoxdur, {{to}} kimi analiz edildi.",
+    "empty": "Akorları yuxarıda yaz, qalanını sayt edəcək.",
+    "play": "Çal",
+    "key": {
+      "label": "Tonallıq",
+      "manual": "əl ilə seçilib",
+      "share": "{{count}} müxtəlif akordan {{inKey}}-i tonallığın öz akorudur.",
+      "preset": "Tanış gediş:",
+      "openProgressions": "Proqressiyalarda aç",
+      "relative": "{{first}} və {{second}} eyni notlardan istifadə edir, onlar [[relativeKey|paralel tonallıqlardır]]. Mahnı hansı akorda \"evdə\" hiss olunursa, əsl tonallıq odur. Adətən mahnının bitdiyi akor.",
+      "alternatives": "Digər ehtimallar:",
+      "auto": "Avtomatik seçimə qayıt"
+    },
+    "fits": {
+      "diatonic": "tonallıqdan",
+      "harmonic": "harmonik minor",
+      "blues": "blues dominantı",
+      "secondary": "ikinci dominant",
+      "borrowed": "eyniadlı laddan",
+      "outside": "kənar akor"
+    },
+    "fitHints": {
+      "harmonic": "7-ci pilləsi qaldırılmış minordan gəlir, tonikaya güclü çəkir.",
+      "blues": "majorda I və IV üzərində dominant 7. Blues-un əsas səsidir.",
+      "secondary": "tonallıqdakı başqa bir akorun dominantasıdır, ona güclü çəkir.",
+      "borrowed": "eyniadlı major/minordan götürülüb, mahnıya fərqli rəng qatır.",
+      "outside": "heç bir adi izaha uyğun gəlmir: modulyasiya və ya xüsusi effekt ola bilər."
+    },
+    "transpose": {
+      "label": "Yeni tonallıq",
+      "same": "orijinal tonallıq",
+      "up": "{{count}} yarım ton yuxarı",
+      "down": "{{count}} yarım ton aşağı",
+      "capoInstead": "Formaları dəyişmək istəmirsən? Orijinal akorları çal, [[capo|kaponu]] {{count}}. lada qoy: eyni səslənəcək."
+    },
+    "capo": {
+      "hint": "{{key}} tonallığında çalmaq üçün kaponu harada qoymaq olar. Seçimlər açıq akorların sayına görə sıralanıb.",
+      "none": "Kaposuz",
+      "fret": "Kapo {{count}}. ladda",
+      "shapes": "{{key}} formaları ilə",
+      "open": "{{count}}/{{total}} akor açıq formada",
+      "best": "Ən rahat",
+      "diagramsNote": "Diaqramlar kapoya nisbətəndir: kapo {{count}}. ladda yeni \"nut\" olur, diaqramdakı 1-ci lad kapodan sonrakı laddır."
+    }
+  },
+  "builder": {
+    "description": "Akoru özün qur: [[root|kökü]] seç, sonra pillələri bir-bir əlavə et və ya dəyiş. Hər addımda akorun adı, notları, səsi və gitarada yeri dərhal yenilənir.",
+    "none": "yox",
+    "unnamed": "Adsız akor",
+    "unnamedHint": "Bu birləşmənin kataloqda adı yoxdur, amma səslənə bilər.",
+    "impliedFifth": "kvintasız",
+    "playChord": "Akoru çal",
+    "playNotes": "Notları tək-tək",
+    "compare": "Əvvəlki ilə müqayisə et",
+    "openChord": "Bütün formalar",
+    "noDiagram": "Bu akor üçün diaqram yoxdur. Notlarını aşağıda qrifdə görə bilərsən.",
+    "diagramWithFifth": "Diaqramdakı formada kvinta da var.",
+    "slots": {
+      "third": "Tersiya",
+      "fifth": "Kvinta",
+      "seventh": "Septima / 6",
+      "ninth": "9-cu pillə",
+      "eleventh": "11-ci pillə",
+      "thirteenth": "13-cü pillə"
+    },
+    "ladder": {
+      "title": "Tersiyalar pilləkəni",
+      "root": "Kök",
+      "third": "3",
+      "fifth": "5",
+      "seventh": "7",
+      "ninth": "9",
+      "eleventh": "11",
+      "thirteenth": "13",
+      "hint": "Akor [[root|kökün]] üzərinə [[third|tersiyaları]] üst-üstə qoymaqla qurulur: 1, 3, 5, 7, 9, 11, 13. Hər mərtəbə əvvəlkindən təxminən bir tersiya yuxarıdır."
+    },
+    "change": {
+      "title": "Bu dəyişiklik nə etdi?",
+      "empty": "Hər hansı pilləni dəyiş, burada nə baş verdiyini izah edəcəyəm."
+    },
+    "hints": {
+      "third": {
+        "none": "Tersiyanı çıxardın: akor nə major, nə minordur. Yalnız kök və kvinta qalırsa, power akor alınır.",
+        "3m": "Kiçik tersiya (♭3): akor minor oldu, səs tutqunlaşdı.",
+        "3M": "Böyük tersiya (3): akor major oldu, səs işıqlandı.",
+        "2M": "Tersiya yerinə 2-ci pillə (sus2): akor açıq, havada asılı kimi səslənir.",
+        "4P": "Tersiya yerinə 4-cü pillə (sus4): gərgin səs, qulaq tersiyanın qayıtmasını gözləyir."
+      },
+      "fifth": {
+        "none": "Kvintanı çıxardın. Gitarada bu tez-tez olur: kvinta akorun adını dəyişmir, sadəcə dolğunluq verir.",
+        "5d": "Azaldılmış kvinta (♭5): səs gərgin, narahat oldu. Kiçik tersiya ilə birlikdə azaldılmış akor verir.",
+        "5P": "Təmiz kvinta (5): ən sabit interval, akora dolğunluq verir.",
+        "5A": "Artırılmış kvinta (♯5): səs qeyri-sabit oldu, havada asılı qaldı. Bu, artırılmış akordur."
+      },
+      "seventh": {
+        "none": "7-ci pillə yoxdur: akor sadə triada kimi səslənir.",
+        "6M": "6-cı pillə: septima əvəzinə yumşaq, köhnə caz rəngi verir.",
+        "7d": "İkiqat azaldılmış septima (♭♭7): azaldılmış septakkord alınır, çox gərgin və simmetrik səs.",
+        "7m": "Kiçik septima (♭7): böyük tersiya ilə dominant 7, kiçik tersiya ilə minor 7 alınır.",
+        "7M": "Böyük septima (7): yumşaq, xəyalpərəst caz səsi (maj7)."
+      },
+      "ninth": {
+        "none": "9-cu pillə yoxdur.",
+        "9m": "♭9: çox gərgin rəng. Dominant akorlarda tonikaya çəkişi gücləndirir.",
+        "9M": "9-cu pillə: əslində 2-ci pillə bir oktava yuxarıda. Akora parlaq, zəngin rəng verir.",
+        "9A": "♯9: \"Hendrix akoru\"nun səsi. Böyük və kiçik tersiya sanki eyni anda səslənir."
+      },
+      "eleventh": {
+        "none": "11-ci pillə yoxdur.",
+        "11P": "11-ci pillə: 4-cü pillə bir oktava yuxarıda. Böyük tersiya ilə toqquşduğu üçün çox vaxt minor akorlarda işlənir.",
+        "11A": "♯11: lidiya rəngi. Major akorlarda işıqlı, \"uçan\" səs verir."
+      },
+      "thirteenth": {
+        "none": "13-cü pillə yoxdur.",
+        "13m": "♭13: tutqun, gərgin rəng, adətən dominant akorlarda.",
+        "13M": "13-cü pillə: 6-cı pillə bir oktava yuxarıda. Caz dominantlarının zəngin rəngi."
+      }
+    },
+    "tours": {
+      "title": "Bələdçi ilə qur",
+      "stepOf": "Addım {{n}}/{{total}}",
+      "prev": "Geri",
+      "next": "Növbəti",
+      "finish": "Bitir",
+      "close": "Bələdçini bağla",
+      "basics": {
+        "title": "Akor necə qurulur",
+        "steps": {
+          "0": "Hər şey bir notdan, [[root|kökdən]] başlayır. Hələ akor yoxdur.",
+          "1": "Kökün üstünə böyük [[third|tersiya]] qoyduq. Bu iki not artıq akorun əhvalını müəyyən edir: major.",
+          "2": "Tersiyanın üstünə daha bir tersiya, yəni [[fifth|kvinta]] gəldi. 1 – 3 – 5: {{name}} [[triad|triadası]] hazırdır.",
+          "3": "Tersiyanı yarım ton endirdik (♭3). Cəmi bir not dəyişdi, akor isə [[minor|minor]] oldu: {{name}}.",
+          "4": "Üstə daha bir tersiya: ♭7. Dörd notlu minor [[seventhChord|septakkord]] alındı: {{name}}.",
+          "5": "Bir tersiya da: 9-cu pillə. {{name}} zəngin, caz rəngli akordur. Tersiyaları üst-üstə qoymağa davam edə bilərsən."
+        }
+      },
+      "sevenths": {
+        "title": "Septakkordlar",
+        "steps": {
+          "0": "Major triadadan başlayırıq: 1 – 3 – 5, yəni {{name}}.",
+          "1": "Böyük [[seventh|septima]] (7) əlavə etdik: {{name}}, yumşaq və xəyalpərəst.",
+          "2": "Septimanı yarım ton endirdik (♭7): {{name}}, [[dominant|dominant]] septakkord. Gərgindir, kvinta aşağıdakı akora keçmək istəyir.",
+          "3": "Tersiyanı da endirdik: {{name}}, minor septakkord. Daha sakit və tutqun səslənir.",
+          "4": "Kvintanı endirdik (♭5): {{name}}, yarımazaldılmış akor. Minorda ii pilləsinin akorudur.",
+          "5": "Septimanı bir daha endirdik (♭♭7): {{name}}. Bütün notlar arasında eyni məsafə var, akor tam simmetrikdir."
+        }
+      },
+      "colours": {
+        "title": "Sus, 6 və add",
+        "steps": {
+          "0": "Yenə major triada: 1 – 3 – 5, yəni {{name}}.",
+          "1": "Tersiya yerinə 4-cü pillə: {{name}}. Qulaq tersiyanın qayıtmasını gözləyir ([[sus|sus akor]]).",
+          "2": "İndi tersiya yerinə 2-ci pillə: {{name}}. Açıq, müasir səs.",
+          "3": "Tersiya qayıtdı, üstünə 6-cı pillə gəldi: {{name}}. Köhnə caz və swing rəngi.",
+          "4": "6 əvəzinə 9-cu pillə, septimasız: {{name}}. Pop və akustik gitarada çox sevilir.",
+          "5": "6 və 9 birlikdə: {{name}}. Cazda bitiş akoru kimi işlənir."
+        }
+      }
+    }
+  },
+  "intervals": {
+    "description": "Qrifdə istənilən nota klikləyin: onun ətrafında hər [[interval|intervalın]] harada olduğu rənglə göstəriləcək. Gitarada intervallar sadəcə barmaq formalarıdır, bir dəfə öyrənəndən sonra istənilən yerə köçürülür.",
+    "reference": "İstinad notu:",
+    "position": "({{string}}, {{fret}}. lad)",
+    "clickHint": "Başqa nota klikləsəniz, o, yeni istinad notu olacaq. Göstərilən sahə əlin rahat çatdığı ±5 laddır.",
+    "show": "Göstərilən intervallar",
+    "boardLabel": "{{note}} notundan intervallar",
+    "tableTitle": "İntervallar cədvəli",
+    "melodic": "Ardıcıl",
+    "harmonic": "Birlikdə",
+    "gbHint": "Diqqət: G və B simləri arasında kvarta yox, böyük tersiya var. Ona görə bu keçiddən keçən formalar bir lad sürüşür. Cədvəl bunu seçilmiş simə görə hesablayır.",
+    "presets": {
+      "basics": "3 · 5 · 8",
+      "triad": "Triada",
+      "all": "Hamısı",
+      "none": "Heç biri"
+    },
+    "columns": {
+      "interval": "İnterval",
+      "semitones": "Yarım ton",
+      "feel": "Səslənmə",
+      "shape": "Forma ({{string}}dən)",
+      "listen": "Dinlə"
+    },
+    "strings": {
+      "0": "6-cı sim",
+      "1": "5-ci sim",
+      "2": "4-cü sim",
+      "3": "3-cü sim",
+      "4": "2-ci sim",
+      "5": "1-ci sim"
+    },
+    "shape": {
+      "sameString": "eyni simdə, {{frets}}",
+      "stringsUp1": "növbəti simdə, {{frets}}",
+      "stringsUp2": "iki sim sonra, {{frets}}",
+      "sameFret": "eyni ladda",
+      "fretsUp": "{{count}} lad irəli",
+      "fretsDown": "{{count}} lad geri"
+    },
+    "names": {
+      "1P": "Prima",
+      "2m": "Kiçik sekunda",
+      "2M": "Böyük sekunda",
+      "3m": "Kiçik tersiya",
+      "3M": "Böyük tersiya",
+      "4P": "Təmiz kvarta",
+      "4A": "Triton",
+      "5P": "Təmiz kvinta",
+      "6m": "Kiçik seksta",
+      "6M": "Böyük seksta",
+      "7m": "Kiçik septima",
+      "7M": "Böyük septima",
+      "8P": "Oktava"
+    },
+    "feel": {
+      "1P": "eyni not",
+      "2m": "çox gərgin, sürtünən",
+      "2M": "addım kimi, melodik",
+      "3m": "tutqun, minor",
+      "3M": "işıqlı, major",
+      "4P": "açıq, sual kimi",
+      "4A": "çox gərgin, qeyri-sabit",
+      "5P": "boş, güclü, sabit",
+      "6m": "kədərli, yumşaq",
+      "6M": "isti, açıq",
+      "7m": "blues-lu, həll istəyir",
+      "7M": "kəskin, xəyalpərəst",
+      "8P": "eyni not, yuxarıda"
+    }
+  },
+  "circle": {
+    "description": "12 tonallığın xəritəsi. Tonallığa klikləyin: onun [[keySignature|açar işarələri]], notları və əsas akorları görünəcək. Akorlar dairədə yan-yana işıqlanır.",
+    "center": "açar işarəsi",
+    "chords": "Tonallığın akorları",
+    "openProgressions": "Proqressiyalarda aç",
+    "openScales": "Qammalarda aç",
+    "signature": {
+      "label": "Açar işarələri",
+      "none": "diyez və bemol yoxdur",
+      "sharp": "{{count}} diyez: {{notes}}",
+      "flat": "{{count}} bemol: {{notes}}"
+    },
+    "howTitle": "Dairəni necə oxumalı",
+    "how": {
+      "clockwise": "Saat əqrəbi istiqamətində hər addım [[fifth|kvinta]] yuxarıdır və bir diyez əlavə edir: C → G → D…",
+      "counter": "Əks istiqamətdə hər addım kvarta yuxarıdır və bir bemol əlavə edir: C → F → B♭…",
+      "neighbours": "Qonşu tonallıqlar arasında cəmi bir not fərqlidir. Mahnılar ən asan qonşu tonallığa keçir (modulyasiya).",
+      "inner": "Daxili halqada [[relativeKey|paralel minor]] var: Am C major ilə eyni notlardan ibarətdir.",
+      "family": "Seçilmiş tonallığın 6 əsas akoru dairədə yan-yana durur: [[tonic|I]], solunda [[subdominant|IV]], sağında [[dominant|V]], altlarında isə üç minor akor."
+    }
+  },
+  "positions": {
+    "label": "Pozisiya",
+    "all": "Bütün qrif",
+    "title": "Pozisiya {{n}}",
+    "frets": "{{from}}–{{to}}. lad",
+    "play": "Pozisiyanı çal",
+    "stretch": "bu pozisiyada barmaqları geniş açmaq lazımdır",
+    "perString": {
+      "pentatonic": "hər simdə 2 not",
+      "threePerString": "hər simdə 3 not"
+    },
+    "systems": {
+      "pentatonic": "Qamma {{count}} pozisiyaya bölünür, hər simdə 2 not var. Hər pozisiya əlin bir yerdə qaldığı \"qutu\"dur. Qutular yan-yana düzülüb bütün qrifi əhatə edir. Nömrəyə klikləyin.",
+      "threePerString": "Qamma {{count}} pozisiyaya bölünür, hər simdə 3 not var (\"3 notes per string\"). Bu sistem sürətli və bərabər çalmaq üçün rahatdır. Hər pozisiya qammanın başqa pilləsindən başlayır. Nömrəyə klikləyin."
+    }
+  }
+}

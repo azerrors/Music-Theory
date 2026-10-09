@@ -1,0 +1,105 @@
+{
+  "appName": "Fretwise",
+  "tagline": "Gitara nəzəriyyəsi",
+  "nav": {
+    "home": "Ana səhifə",
+    "chords": "Akorlar",
+    "scales": "Qammalar",
+    "fretboard": "Akor tanıyıcı",
+    "settings": "Ayarlar",
+    "progressions": "Proqressiyalar",
+    "glossary": "Lüğət",
+    "song": "Mahnı analizi",
+    "builder": "Akor qurucu",
+    "intervals": "İntervallar",
+    "circle": "Kvinta dairəsi",
+    "more": "Daha çox"
+  },
+  "actions": {
+    "play": "Səsləndir",
+    "loading": "Yüklənir…",
+    "clear": "Təmizlə",
+    "back": "Geri",
+    "toggleTheme": "Mövzunu dəyiş",
+    "language": "Dil",
+    "openMenu": "Menyunu aç"
+  },
+  "home": {
+    "title": "Akorları əzbərləmə, qurulmasını anla",
+    "subtitle": "Hər akorun formulu, notları, qrifdəki yeri və səsi bir səhifədə. Açıq akorlardan 13-lü akorlara qədər.",
+    "cta": "Akorlara bax",
+    "cards": {
+      "chords": {
+        "title": "Akorlar",
+        "description": "Açıq, barre, sus, 7-li, 9-lu, 11-li və 13-lü akorlar: formul, notlar və barmaq düzülüşü."
+      },
+      "scales": {
+        "title": "Qammalar",
+        "description": "Major, minor, pentatonika, blues və modlar bütün qrif boyunca."
+      },
+      "fretboard": {
+        "title": "Akor tanıyıcı",
+        "description": "Qrifdə notları seç, sayt hansı akoru çaldığını desin."
+      },
+      "progressions": {
+        "title": "Proqressiyalar",
+        "description": "Tonallıq seç, onun notlarını, akorlarını və hazır proqressiyaları gör. Hər akoru alternativi ilə əvəz et."
+      },
+      "builder": {
+        "title": "Akor qurucu",
+        "description": "Pillələri bir-bir əlavə et və akorun necə dəyişdiyini gör, eşit."
+      },
+      "song": {
+        "title": "Mahnı analizi",
+        "description": "Akorları yaz: tonallığı tap, başqa tonallığa köçür, kapo yerini seç."
+      },
+      "intervals": {
+        "title": "İntervallar",
+        "description": "Qrifdə istənilən notdan tersiya, kvinta, oktava formalarını gör."
+      },
+      "circle": {
+        "title": "Kvinta dairəsi",
+        "description": "12 tonallığın xəritəsi: açar işarələri və qonşu akorlar."
+      },
+      "glossary": {
+        "title": "Lüğət",
+        "description": "Bütün terminlər sadə dillə və səs nümunələri ilə."
+      }
+    },
+    "how": {
+      "title": "Akor necə qurulur?",
+      "body": "Akor [[root|kök notun]] üzərinə [[third|tersiyalar]] qoymaqla qurulur. 1 – 3 – 5 [[triad|triadadır]]. Üstünə 7-ci [[degree|pillə]] gəlsə [[seventhChord|septakkord]] alınır, sonra 9, 11 və 13 gəlir. Hər akor səhifəsində bu formulu və onun qrifdəki yerini görəcəksən."
+    }
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "description": "Seçimlər bu brauzerdə yadda saxlanılır.",
+    "notation": "Not yazılışı",
+    "notationLetter": "Hərflə (C D E)",
+    "notationSolfege": "Heca ilə (Do Re Mi)",
+    "labels": "Qrifdə göstər",
+    "labelNote": "Notları",
+    "labelDegree": "Pillələri (1, ♭3, 5)",
+    "leftHanded": "Solaxay rejim",
+    "leftHandedHint": "Qrif və akor diaqramları güzgü kimi çevrilir.",
+    "tuning": "Köklənmə",
+    "tuningHint": "Köklənmə qrifə təsir edir. Akor diaqramları standart köklənmə üçündür.",
+    "tunings": {
+      "standard": "Standart (E A D G B E)",
+      "dropD": "Drop D (D A D G B E)",
+      "halfStepDown": "Yarım ton aşağı (E♭)",
+      "dadgad": "DADGAD",
+      "openG": "Open G (D G D G B D)"
+    }
+  },
+  "notFound": {
+    "title": "Səhifə tapılmadı",
+    "description": "Axtardığın səhifə yoxdur və ya yeri dəyişib.",
+    "goHome": "Ana səhifəyə qayıt"
+  },
+  "error": {
+    "title": "Nəsə səhv getdi",
+    "description": "Səhifəni yeniləməyə çalış.",
+    "reload": "Yenilə"
+  }
+}

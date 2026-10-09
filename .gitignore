@@ -1,0 +1,10 @@
+node_modules
+dist
+*.local
+.vite
+coverage
+.DS_Store
+*.log
+
+# Local Claude Code settings (dev-server port etc.)
+.claude/

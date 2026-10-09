@@ -1,0 +1,202 @@
+{
+  "title": "Lüğət",
+  "description": "Saytda işlənən musiqi terminləri sadə dillə izah olunub. Nöqtəli xətlə işarələnmiş sözlərin üzərinə gələndə də bu izahlar açılır.",
+  "search": "Termin axtar…",
+  "searchEmpty": "Heç nə tapılmadı.",
+  "openGlossary": "Lüğətdə bax",
+  "seeOnSite": "Saytda bax",
+  "groups": {
+    "basics": "Əsaslar",
+    "intervals": "İntervallar və pillələr",
+    "chords": "Akorlar",
+    "guitar": "Gitarada",
+    "keys": "Qammalar və tonallıqlar",
+    "harmony": "Harmoniya və proqressiyalar"
+  },
+  "terms": {
+    "note": {
+      "title": "Not",
+      "body": "Musiqi səsinin adı: C D E F G A B (Do Re Mi Fa Sol La Si). Aralarında ♯ (diyez) və ♭ (bemol) notlar da var, cəmi 12 müxtəlif səs alınır."
+    },
+    "semitone": {
+      "title": "Yarım ton",
+      "body": "İki not arasındakı ən kiçik məsafə. Gitarada bir lad yarım tondur, iki lad isə tam ton."
+    },
+    "octave": {
+      "title": "Oktava",
+      "body": "12 yarım ton. Eyni adlı not bir oktava yuxarıda iki dəfə yüksək tezlikdə səslənir: qulaq onu \"eyni səs, amma daha yuxarı\" kimi eşidir."
+    },
+    "interval": {
+      "title": "İnterval",
+      "body": "İki not arasındakı məsafə, yarım tonlarla ölçülür. Akorlar və qammalar intervallardan qurulur: məsələn, major akor kök, böyük tersiya və kvintadan ibarətdir."
+    },
+    "root": {
+      "title": "Kök not",
+      "body": "Akorun və ya qammanın əsas notu, ona adını verən not. C major akorunda kök C-dir. Diaqramlarda narıncı rənglə göstərilir."
+    },
+    "degree": {
+      "title": "Pillə",
+      "body": "Notun qammadakı sıra nömrəsi. Akor formullarındakı 1, 3, 5, ♭7 rəqəmləri də pillələrdir: ♭ işarəsi pillənin yarım ton aşağı olduğunu göstərir."
+    },
+    "third": {
+      "title": "Tersiya (3)",
+      "body": "Kökdən 3-cü pillə. Böyük tersiya (4 yarım ton) akoru major, kiçik tersiya (♭3, 3 yarım ton) minor edir. Akorun əhvalını tersiya müəyyən edir."
+    },
+    "fifth": {
+      "title": "Kvinta (5)",
+      "body": "Kökdən 7 yarım ton yuxarı. Kökdən sonra ən sabit səslənən notdur və akora dolğunluq verir. Power akor yalnız kök və kvintadan ibarətdir."
+    },
+    "seventh": {
+      "title": "Septima (7)",
+      "body": "Kökdən 7-ci pillə. ♭7 (10 yarım ton) dominant, gərgin səs verir, 7 (11 yarım ton) isə yumşaq, caz səsi. Triadaya septima əlavə edəndə septakkord alınır."
+    },
+    "extension": {
+      "title": "Genişlənmə (9, 11, 13)",
+      "body": "Septakkordun üstünə gələn 9-cu, 11-ci və 13-cü pillələr. Əslində bunlar 2, 4 və 6-cı pillələrdir, sadəcə bir oktava yuxarıda. Akora zəngin, caz rəngi verir."
+    },
+    "chord": {
+      "title": "Akor",
+      "body": "Eyni anda səslənən ən azı üç not. Adətən kökün üzərinə tersiyalar qoymaqla qurulur: 1 – 3 – 5."
+    },
+    "triad": {
+      "title": "Triada",
+      "body": "Üç notlu akor: kök, tersiya və kvinta (1 – 3 – 5). Major, minor, azaldılmış və artırılmış triadalar var."
+    },
+    "major": {
+      "title": "Major (böyük)",
+      "body": "Böyük tersiyalı akor və ya lad: 1 – 3 – 5. İşıqlı, şən səslənir. Akor adında ayrıca işarə yazılmır: sadəcə \"C\"."
+    },
+    "minor": {
+      "title": "Minor (kiçik)",
+      "body": "Kiçik tersiyalı akor və ya lad: 1 – ♭3 – 5. Tutqun, kədərli səslənir. Akor adında \"m\" yazılır: \"Cm\"."
+    },
+    "diminished": {
+      "title": "Azaldılmış (dim, °)",
+      "body": "Kiçik tersiya və azaldılmış kvinta: 1 – ♭3 – ♭5. Gərgin, narahat səslənir və adətən başqa akora keçid kimi işlənir."
+    },
+    "augmented": {
+      "title": "Artırılmış (aug, +)",
+      "body": "Böyük tersiya və artırılmış kvinta: 1 – 3 – ♯5. Qeyri-sabit, havada asılı qalmış kimi səslənir."
+    },
+    "sus": {
+      "title": "Sus akor",
+      "body": "Tersiya əvəzinə 2-ci (sus2) və ya 4-cü (sus4) pillə işlənir. Akor nə major, nə minor olur, ona görə həll olunmamış kimi səslənir və çox vaxt adi akora qayıdır."
+    },
+    "seventhChord": {
+      "title": "Septakkord",
+      "body": "Dörd notlu akor: triada üstəgəl septima (1 – 3 – 5 – 7). Əsas növləri: dominant 7 (C7), major 7 (Cmaj7), minor 7 (Cm7)."
+    },
+    "powerChord": {
+      "title": "Power akor (5)",
+      "body": "Yalnız kök və kvinta (1 – 5), tersiya yoxdur, ona görə nə major, nə minordur. Distorsiyalı gitarada təmiz səslənir, rok və metalın əsasıdır."
+    },
+    "inversion": {
+      "title": "Çevirmə",
+      "body": "Akorun ən aşağı səsi kök deyil, başqa akor notu olur. 1-ci çevirmədə basda tersiya, 2-cidə kvinta, 3-cüdə septima var. Akor eyni qalır, yalnız bas dəyişir."
+    },
+    "slashChord": {
+      "title": "Slash akor (C/E)",
+      "body": "Xəttdən əvvəl akorun adı, sonra bas notu yazılır: C/E C akorudur, basda E notu var. Bas xəttini hamar aparmaq üçün işlənir."
+    },
+    "fret": {
+      "title": "Lad (qrifdə)",
+      "body": "Qrifdəki metal çubuqların arasındakı sahə. Sıxılan hər lad səsi yarım ton qaldırır. Diaqramda \"5fr\" formanın 5-ci laddan başladığını göstərir. Diqqət: \"lad\" sözü major/minor mənasında da işlənir."
+    },
+    "openChord": {
+      "title": "Açıq akor",
+      "body": "Birinci pozisiyada, sıxılmamış (açıq) simlərlə çalınan akor: C, G, D, Am, Em. Yeni başlayanların ilk öyrəndiyi formalardır."
+    },
+    "barre": {
+      "title": "Barre",
+      "body": "Şəhadət barmağı bir neçə simi eyni ladda birdən sıxır, sanki hərəkətli kapo kimi. Diaqramda uzun zolaqla göstərilir. Ən məşhur barre akoru F-dir."
+    },
+    "movableShape": {
+      "title": "Sürüşən forma",
+      "body": "Açıq simi olmayan akor forması. Onu qrif boyunca sürüşdürsən, eyni növ akor başqa kökdən alınır: hər lad yarım ton yuxarı deməkdir."
+    },
+    "cagedShape": {
+      "title": "CAGED formaları",
+      "body": "C, A, G, E və D açıq akorlarının formaları. Hər birini barre ilə sürüşdürmək olar, beşi birlikdə bütün qrifi əhatə edir. Saytda E-, A-, D- və C-formaları var."
+    },
+    "scale": {
+      "title": "Qamma",
+      "body": "Kökdən başlayıb oktavaya qədər müəyyən qayda ilə düzülən notlar, məsələn C major: C D E F G A B. Melodiyalar və akorlar qammadan götürülür."
+    },
+    "key": {
+      "title": "Tonallıq",
+      "body": "Mahnının \"evi\": hansı not mərkəzdədir (tonika) və hansı qamma işlənir. \"G major tonallığı\" mərkəzin G olduğu, notların isə G major qammasından götürüldüyü deməkdir."
+    },
+    "mode": {
+      "title": "Lad (major/minor)",
+      "body": "Qammanın xarakteri: major işıqlı, minor tutqun səslənir. Dor, Miksolidiya kimi modlar da laddır. Diqqət: gitarada \"lad\" sözü qrifdəki ladı da bildirir."
+    },
+    "pentatonic": {
+      "title": "Pentatonika",
+      "body": "5 notlu qamma. Major və ya minor qammadan ən \"kəskin\" iki not çıxarılıb, ona görə səhv çalmaq çətindir. Rok və blues solosunun əsasıdır."
+    },
+    "harmonicMinor": {
+      "title": "Harmonik minor",
+      "body": "7-ci pilləsi yarım ton qaldırılmış minor qamma. Bu, minorda major V akorunu verir (A minorda E) və tonikaya güclü çəkiş yaradır."
+    },
+    "relativeKey": {
+      "title": "Paralel tonallıq",
+      "body": "Notları eyni olan major və minor: C major və A minor. Minor tonika major tonikadan kiçik tersiya aşağıdadır. Ona görə bir mahnıda asanlıqla birindən digərinə keçmək olur."
+    },
+    "parallelKey": {
+      "title": "Eyniadlı tonallıq",
+      "body": "Eyni kökdən başlayan major və minor: C major və C minor. Onlardan bir-birinə akor \"borc almaq\" olar, məsələn C majorda Fm çalmaq."
+    },
+    "diatonic": {
+      "title": "Diatonik",
+      "body": "Yalnız tonallığın öz qammasının notlarından ibarət olan. Hər major və minor tonallıqda 7 diatonik akor var."
+    },
+    "romanNumerals": {
+      "title": "Rum rəqəmləri (I, ii, V)",
+      "body": "Akoru tonallıqdakı pilləsi ilə yazmaq üsulu. Böyük hərf major, kiçik hərf minor akordur, ° azaldılmış deməkdir. Belə yazılan proqressiyanı istənilən tonallığa köçürmək olur."
+    },
+    "progression": {
+      "title": "Akor proqressiyası",
+      "body": "Akorların ardıcıllığı, mahnının harmonik skeleti. Məsələn, I – V – vi – IV minlərlə mahnıda işlənir."
+    },
+    "harmonicFunction": {
+      "title": "Funksiya",
+      "body": "Akorun proqressiyadakı rolu. Üç əsas funksiya var: tonika (sabitlik), subdominanta (hərəkət) və dominanta (gərginlik)."
+    },
+    "tonic": {
+      "title": "Tonika (T)",
+      "body": "Tonallığın 1-ci pilləsi və onun akoru. Sabitlik və \"ev\" hissi verir, mahnılar çox vaxt tonikada bitir. iii və vi akorları da tonika rolunu oynaya bilər."
+    },
+    "subdominant": {
+      "title": "Subdominanta (S)",
+      "body": "4-cü pillə və ona yaxın akorlar (ii, IV). Evdən uzaqlaşma, hərəkət hissi yaradır və çox vaxt dominantaya aparır."
+    },
+    "dominant": {
+      "title": "Dominanta (D)",
+      "body": "5-ci pillə və onun akoru (V, V7). Gərginlik yaradır, qulaq ondan sonra tonikanı gözləyir. V7 → I ən güclü keçiddir."
+    },
+    "secondaryDominant": {
+      "title": "İkinci dominant (V7/x)",
+      "body": "Tonallıqdakı başqa bir akorun dominantası. Məsələn, C majorda A7 Dm-ə (ii) güclü çəkir, ona görə V7/ii yazılır."
+    },
+    "borrowedChord": {
+      "title": "Borc alınmış akor",
+      "body": "Eyniadlı tonallıqdan götürülmüş akor. C majorda Fm, A♭ və B♭ C minordan \"borc alınır\" və mahnıya qəfil tutqun rəng qatır."
+    },
+    "capo": {
+      "title": "Kapo",
+      "body": "Qrifə taxılan sıxac: bütün simləri seçilmiş ladda birdən sıxır və sanki yeni \"nut\" yaradır. Kapo 2-ci ladda olanda G formasını çalırsan, amma A səslənir. Beləliklə, çətin tonallıqları rahat açıq akorlarla çalmaq olur."
+    },
+    "transposition": {
+      "title": "Transpozisiya",
+      "body": "Mahnını başqa tonallığa köçürmək: bütün akorlar eyni intervalla qaldırılır və ya endirilir. Məsələn, C – Am – F – G bir ton yuxarı D – Bm – G – A olur. Səsə uyğunlaşdırmaq üçün işlənir."
+    },
+    "keySignature": {
+      "title": "Açar işarələri",
+      "body": "Tonallığın neçə diyez və ya bemolu olduğu: G majorda bir diyez (F♯), F majorda bir bemol (B♭). Notlarda onlar açarın yanında bir dəfə yazılır və bütün mahnıya aiddir."
+    },
+    "circleOfFifths": {
+      "title": "Kvinta dairəsi",
+      "body": "12 tonallığın kvinta ilə düzüldüyü dairə. Saat əqrəbi ilə hər addım kvinta yuxarıdır və bir diyez artır. Qonşu tonallıqlar bir-birinə ən yaxın olanlardır, tonallığın əsas akorları da dairədə yan-yana durur."
+    }
+  }
+}

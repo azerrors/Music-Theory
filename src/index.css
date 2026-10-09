@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+/* Class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Warm "rosewood and brass" accent used for roots and primary actions. */
+  --color-brand-50: #fff8eb;
+  --color-brand-100: #feeac7;
+  --color-brand-200: #fdd28a;
+  --color-brand-300: #fbb44d;
+  --color-brand-400: #f99a24;
+  --color-brand-500: #f1760b;
+  --color-brand-600: #d55406;
+  --color-brand-700: #b13909;
+  --color-brand-800: #8f2c0e;
+  --color-brand-900: #76250f;
+  --color-brand-950: #431004;
+
+  /* Fretboard wood and hardware. */
+  --color-wood: #e9d8bd;
+  --color-wood-dark: #3a2a1d;
+  --color-fret: #a8a29e;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-stone-50 text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+}

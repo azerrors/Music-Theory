@@ -1,0 +1,202 @@
+{
+  "title": "Glossary",
+  "description": "The music terms used on this site, in plain words. Words with a dotted underline open these explanations too.",
+  "search": "Search terms…",
+  "searchEmpty": "Nothing found.",
+  "openGlossary": "Open in glossary",
+  "seeOnSite": "See it on the site",
+  "groups": {
+    "basics": "Basics",
+    "intervals": "Intervals and degrees",
+    "chords": "Chords",
+    "guitar": "On the guitar",
+    "keys": "Scales and keys",
+    "harmony": "Harmony and progressions"
+  },
+  "terms": {
+    "note": {
+      "title": "Note",
+      "body": "The name of a musical pitch: C D E F G A B. Between them sit the sharp (♯) and flat (♭) notes, 12 different pitches in total."
+    },
+    "semitone": {
+      "title": "Semitone",
+      "body": "The smallest step between two notes. On the guitar one fret is a semitone; two frets make a whole tone."
+    },
+    "octave": {
+      "title": "Octave",
+      "body": "12 semitones. The same note an octave higher vibrates twice as fast, and the ear hears it as \"the same note, only higher\"."
+    },
+    "interval": {
+      "title": "Interval",
+      "body": "The distance between two notes, counted in semitones. Chords and scales are built from intervals: a major chord is a root, a major third and a fifth."
+    },
+    "root": {
+      "title": "Root",
+      "body": "The main note of a chord or scale, the one that gives it its name. In a C major chord the root is C. Diagrams show it in orange."
+    },
+    "degree": {
+      "title": "Degree",
+      "body": "A note’s position in the scale. The 1, 3, 5, ♭7 in chord formulas are degrees; ♭ means the degree is a semitone lower."
+    },
+    "third": {
+      "title": "Third (3)",
+      "body": "The 3rd degree above the root. A major third (4 semitones) makes a chord major, a minor third (♭3, 3 semitones) makes it minor. The third sets the chord’s mood."
+    },
+    "fifth": {
+      "title": "Fifth (5)",
+      "body": "7 semitones above the root. After the root it is the most stable note and gives the chord body. A power chord is just root and fifth."
+    },
+    "seventh": {
+      "title": "Seventh (7)",
+      "body": "The 7th degree above the root. ♭7 (10 semitones) sounds bluesy and tense, 7 (11 semitones) sounds soft and jazzy. Add a seventh to a triad and you get a seventh chord."
+    },
+    "extension": {
+      "title": "Extensions (9, 11, 13)",
+      "body": "The 9th, 11th and 13th stacked on a seventh chord. They are really the 2nd, 4th and 6th, an octave higher. They give the chord a rich, jazzy colour."
+    },
+    "chord": {
+      "title": "Chord",
+      "body": "At least three notes sounding together. Usually built by stacking thirds on a root: 1 – 3 – 5."
+    },
+    "triad": {
+      "title": "Triad",
+      "body": "A three-note chord: root, third and fifth (1 – 3 – 5). There are major, minor, diminished and augmented triads."
+    },
+    "major": {
+      "title": "Major",
+      "body": "A chord or mode with a major third: 1 – 3 – 5. It sounds bright and happy. The chord name has no suffix: just \"C\"."
+    },
+    "minor": {
+      "title": "Minor",
+      "body": "A chord or mode with a minor third: 1 – ♭3 – 5. It sounds dark and sad. The chord name gets an \"m\": \"Cm\"."
+    },
+    "diminished": {
+      "title": "Diminished (dim, °)",
+      "body": "A minor third and a diminished fifth: 1 – ♭3 – ♭5. It sounds tense and restless and usually leads into another chord."
+    },
+    "augmented": {
+      "title": "Augmented (aug, +)",
+      "body": "A major third and an augmented fifth: 1 – 3 – ♯5. It sounds unstable, as if hanging in the air."
+    },
+    "sus": {
+      "title": "Sus chord",
+      "body": "The third is replaced by the 2nd (sus2) or 4th (sus4). Neither major nor minor, it sounds unresolved and often moves back to the plain chord."
+    },
+    "seventhChord": {
+      "title": "Seventh chord",
+      "body": "A four-note chord: a triad plus a seventh (1 – 3 – 5 – 7). The main kinds are dominant 7 (C7), major 7 (Cmaj7) and minor 7 (Cm7)."
+    },
+    "powerChord": {
+      "title": "Power chord (5)",
+      "body": "Just the root and fifth (1 – 5), with no third, so it is neither major nor minor. It stays clean under distortion: the backbone of rock and metal."
+    },
+    "inversion": {
+      "title": "Inversion",
+      "body": "The lowest note of the chord is not the root but another chord tone. First inversion has the third in the bass, second the fifth, third the seventh. The chord stays the same; only the bass changes."
+    },
+    "slashChord": {
+      "title": "Slash chord (C/E)",
+      "body": "The chord name comes before the slash, the bass note after it: C/E is a C chord with E in the bass. Used to keep the bass line smooth."
+    },
+    "fret": {
+      "title": "Fret",
+      "body": "The space between the metal bars on the neck. Each fret raises the pitch by a semitone. \"5fr\" on a diagram means the shape starts at the 5th fret."
+    },
+    "openChord": {
+      "title": "Open chord",
+      "body": "A chord in first position that uses unfretted (open) strings: C, G, D, Am, Em. The first shapes every beginner learns."
+    },
+    "barre": {
+      "title": "Barre",
+      "body": "The index finger presses several strings at the same fret at once, like a movable capo. Diagrams draw it as a long bar. F is the most famous barre chord."
+    },
+    "movableShape": {
+      "title": "Movable shape",
+      "body": "A chord shape with no open strings. Slide it along the neck and you get the same chord type from another root: each fret is a semitone up."
+    },
+    "cagedShape": {
+      "title": "CAGED shapes",
+      "body": "The shapes of the open C, A, G, E and D chords. Each can be moved with a barre, and together the five cover the whole neck. The site has the E-, A-, D- and C-shapes."
+    },
+    "scale": {
+      "title": "Scale",
+      "body": "Notes arranged by a fixed pattern from the root up to the octave, for example C major: C D E F G A B. Melodies and chords are taken from scales."
+    },
+    "key": {
+      "title": "Key",
+      "body": "The \"home\" of a song: which note is the centre (the tonic) and which scale is used. \"In G major\" means G is home and the notes come from the G major scale."
+    },
+    "mode": {
+      "title": "Mode (major/minor)",
+      "body": "The character of a scale: major sounds bright, minor dark. Modes such as Dorian and Mixolydian are other flavours of the same idea."
+    },
+    "pentatonic": {
+      "title": "Pentatonic",
+      "body": "A five-note scale. The two \"sharpest\" notes of the major or minor scale are left out, so it is hard to hit a wrong note. The basis of rock and blues solos."
+    },
+    "harmonicMinor": {
+      "title": "Harmonic minor",
+      "body": "A minor scale with its 7th degree raised a semitone. That gives minor keys a major V chord (E in A minor) with a strong pull back to the tonic."
+    },
+    "relativeKey": {
+      "title": "Relative key",
+      "body": "A major and a minor key that share the same notes: C major and A minor. The minor tonic is a minor third below the major one, so songs move between them easily."
+    },
+    "parallelKey": {
+      "title": "Parallel key",
+      "body": "A major and a minor key on the same root: C major and C minor. You can borrow chords between them, for example play Fm in C major."
+    },
+    "diatonic": {
+      "title": "Diatonic",
+      "body": "Made only of the notes of the key’s own scale. Every major and minor key has 7 diatonic chords."
+    },
+    "romanNumerals": {
+      "title": "Roman numerals (I, ii, V)",
+      "body": "Writing a chord by its degree in the key. Capitals are major chords, lower case minor, ° diminished. A progression written this way can be moved to any key."
+    },
+    "progression": {
+      "title": "Chord progression",
+      "body": "A sequence of chords, the harmonic skeleton of a song. I – V – vi – IV, for example, is used in thousands of songs."
+    },
+    "harmonicFunction": {
+      "title": "Function",
+      "body": "The role a chord plays in a progression. There are three main functions: tonic (stability), subdominant (motion) and dominant (tension)."
+    },
+    "tonic": {
+      "title": "Tonic (T)",
+      "body": "The 1st degree of the key and its chord. It feels stable, like home, and songs usually end on it. The iii and vi chords can play the tonic role too."
+    },
+    "subdominant": {
+      "title": "Subdominant (S)",
+      "body": "The 4th degree and the chords close to it (ii, IV). They move away from home, create motion and often lead to the dominant."
+    },
+    "dominant": {
+      "title": "Dominant (D)",
+      "body": "The 5th degree and its chord (V, V7). It builds tension, and the ear expects the tonic next. V7 → I is the strongest resolution."
+    },
+    "secondaryDominant": {
+      "title": "Secondary dominant (V7/x)",
+      "body": "The dominant of another chord in the key. In C major, A7 pulls strongly to Dm (ii), so it is written V7/ii."
+    },
+    "borrowedChord": {
+      "title": "Borrowed chord",
+      "body": "A chord taken from the parallel key. In C major, Fm, A♭ and B♭ are \"borrowed\" from C minor and add a sudden darker colour."
+    },
+    "capo": {
+      "title": "Capo",
+      "body": "A clamp on the neck that presses all strings at one fret, acting as a new nut. With a capo at fret 2 you play G shapes but hear A, so awkward keys can be played with easy open chords."
+    },
+    "transposition": {
+      "title": "Transposition",
+      "body": "Moving a song to another key: every chord shifts by the same interval. C – Am – F – G a whole tone up becomes D – Bm – G – A. Used to fit a song to your voice."
+    },
+    "keySignature": {
+      "title": "Key signature",
+      "body": "How many sharps or flats a key has: G major has one sharp (F♯), F major one flat (B♭). In notation they are written once next to the clef and apply to the whole piece."
+    },
+    "circleOfFifths": {
+      "title": "Circle of fifths",
+      "body": "The 12 keys arranged by fifths. Clockwise, each step is a fifth up and adds a sharp. Neighbouring keys are the closest relatives, and a key’s main chords sit side by side on the circle."
+    }
+  }
+}

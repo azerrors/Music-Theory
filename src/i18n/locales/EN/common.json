@@ -1,0 +1,105 @@
+{
+  "appName": "Fretwise",
+  "tagline": "Guitar theory",
+  "nav": {
+    "home": "Home",
+    "chords": "Chords",
+    "scales": "Scales",
+    "fretboard": "Chord finder",
+    "settings": "Settings",
+    "progressions": "Progressions",
+    "glossary": "Glossary",
+    "song": "Song helper",
+    "builder": "Chord builder",
+    "intervals": "Intervals",
+    "circle": "Circle of fifths",
+    "more": "More"
+  },
+  "actions": {
+    "play": "Play",
+    "loading": "Loading…",
+    "clear": "Clear",
+    "back": "Back",
+    "toggleTheme": "Toggle theme",
+    "language": "Language",
+    "openMenu": "Open menu"
+  },
+  "home": {
+    "title": "Don't memorise chords — understand how they're built",
+    "subtitle": "Every chord's formula, notes, fretboard position and sound on one page. From open chords to thirteenths.",
+    "cta": "Browse chords",
+    "cards": {
+      "chords": {
+        "title": "Chords",
+        "description": "Open, barre, sus, 7th, 9th, 11th and 13th chords: formula, notes and fingering."
+      },
+      "scales": {
+        "title": "Scales",
+        "description": "Major, minor, pentatonic, blues and the modes across the whole neck."
+      },
+      "fretboard": {
+        "title": "Chord finder",
+        "description": "Pick notes on the fretboard and see which chord you're playing."
+      },
+      "progressions": {
+        "title": "Progressions",
+        "description": "Pick a key and see its notes, chords and common progressions. Swap any chord for an alternative."
+      },
+      "builder": {
+        "title": "Chord builder",
+        "description": "Add degrees one by one and see and hear how the chord changes."
+      },
+      "song": {
+        "title": "Song helper",
+        "description": "Type the chords: find the key, transpose it and pick a capo spot."
+      },
+      "intervals": {
+        "title": "Intervals",
+        "description": "See third, fifth and octave shapes from any note on the neck."
+      },
+      "circle": {
+        "title": "Circle of fifths",
+        "description": "A map of all 12 keys: key signatures and neighbouring chords."
+      },
+      "glossary": {
+        "title": "Glossary",
+        "description": "Every term in plain words, with sound examples."
+      }
+    },
+    "how": {
+      "title": "How is a chord built?",
+      "body": "A chord is built by stacking [[third|thirds]] on a [[root|root]]. 1 – 3 – 5 is a [[triad|triad]]. Add the 7th [[degree|degree]] and you get a [[seventhChord|seventh chord]], then come the 9th, 11th and 13th. Every chord page shows its formula and where it sits on the neck."
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Your choices are saved in this browser.",
+    "notation": "Note names",
+    "notationLetter": "Letters (C D E)",
+    "notationSolfege": "Solfège (Do Re Mi)",
+    "labels": "Show on fretboard",
+    "labelNote": "Notes",
+    "labelDegree": "Degrees (1, ♭3, 5)",
+    "leftHanded": "Left-handed",
+    "leftHandedHint": "Mirrors the fretboard and chord diagrams.",
+    "tuning": "Tuning",
+    "tuningHint": "Tuning applies to the fretboard. Chord diagrams are for standard tuning.",
+    "tunings": {
+      "standard": "Standard (E A D G B E)",
+      "dropD": "Drop D (D A D G B E)",
+      "halfStepDown": "Half step down (E♭)",
+      "dadgad": "DADGAD",
+      "openG": "Open G (D G D G B D)"
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has moved.",
+    "goHome": "Back to home"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "Try reloading the page.",
+    "reload": "Reload"
+  }
+}
