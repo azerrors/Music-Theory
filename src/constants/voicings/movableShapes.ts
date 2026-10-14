@@ -26,6 +26,8 @@ export const MOVABLE_SHAPES: ShapeTemplate[] = [
     {type: "dim", shape: "E", rootString: 0, offsets: [0, 1, 2, 0, x, x], fingers: [1, 2, 3, 1, x, x]},
     {type: "aug", shape: "E", rootString: 0, offsets: [0, x, 2, 1, 1, x], fingers: [1, x, 4, 2, 3, x]},
     {type: "sus4", shape: "E", rootString: 0, offsets: [0, 2, 2, 2, 0, 0], fingers: [1, 2, 3, 4, 1, 1], barre: {offset: 0, fromString: 0, toString: 5}},
+    {type: "sus2", shape: "E", rootString: 0, offsets: [0, 2, 4, 4, 0, 0], fingers: [1, 2, 3, 4, 1, 1], barre: {offset: 0, fromString: 0, toString: 5}},
+    {type: "add9", shape: "E", rootString: 0, offsets: [0, 2, 4, 1, 0, 0], fingers: [1, 3, 4, 2, 1, 1], barre: {offset: 0, fromString: 0, toString: 5}},
     {type: "7sus4", shape: "E", rootString: 0, offsets: [0, 2, 0, 2, 0, 0], fingers: [1, 3, 1, 4, 1, 1], barre: {offset: 0, fromString: 0, toString: 5}},
     {type: "9sus4", shape: "E", rootString: 0, offsets: [0, x, 0, -1, -2, x], fingers: [3, x, 4, 2, 1, x]},
     {type: "6", shape: "E", rootString: 0, offsets: [0, x, -1, 1, 0, x], fingers: [2, x, 1, 4, 3, x]},
@@ -91,6 +93,7 @@ export const MOVABLE_SHAPES: ShapeTemplate[] = [
     // D-shape — root on the 4th string
     {type: "M", shape: "D", rootString: 2, offsets: [x, x, 0, 2, 3, 2], fingers: [x, x, 1, 2, 4, 3]},
     {type: "m", shape: "D", rootString: 2, offsets: [x, x, 0, 2, 3, 1], fingers: [x, x, 1, 3, 4, 2]},
+    {type: "dim", shape: "D", rootString: 2, offsets: [x, x, 0, 1, 3, 1], fingers: [x, x, 1, 2, 4, 3]},
     {type: "aug", shape: "D", rootString: 2, offsets: [x, x, 0, 3, 3, 2], fingers: [x, x, 1, 3, 4, 2]},
     {type: "sus2", shape: "D", rootString: 2, offsets: [x, x, 0, 2, 3, 0], fingers: [x, x, 1, 3, 4, 1], barre: {offset: 0, fromString: 2, toString: 5}},
     {type: "sus4", shape: "D", rootString: 2, offsets: [x, x, 0, 2, 3, 3], fingers: [x, x, 1, 2, 3, 4]},
@@ -107,6 +110,8 @@ export const MOVABLE_SHAPES: ShapeTemplate[] = [
     // C-shape — root on the 5th string under the ring/pinky finger
     {type: "M", shape: "C", rootString: 1, offsets: [x, 0, -1, -3, -2, -3], fingers: [x, 4, 3, 1, 2, 1], barre: {offset: -3, fromString: 3, toString: 5}},
     {type: "m", shape: "C", rootString: 1, offsets: [x, 0, -2, -3, -2, x], fingers: [x, 4, 2, 1, 3, x]},
+    {type: "sus4", shape: "C", rootString: 1, offsets: [x, 0, 0, -3, -2, -2], fingers: [x, 3, 4, 1, 2, 2]},
+    {type: "m7", shape: "C", rootString: 1, offsets: [x, 0, -2, 0, 1, x], fingers: [x, 2, 1, 3, 4, x]},
     {type: "sus2", shape: "C", rootString: 1, offsets: [x, 0, -3, -3, -2, x], fingers: [x, 3, 1, 1, 2, x], barre: {offset: -3, fromString: 2, toString: 3}},
     {type: "6", shape: "C", rootString: 1, offsets: [x, 0, -1, -1, -2, -3], fingers: [x, 4, 3, 3, 2, 1]},
     {type: "add9", shape: "C", rootString: 1, offsets: [x, 0, -1, -3, 0, -3], fingers: [x, 3, 2, 1, 4, 1], barre: {offset: -3, fromString: 3, toString: 5}},

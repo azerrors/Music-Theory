@@ -33,6 +33,16 @@ export function placeShape(template: ShapeTemplate, root: NoteName, tuning: Tuni
     }
 }
 
+function octaveUp(voicing: Voicing): Voicing {
+    const frets = voicing.frets.map(fret => (fret === null ? null : fret + 12))
+    return {
+        ...voicing,
+        id: `${voicing.id}-octave`,
+        frets,
+        barre: voicing.barre && {...voicing.barre, fret: voicing.barre.fret + 12},
+    }
+}
+
 /**
  * All known shapes for a chord: open-position voicings first, then the movable
  * E-, A-, D-, C- and G-shapes. Shapes are defined for standard tuning only.
@@ -48,12 +58,13 @@ export function getVoicings(root: NoteName, type: string): Voicing[] {
             barre: voicing.barre,
         }))
 
-    // A shape placed at the nut can land exactly on an open voicing (D-shape on D) — list it once.
+    // A shape placed at the nut can land exactly on an open voicing (D-shape on D, E-shape E5).
+    // Rather than list it twice, play it an octave up — a genuinely different spot on the neck.
     const seen = new Set(open.map(voicing => voicing.frets.join()))
     const movable = MOVABLE_SHAPES
         .filter(template => template.type === type)
         .map(template => placeShape(template, root))
-        .filter(voicing => !seen.has(voicing.frets.join()))
+        .map(voicing => (seen.has(voicing.frets.join()) ? octaveUp(voicing) : voicing))
 
     return [...open, ...movable]
 }
@@ -90,4 +101,29 @@ export function voicingFretRange(voicing: Voicing, minSpan = 4): {baseFret: numb
     const touchesNut = voicing.frets.includes(0) || lowest === 1
     const baseFret = highest <= minSpan && touchesNut ? 1 : lowest
     return {baseFret, span: Math.max(minSpan, highest - baseFret + 1)}
+}
+
+/** The lowest fret a voicing presses (1 for open chords that only touch the first frets), i.e. where on the neck it sits. */
+export function voicingPosition(voicing: Voicing): number {
+    const fretted = frettedValues(voicing.frets).filter(fret => fret > 0)
+    return fretted.length === 0 ? 0 : Math.min(...fretted)
+}
+
+/**
+ * The shape a chord chart would print first: an open chord when one exists, otherwise the
+ * movable shape closest to the nut.
+ */
+export function primaryVoicing(voicings: Voicing[]): Voicing | undefined {
+    const open = voicings.find(voicing => voicing.shape === "open")
+    if (open) return open
+    return [...voicings].sort((a, b) => voicingPosition(a) - voicingPosition(b))[0]
+}
+
+/** Voicings in the order they sit on the neck: open shapes first, then by position up the neck. */
+export function sortByPosition(voicings: Voicing[]): Voicing[] {
+    return [...voicings].sort((a, b) => {
+        const openA = a.shape === "open" ? 0 : 1
+        const openB = b.shape === "open" ? 0 : 1
+        return openA - openB || voicingPosition(a) - voicingPosition(b)
+    })
 }

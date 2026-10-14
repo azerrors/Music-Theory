@@ -9,7 +9,7 @@ import {formatChordName, getChordInfo, type ChordInfo} from "@/lib/theory/chords
 import {markersForTones, zipTones} from "@/lib/theory/fretboard"
 import {chroma, formatNote, mod12, rootToSlug, slugToRoot} from "@/lib/theory/notes"
 import {inversionBasses, inversionOf, slashVoicings} from "@/lib/theory/slash"
-import {getVoicings, isMovableVoicing, voicingMidi} from "@/lib/theory/voicings"
+import {getVoicings, isMovableVoicing, sortByPosition, voicingMidi, voicingPosition} from "@/lib/theory/voicings"
 import {PATHS} from "@/router/paths"
 import NotFoundPage from "@/pages/NotFoundPage"
 import {ChordCard} from "@/widgets/ChordCard"
@@ -58,7 +58,8 @@ export default function ChordDetailPage() {
 
     if (!chord) return <NotFoundPage/>
 
-    const voicings = chord.bass ? slashVoicings(chord.root, chord.type.symbol, chord.bass) : getVoicings(chord.root, chord.type.symbol)
+    // Open shapes first, then up the neck — so the cards read like a walk from the nut to the 15th fret.
+    const voicings = sortByPosition(chord.bass ? slashVoicings(chord.root, chord.type.symbol, chord.bass) : getVoicings(chord.root, chord.type.symbol))
     const toneNotes = chord.bass && !chord.notes.some(note => chroma(note) === chroma(chord.bass!)) ? [...chord.notes, chord.bass] : chord.notes
     const toneDegrees = toneNotes.length > chord.notes.length ? [...chord.degrees, chord.bassDegree ?? ""] : chord.degrees
     const markers = markersForTones(tuning, 15, zipTones(toneNotes, toneDegrees))
@@ -116,7 +117,12 @@ export default function ChordDetailPage() {
                             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                                 {voicings.map(voicing => (
                                     <Card key={voicing.id} className="flex flex-col items-center gap-3">
-                                        <p className="text-center text-sm font-medium text-stone-600 dark:text-stone-400">{t(`shapes.${voicing.shape}`)}</p>
+                                        <div className="text-center">
+                                            <p className="text-sm font-medium text-stone-600 dark:text-stone-400">{t(`shapes.${voicing.shape}`)}</p>
+                                            {voicing.shape !== "open" && (
+                                                <p className="text-xs font-semibold text-brand-700 dark:text-brand-400">{t("atFret", {fret: voicingPosition(voicing)})}</p>
+                                            )}
+                                        </div>
                                         <ChordDiagram voicing={voicing} root={chord.root} chordNotes={diagramNotes} title={`${displayName} — ${t(`shapes.${voicing.shape}`)}`}/>
                                         <MobilityBadge voicing={voicing}/>
                                         <PlayButton midi={voicingMidi(voicing)}/>

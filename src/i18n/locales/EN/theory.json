@@ -19,6 +19,7 @@
     "G": "G-shape · root on 6th string"
   },
   "chordCategories": {
+    "popular": "Popular 200",
     "open": "Open chords",
     "triad": "Triads",
     "sus": "Sus chords",
@@ -36,7 +37,8 @@
     "seventh": "A triad with a [[seventh|7th]] on top. The core colour of jazz, blues and funk.",
     "extended": "[[seventhChord|Seventh chords]] with the 9th, 11th or 13th ([[extension|extensions]]) stacked on top. On guitar some notes, usually the 5th, are left out.",
     "power": "Just the [[root|root]] and [[fifth|fifth]] (1–5). With no 3rd it is neither major nor minor. The backbone of rock and metal.",
-    "slash": "In a [[slashChord|slash chord]] (C/E) the note after the slash is played in the bass. The chord stays the same, only the lowest note changes — an [[inversion|inversion]]. That smooths the bass line: C – G/B – Am."
+    "slash": "In a [[slashChord|slash chord]] (C/E) the note after the slash is played in the bass. The chord stays the same, only the lowest note changes — an [[inversion|inversion]]. That smooths the bass line: C – G/B – Am.",
+    "popular": "The ~200 chords songs use most: 17 types × 12 roots, ranked by song-corpus statistics — major, minor, 7, m7 and maj7 alone make up ~86% of all chords. Each card shows the shape a chord book prints first: the [[openChord|open chord]] if there is one, otherwise the [[barre|barre]] nearest the nut. Click a chord to see all its shapes up the neck."
   },
   "chordTypes": {
     "5": "Power chord",
@@ -568,5 +570,11 @@
       "pentatonic": "The scale splits into {{count}} positions with 2 notes per string. Each is a \"box\" where the hand stays put, and the boxes link up across the whole neck. Click a number.",
       "threePerString": "The scale splits into {{count}} positions with 3 notes per string — an even layout that suits fast playing. Each position starts on a different degree. Click a number."
     }
-  }
+  },
+  "popular": {
+    "type": "Chord type",
+    "shapes_one": "{{count}} shape on the neck",
+    "shapes_other": "{{count}} shapes on the neck"
+  },
+  "atFret": "from fret {{fret}}"
 }

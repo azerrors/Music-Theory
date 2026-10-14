@@ -37,6 +37,10 @@ export const OPEN_VOICINGS: OpenVoicingDef[] = [
     {root: "D", type: "dim", frets: [x, x, 0, 1, 3, 1], fingers: [x, x, x, 1, 3, 2]},
     {root: "C", type: "aug", frets: [x, 3, 2, 1, 1, 0], fingers: [x, 4, 3, 2, 1, x]},
     {root: "E", type: "aug", frets: [0, 3, 2, 1, 1, 0], fingers: [x, 4, 3, 2, 1, x]},
+    {root: "G", type: "aug", frets: [3, 2, 1, 0, 0, 3], fingers: [3, 2, 1, x, x, 4]},
+    {root: "D", type: "aug", frets: [x, x, 0, 3, 3, 2], fingers: [x, x, x, 2, 3, 1]},
+    {root: "A", type: "aug", frets: [x, 0, 3, 2, 2, x], fingers: [x, x, 4, 2, 3, x]},
+    {root: "E", type: "dim", frets: [0, 1, 2, 0, x, x], fingers: [x, 1, 2, x, x, x]},
 
     // Suspended
     {root: "C", type: "sus2", frets: [x, 3, 0, 0, 1, x], fingers: [x, 3, x, x, 1, x]},
@@ -50,6 +54,7 @@ export const OPEN_VOICINGS: OpenVoicingDef[] = [
     {root: "D", type: "sus4", frets: [x, x, 0, 2, 3, 3], fingers: [x, x, x, 1, 2, 3]},
     {root: "E", type: "sus4", frets: [0, 2, 2, 2, 0, 0], fingers: [x, 2, 3, 4, x, x]},
     {root: "G", type: "sus4", frets: [3, 3, 0, 0, 1, 3], fingers: [2, 3, x, x, 1, 4]},
+    {root: "F", type: "sus4", frets: [x, x, 3, 3, 1, 1], fingers: [x, x, 3, 4, 1, 1], barre: {fret: 1, fromString: 4, toString: 5}},
     {root: "A", type: "7sus4", frets: [x, 0, 2, 0, 3, 0], fingers: [x, x, 2, x, 3, x]},
     {root: "E", type: "7sus4", frets: [0, 2, 0, 2, 0, 0], fingers: [x, 2, x, 3, x, x]},
     {root: "D", type: "7sus4", frets: [x, x, 0, 2, 1, 3], fingers: [x, x, x, 2, 1, 3]},
@@ -65,6 +70,7 @@ export const OPEN_VOICINGS: OpenVoicingDef[] = [
     {root: "G", type: "6", frets: [3, 2, 0, 0, 0, 0], fingers: [2, 1, x, x, x, x]},
     {root: "D", type: "6", frets: [x, x, 0, 2, 0, 2], fingers: [x, x, x, 2, x, 3]},
     {root: "E", type: "6", frets: [0, 2, 2, 1, 2, 0], fingers: [x, 2, 3, 1, 4, x]},
+    {root: "F", type: "6", frets: [x, x, 3, 2, 3, 1], fingers: [x, x, 3, 2, 4, 1]},
     {root: "A", type: "m6", frets: [x, 0, 2, 2, 1, 2], fingers: [x, x, 2, 3, 1, 4]},
     {root: "E", type: "m6", frets: [0, 2, 2, 0, 2, 0], fingers: [x, 1, 2, x, 3, x]},
     {root: "D", type: "m6", frets: [x, x, 0, 2, 0, 1], fingers: [x, x, x, 2, x, 1]},

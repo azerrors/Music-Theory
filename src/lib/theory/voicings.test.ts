@@ -77,9 +77,10 @@ describe("getVoicings", () => {
         expect(shapes).toEqual(["open", "E", "A", "D", "C", "G"])
     })
 
-    it("drops a movable shape that lands on an open voicing", () => {
+    it("moves a movable shape that lands on an open voicing an octave up", () => {
         const frets = getVoicings("D", "M").map(voicing => voicing.frets.join())
         expect(new Set(frets).size).toBe(frets.length)
+        expect(getVoicings("E", "5").map(voicing => voicing.frets)).toContainEqual([12, 14, 14, null, null, null])
     })
 
     it("matches open voicings by pitch class, not spelling", () => {

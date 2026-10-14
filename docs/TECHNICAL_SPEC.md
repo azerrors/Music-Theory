@@ -18,8 +18,8 @@ Gitaraçılar üçün interaktiv nəzəriyyə saytı. Sayt akorların və qammal
 
 | Modul | Nə edir |
 |---|---|
-| **Akorlar kataloqu** | 8 kateqoriya: açıq, triada, sus, 6/add, 7-li, 9/11/13, power, slash. 33 akor növü × 12 kök not, 119 açıq akor + 33 açıq slash akor. Hər forma "sürüşən" (açıq simsiz) və ya "sabit" kimi işarələnir, yan paneldə izah və filtr var |
-| **Akor səhifəsi** | Formul (1–♭3–5–♭7), notlar, bütün çalınma formaları (açıq + E-, A-, D-, C-, G-formaları), sürüşən/sabit nişanı, qrifdə bütün akor notları, səs |
+| **Akorlar kataloqu** | **Populyar 200** tabı (17 növ × 12 kök = 204 akor, mahnı korpuslarının statistikasına görə sıralanıb, hər birinin qrifdə ən azı 3 pozisiyası testlə yoxlanılır) + 8 kateqoriya: açıq, triada, sus, 6/add, 7-li, 9/11/13, power, slash. 33 akor növü × 12 kök not, 125 açıq akor + 33 açıq slash akor. Hər forma "sürüşən" (açıq simsiz) və ya "sabit" kimi işarələnir, yan paneldə izah və filtr var |
+| **Akor səhifəsi** | Formul (1–♭3–5–♭7), notlar, bütün çalınma formaları (açıq + E-, A-, D-, C-, G-formaları, qrif boyunca sıralanıb və hər biri neçənci laddan başladığı ilə), sürüşən/sabit nişanı, qrifdə bütün akor notları, səs |
 | **Proqressiyalar** | 3 addım: tonallıq (kök + major/minor) → 18 hazır proqressiya (kart şəklində, seçilmiş tonallıqda akor adları ilə) → akorlar. Akora klikləyəndə panel açılır: başqa akorla əvəz et, rəngini dəyiş, bas notunu dəyiş (slash), tonallıqdan kənar. Funksiya rəngləri (T/S/D), tonallığın akorları cədvəli, irəli səviyyə üçün yığılan "kənar akorlar" bölməsi |
 | **Slash akorlar** | C/E, G/B, Am/G… Açıq formalar data kimi, çevirmələr hərəkətli şablon kimi (`slashVoicings.ts`), qalanları `withBass()` mövcud formaya bas əlavə edərək qurur. Akor səhifəsi `?bass=` parametrini qəbul edir və çevirməni izah edir |
 | **Terminlər və lüğət** | 42 termin (AZ/EN/RU). Mətnlərdə `[[id|söz]]` kimi işarələnir və nöqtəli xətlə görünür: üzərinə gəldikdə və ya toxunduqda izah açılır, bəzilərində səs nümunəsi var. `/glossary` səhifəsində axtarış və qruplar var |

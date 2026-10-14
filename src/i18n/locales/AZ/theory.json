@@ -19,6 +19,7 @@
     "G": "G-forması · kök 6-cı simdə"
   },
   "chordCategories": {
+    "popular": "Populyar 200",
     "open": "Açıq akorlar",
     "triad": "Triadalar",
     "sus": "Sus akorlar",
@@ -36,7 +37,8 @@
     "seventh": "Triadanın üstünə 7-ci pillə, yəni [[seventh|septima]] gəlir. Caz, blues və funk-un əsas rəngidir.",
     "extended": "[[seventhChord|Septakkordun]] üstünə 9, 11 və 13-cü pillələr ([[extension|genişlənmələr]]) gəlir. Gitarada barmaq çatmadığı üçün bəzi notlar, çox vaxt 5-ci pillə, buraxılır.",
     "power": "Yalnız [[root|kök]] və [[fifth|kvinta]] (1–5). Tersiya olmadığı üçün nə major, nə minor sayılır. Rok və metalın əsasıdır.",
-    "slash": "[[slashChord|Slash akorda]] (C/E) xəttdən sonrakı not basda çalınır. Akor eyni qalır, ən aşağı səs dəyişir, buna [[inversion|çevirmə]] deyilir. Bu, bas xəttini hamar edir: C – G/B – Am kimi."
+    "slash": "[[slashChord|Slash akorda]] (C/E) xəttdən sonrakı not basda çalınır. Akor eyni qalır, ən aşağı səs dəyişir, buna [[inversion|çevirmə]] deyilir. Bu, bas xəttini hamar edir: C – G/B – Am kimi.",
+    "popular": "Mahnılarda ən çox işlənən ~200 akor: 17 növ × 12 kök. Sıralama mahnı korpuslarının statistikasına əsaslanır: major, minor, 7, m7 və maj7 bütün akorların ~86%-ni təşkil edir. Hər kartda akor kitablarında ilk göstərilən forma var: varsa [[openChord|açıq akor]], yoxdursa qrifin başına ən yaxın [[barre|barre]]. Akora klikləsən, qrif boyunca bütün formalarını görəcəksən."
   },
   "chordTypes": {
     "5": "Power akor",
@@ -562,5 +564,10 @@
       "pentatonic": "Qamma {{count}} pozisiyaya bölünür, hər simdə 2 not var. Hər pozisiya əlin bir yerdə qaldığı \"qutu\"dur. Qutular yan-yana düzülüb bütün qrifi əhatə edir. Nömrəyə klikləyin.",
       "threePerString": "Qamma {{count}} pozisiyaya bölünür, hər simdə 3 not var (\"3 notes per string\"). Bu sistem sürətli və bərabər çalmaq üçün rahatdır. Hər pozisiya qammanın başqa pilləsindən başlayır. Nömrəyə klikləyin."
     }
-  }
+  },
+  "popular": {
+    "type": "Akor növü",
+    "shapes": "qrifdə {{count}} forma"
+  },
+  "atFret": "{{fret}}. laddan"
 }
