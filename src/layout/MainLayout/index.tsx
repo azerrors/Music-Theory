@@ -215,8 +215,16 @@ export function MainLayout() {
                 </Suspense>
             </main>
 
-            <footer className="border-t border-stone-200 py-6 text-center text-xs text-stone-500 dark:border-stone-800">
-                {t("appName")} · {tagline}
+            <footer className="space-y-1 border-t border-stone-200 py-6 text-center text-xs text-stone-500 dark:border-stone-800">
+                <p>{t("appName")} · {tagline}</p>
+                {/* The samples are CC BY 3.0, which asks for this credit wherever they are used. */}
+                <p>
+                    {t("credits.prefix")}{" "}
+                    <a href="https://github.com/nbrosowsky/tonejs-instruments" target="_blank" rel="noreferrer" className="underline hover:text-stone-700 dark:hover:text-stone-300">tonejs-instruments</a>
+                    {" ("}
+                    <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noreferrer" className="underline hover:text-stone-700 dark:hover:text-stone-300">{t("credits.license")}</a>
+                    {"): "}{t("credits.details")}
+                </p>
             </footer>
         </div>
     )

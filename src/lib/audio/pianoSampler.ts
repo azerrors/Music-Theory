@@ -1,13 +1,12 @@
 import type * as ToneNamespace from "tone"
+import {PIANO_SAMPLE_NOTES, sampleBaseUrl, sampleUrls} from "@/lib/audio/samples"
 
 type ToneModule = typeof ToneNamespace
 
-/**
- * Salamander Grand Piano samples hosted by the Tone.js project. One sample every minor third;
- * the sampler pitch-shifts the notes in between.
- */
-const SAMPLE_BASE_URL = "https://tonejs.github.io/audio/salamander/"
-const SAMPLED_NOTES = ["A1", "C2", "D#2", "F#2", "A2", "C3", "D#3", "F#3", "A3", "C4", "D#4", "F#4", "A4", "C5", "D#5", "F#5", "A5", "C6"]
+/** What the playback code needs from an instrument: the recorded piano, or the fallback synth. */
+interface Instrument {
+    triggerAttackRelease: (note: string, duration: number, time: number) => void
+}
 
 /** A chord on the piano is struck together; the tiny roll keeps it from sounding like one click. */
 const ROLL_SECONDS = 0.012
@@ -15,25 +14,27 @@ const CHORD_SECONDS = 2.2
 const ARPEGGIO_STEP_SECONDS = 0.3
 const NOTE_SECONDS = 1.2
 
-let samplerPromise: Promise<{Tone: ToneModule; sampler: ToneNamespace.Sampler}> | null = null
+let samplerPromise: Promise<{Tone: ToneModule; sampler: Instrument}> | null = null
 
-/** Tone.js and the samples load on the first play, after a user gesture. */
-function ensureSampler(): Promise<{Tone: ToneModule; sampler: ToneNamespace.Sampler}> {
+/**
+ * Tone.js and the samples load on the first play, after a user gesture. If the recordings can't
+ * be loaded the site still plays, with a soft synth instead of the piano.
+ */
+function ensureSampler(): Promise<{Tone: ToneModule; sampler: Instrument}> {
     samplerPromise ??= (async () => {
         const Tone = await import("tone")
         await Tone.start()
-        const sampler = new Tone.Sampler({
-            urls: Object.fromEntries(SAMPLED_NOTES.map(note => [note, `${note.replace("#", "s")}.mp3`])),
-            baseUrl: SAMPLE_BASE_URL,
-            release: 1,
-        }).connect(new Tone.Volume(-4).toDestination())
-        await Tone.loaded()
-        return {Tone, sampler}
-    })().catch(error => {
-        // Let the next click try again, e.g. after the network comes back.
-        samplerPromise = null
-        throw error
-    })
+        const output = new Tone.Volume(-4).toDestination()
+        try {
+            const sampler = new Tone.Sampler({urls: sampleUrls(PIANO_SAMPLE_NOTES), baseUrl: sampleBaseUrl("piano"), release: 1}).connect(output)
+            await Tone.loaded()
+            return {Tone, sampler}
+        } catch (error) {
+            console.warn("Piano samples failed to load, using the synth instead", error)
+            const synth = new Tone.PolySynth(Tone.Synth, {envelope: {attack: 0.005, decay: 0.8, sustain: 0.2, release: 1}}).connect(output)
+            return {Tone, sampler: synth}
+        }
+    })()
     return samplerPromise
 }
 

@@ -118,5 +118,10 @@
     "title": "Nəsə səhv getdi",
     "description": "Səhifəni yeniləməyə çalış.",
     "reload": "Yenilə"
+  },
+  "credits": {
+    "prefix": "Səslər:",
+    "license": "CC BY 3.0",
+    "details": "gitara — University of Iowa, piano — VSCO 2"
   }
 }

@@ -118,5 +118,10 @@
     "title": "Something went wrong",
     "description": "Try reloading the page.",
     "reload": "Reload"
+  },
+  "credits": {
+    "prefix": "Sounds:",
+    "license": "CC BY 3.0",
+    "details": "guitar — University of Iowa, piano — VSCO 2"
   }
 }

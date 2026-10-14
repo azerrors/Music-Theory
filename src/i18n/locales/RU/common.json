@@ -118,5 +118,10 @@
     "title": "Что-то пошло не так",
     "description": "Попробуйте обновить страницу.",
     "reload": "Обновить"
+  },
+  "credits": {
+    "prefix": "Звуки:",
+    "license": "CC BY 3.0",
+    "details": "гитара — University of Iowa, фортепиано — VSCO 2"
   }
 }
