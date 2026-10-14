@@ -4,21 +4,24 @@ import LanguageDetector from "i18next-browser-languagedetector"
 
 import azCommon from "./locales/AZ/common.json"
 import azGlossary from "./locales/AZ/glossary.json"
+import azPiano from "./locales/AZ/piano.json"
 import azTheory from "./locales/AZ/theory.json"
 import enCommon from "./locales/EN/common.json"
 import enGlossary from "./locales/EN/glossary.json"
+import enPiano from "./locales/EN/piano.json"
 import enTheory from "./locales/EN/theory.json"
 import ruCommon from "./locales/RU/common.json"
 import ruGlossary from "./locales/RU/glossary.json"
+import ruPiano from "./locales/RU/piano.json"
 import ruTheory from "./locales/RU/theory.json"
 
 export const LANGUAGES = ["az", "en", "ru"] as const
 export type Language = (typeof LANGUAGES)[number]
 
 export const resources = {
-    az: {common: azCommon, theory: azTheory, glossary: azGlossary},
-    en: {common: enCommon, theory: enTheory, glossary: enGlossary},
-    ru: {common: ruCommon, theory: ruTheory, glossary: ruGlossary},
+    az: {common: azCommon, theory: azTheory, glossary: azGlossary, piano: azPiano},
+    en: {common: enCommon, theory: enTheory, glossary: enGlossary, piano: enPiano},
+    ru: {common: ruCommon, theory: ruTheory, glossary: ruGlossary, piano: ruPiano},
 } as const
 
 i18n
@@ -30,7 +33,7 @@ i18n
         supportedLngs: LANGUAGES,
         nonExplicitSupportedLngs: true,
         defaultNS: "common",
-        ns: ["common", "theory", "glossary"],
+        ns: ["common", "theory", "glossary", "piano"],
         interpolation: {escapeValue: false},
         detection: {
             // Azerbaijani by default; only an explicit choice in the header switches language.

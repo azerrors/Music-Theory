@@ -14,8 +14,14 @@ import type {ChordCategory, NoteName, Voicing} from "@/types/music"
 import {ChordCard} from "@/widgets/ChordCard"
 import {MOBILITY_FILTERS, MobilityPanel, type MobilityFilter} from "@/widgets/MobilityPanel"
 import {PageHeader} from "@/widgets/PageHeader"
+import {RenderWhenNear} from "@/widgets/RenderWhenNear"
 import {RootNotePicker} from "@/widgets/RootNotePicker"
 import {TermText} from "@/widgets/Term"
+
+/** Rough height of a grid of `count` cards before it is built: two columns of ~300 px cards, a middle ground between phones and wide screens. */
+function gridPlaceholder(count: number): number {
+    return Math.ceil(count / 2) * 300
+}
 
 type ChordFilter = "popular" | "open" | ChordCategory | "slash"
 
@@ -195,7 +201,9 @@ export default function ChordsPage() {
                                 {t(`chordTypes.${group.type}`)}
                                 <span className="ml-2 text-sm font-normal text-stone-500">{group.items.length}</span>
                             </h2>
-                            <ChordGrid entries={group.items}/>
+                            <RenderWhenNear placeholderHeight={gridPlaceholder(group.items.length)}>
+                                <ChordGrid entries={group.items}/>
+                            </RenderWhenNear>
                         </section>
                     ))}
                     {filter === "popular" ? null : filter === "open"
@@ -205,7 +213,9 @@ export default function ChordsPage() {
                                     {t(`chordCategories.${group.category}`)}
                                     <span className="ml-2 text-sm font-normal text-stone-500">{group.items.length}</span>
                                 </h2>
-                                <ChordGrid entries={group.items}/>
+                                <RenderWhenNear placeholderHeight={gridPlaceholder(group.items.length)}>
+                                    <ChordGrid entries={group.items}/>
+                                </RenderWhenNear>
                             </section>
                         ))
                         : <ChordGrid entries={entries}/>}

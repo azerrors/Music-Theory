@@ -1,19 +1,34 @@
 import {rootToSlug} from "@/lib/theory/notes"
 import type {NoteName} from "@/types/music"
 
+/** Entry page: pick an instrument. */
+export const INSTRUMENT_PICKER_PATH = "/"
+
 export const PATHS = {
-    home: "/",
-    chords: "/chords",
-    chordPattern: "/chords/:root/:type",
+    home: "/guitar",
+    chords: "/guitar/chords",
+    chordPattern: "/guitar/chords/:root/:type",
     chord: (root: NoteName, type: string, bass?: NoteName) =>
-        `/chords/${rootToSlug(root)}/${encodeURIComponent(type)}${bass ? `?bass=${rootToSlug(bass)}` : ""}`,
-    scales: "/scales",
-    progressions: "/progressions",
-    song: "/song",
-    builder: "/builder",
-    intervals: "/intervals",
-    circle: "/circle",
-    glossary: "/glossary",
-    fretboard: "/fretboard",
+        `/guitar/chords/${rootToSlug(root)}/${encodeURIComponent(type)}${bass ? `?bass=${rootToSlug(bass)}` : ""}`,
+    scales: "/guitar/scales",
+    progressions: "/guitar/progressions",
+    song: "/guitar/song",
+    builder: "/guitar/builder",
+    intervals: "/guitar/intervals",
+    circle: "/guitar/circle",
+    glossary: "/guitar/glossary",
+    fretboard: "/guitar/fretboard",
     settings: "/settings",
+} as const
+
+export const PIANO_PATHS = {
+    home: "/piano",
+    chords: "/piano/chords",
+    scales: "/piano/scales",
+    builder: "/piano/builder",
+    progressions: "/piano/progressions",
+    intervals: "/piano/intervals",
+    chordPattern: "/piano/chords/:root/:type",
+    chord: (root: NoteName, type: string, bass?: NoteName) =>
+        `/piano/chords/${rootToSlug(root)}/${encodeURIComponent(type)}${bass ? `?bass=${rootToSlug(bass)}` : ""}`,
 } as const

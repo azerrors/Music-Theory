@@ -1,6 +1,23 @@
 {
   "appName": "Fretwise",
-  "tagline": "Gitara nəzəriyyəsi",
+  "taglines": {
+    "shared": "Musiqi nəzəriyyəsi",
+    "guitar": "Gitara nəzəriyyəsi",
+    "piano": "Piano nəzəriyyəsi"
+  },
+  "instrument": {
+    "label": "Alət",
+    "guitar": "Gitara",
+    "piano": "Piano"
+  },
+  "picker": {
+    "title": "Hansı alətdə çalırsan?",
+    "subtitle": "Akorlar, qammalar və nəzəriyyə seçdiyin alətin dilində göstəriləcək. Sonra yuxarıdakı düymə ilə istənilən vaxt dəyişə bilərsən.",
+    "guitar": "Qrifdə akor formaları, qammaların pozisiyaları, proqressiyalar, mahnı analizi və daha çoxu.",
+    "piano": "Klaviaturada akorlar və qammalar: çevirmələr, iki əllə çalınış və barmaq sıraları.",
+    "soon": "Hələlik akorlar və qammalar",
+    "open": "Aç"
+  },
   "nav": {
     "home": "Ana səhifə",
     "chords": "Akorlar",

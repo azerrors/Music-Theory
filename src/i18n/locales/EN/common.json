@@ -1,6 +1,23 @@
 {
   "appName": "Fretwise",
-  "tagline": "Guitar theory",
+  "taglines": {
+    "shared": "Music theory",
+    "guitar": "Guitar theory",
+    "piano": "Piano theory"
+  },
+  "instrument": {
+    "label": "Instrument",
+    "guitar": "Guitar",
+    "piano": "Piano"
+  },
+  "picker": {
+    "title": "Which instrument do you play?",
+    "subtitle": "Chords, scales and theory are shown in your instrument's language. You can switch any time with the toggle at the top.",
+    "guitar": "Chord shapes on the neck, scale positions, progressions, song analysis and more.",
+    "piano": "Chords and scales on the keyboard: inversions, two-hand voicings and fingerings.",
+    "soon": "Chords and scales for now",
+    "open": "Open"
+  },
   "nav": {
     "home": "Home",
     "chords": "Chords",

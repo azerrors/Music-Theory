@@ -4,37 +4,84 @@ import {useTranslation} from "react-i18next"
 import {ChevronDown, Moon, Settings, Sun} from "lucide-react"
 import {buttonVariants, Button} from "@/components/ui/button"
 import {Select} from "@/components/ui/select"
+import {INSTRUMENTS, useInstrument, type Instrument} from "@/hooks/useInstrument"
 import {useTheme} from "@/hooks/useTheme"
 import {LANGUAGES} from "@/i18n"
 import {cn} from "@/lib/utils"
-import {PATHS} from "@/router/paths"
+import {INSTRUMENT_PICKER_PATH, PATHS, PIANO_PATHS} from "@/router/paths"
 import {PageLoader} from "@/widgets/PageLoader"
 
+interface NavItem {
+    to: string
+    key: string
+}
+
 /** Always visible on wide screens. */
-const PRIMARY_NAV = [
+const GUITAR_PRIMARY_NAV: NavItem[] = [
     {to: PATHS.chords, key: "nav.chords"},
     {to: PATHS.builder, key: "nav.builder"},
     {to: PATHS.scales, key: "nav.scales"},
     {to: PATHS.progressions, key: "nav.progressions"},
     {to: PATHS.song, key: "nav.song"},
-] as const
+]
 
 /** Under "More" on wide screens; small screens list everything in one scrollable row. */
-const MORE_NAV = [
+const GUITAR_MORE_NAV: NavItem[] = [
     {to: PATHS.intervals, key: "nav.intervals"},
     {to: PATHS.circle, key: "nav.circle"},
     {to: PATHS.fretboard, key: "nav.fretboard"},
     {to: PATHS.glossary, key: "nav.glossary"},
-] as const
+]
 
-const NAV_ITEMS = [...PRIMARY_NAV, ...MORE_NAV]
+/** The piano section grows tab by tab; chords come first. */
+const PIANO_PRIMARY_NAV: NavItem[] = [
+    {to: PIANO_PATHS.chords, key: "nav.chords"},
+    {to: PIANO_PATHS.builder, key: "nav.builder"},
+    {to: PIANO_PATHS.scales, key: "nav.scales"},
+    {to: PIANO_PATHS.progressions, key: "nav.progressions"},
+    {to: PIANO_PATHS.intervals, key: "nav.intervals"},
+]
 
-function MoreMenu({linkClass}: {linkClass: (state: {isActive: boolean}) => string}) {
+const NAV: Record<Instrument, {primary: NavItem[]; more: NavItem[]}> = {
+    guitar: {primary: GUITAR_PRIMARY_NAV, more: GUITAR_MORE_NAV},
+    piano: {primary: PIANO_PRIMARY_NAV, more: []},
+}
+
+const INSTRUMENT_HOME: Record<Instrument, string> = {
+    guitar: PATHS.home,
+    piano: PIANO_PATHS.home,
+}
+
+function InstrumentSwitch({current, className}: {current: Instrument; className?: string}) {
+    const {t} = useTranslation()
+
+    return (
+        <div role="group" aria-label={t("instrument.label")} className={cn("flex shrink-0 rounded-lg bg-stone-200/60 p-0.5 dark:bg-stone-800", className)}>
+            {INSTRUMENTS.map(instrument => (
+                <Link
+                    key={instrument}
+                    to={INSTRUMENT_HOME[instrument]}
+                    aria-current={instrument === current ? "true" : undefined}
+                    className={cn(
+                        "rounded-md px-2.5 py-1 text-xs font-medium whitespace-nowrap transition-colors pointer-coarse:py-2",
+                        instrument === current
+                            ? "bg-white text-stone-900 shadow-sm dark:bg-stone-950 dark:text-stone-100"
+                            : "text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100",
+                    )}
+                >
+                    {t(`instrument.${instrument}`)}
+                </Link>
+            ))}
+        </div>
+    )
+}
+
+function MoreMenu({items, linkClass}: {items: NavItem[]; linkClass: (state: {isActive: boolean}) => string}) {
     const {t} = useTranslation()
     const {pathname} = useLocation()
     const [open, setOpen] = useState(false)
     const ref = useRef<HTMLDivElement>(null)
-    const isActive = MORE_NAV.some(item => pathname.startsWith(item.to))
+    const isActive = items.some(item => pathname.startsWith(item.to))
 
     // Close on outside clicks and Escape; picking a link closes it too.
     useEffect(() => {
@@ -66,7 +113,7 @@ function MoreMenu({linkClass}: {linkClass: (state: {isActive: boolean}) => strin
             </button>
             {open && (
                 <div className="absolute top-full left-0 z-30 mt-1 flex w-52 flex-col gap-0.5 rounded-xl border border-stone-200 bg-white p-1.5 shadow-lg dark:border-stone-800 dark:bg-stone-900">
-                    {MORE_NAV.map(item => (
+                    {items.map(item => (
                         <NavLink key={item.to} to={item.to} className={linkClass} onClick={() => setOpen(false)}>{t(item.key)}</NavLink>
                     ))}
                 </div>
@@ -91,6 +138,12 @@ function Logo() {
 export function MainLayout() {
     const {t, i18n} = useTranslation()
     const {theme, toggleTheme} = useTheme()
+    const {pathname} = useLocation()
+    const instrument = useInstrument()
+    // The picker is the one page that belongs to neither instrument, so it has no section nav.
+    const isPicker = pathname === INSTRUMENT_PICKER_PATH
+    const nav = NAV[instrument]
+    const tagline = isPicker ? t("taglines.shared") : t(`taglines.${instrument}`)
 
     const navLinkClass = ({isActive}: {isActive: boolean}) => cn(
         "rounded-lg px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-colors pointer-coarse:py-2.5",
@@ -103,22 +156,25 @@ export function MainLayout() {
         <div className="flex min-h-screen flex-col">
             <header className="sticky top-0 z-20 border-b border-stone-200 bg-stone-50 dark:border-stone-800 dark:bg-stone-950">
                 <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 sm:px-6">
-                    <Link to={PATHS.home} className="flex items-center gap-2.5 rounded-lg">
+                    <Link to={INSTRUMENT_PICKER_PATH} className="flex items-center gap-2.5 rounded-lg">
                         <Logo/>
                         <span className="leading-tight">
                             <span className="block font-bold tracking-tight">{t("appName")}</span>
-                            <span className="block text-xs text-stone-500">{t("tagline")}</span>
+                            <span className="block text-xs text-stone-500">{tagline}</span>
                         </span>
                     </Link>
 
-                    <nav className="ml-4 hidden items-center gap-1 lg:flex">
-                        {PRIMARY_NAV.map(item => (
-                            <NavLink key={item.to} to={item.to} className={navLinkClass}>{t(item.key)}</NavLink>
-                        ))}
-                        <MoreMenu linkClass={navLinkClass}/>
-                    </nav>
+                    {!isPicker && (
+                        <nav className="ml-4 hidden items-center gap-1 lg:flex">
+                            {nav.primary.map(item => (
+                                <NavLink key={item.to} to={item.to} className={navLinkClass}>{t(item.key)}</NavLink>
+                            ))}
+                            {nav.more.length > 0 && <MoreMenu items={nav.more} linkClass={navLinkClass}/>}
+                        </nav>
+                    )}
 
                     <div className="ml-auto flex items-center gap-1.5">
+                        {!isPicker && <InstrumentSwitch current={instrument} className="hidden sm:flex"/>}
                         <Select
                             aria-label={t("actions.language")}
                             value={i18n.resolvedLanguage}
@@ -142,12 +198,15 @@ export function MainLayout() {
                     </div>
                 </div>
 
-                {/* Small screens: the nav moves to a scrollable row under the header. */}
-                <nav className="flex gap-1 overflow-x-auto px-4 pb-3 lg:hidden">
-                    {NAV_ITEMS.map(item => (
-                        <NavLink key={item.to} to={item.to} className={navLinkClass}>{t(item.key)}</NavLink>
-                    ))}
-                </nav>
+                {/* Small screens: the nav moves to a scrollable row under the header, led by the instrument switch on phones. */}
+                {!isPicker && (
+                    <nav className="flex items-center gap-1 overflow-x-auto px-4 pb-3 lg:hidden">
+                        <InstrumentSwitch current={instrument} className="mr-2 sm:hidden"/>
+                        {[...nav.primary, ...nav.more].map(item => (
+                            <NavLink key={item.to} to={item.to} className={navLinkClass}>{t(item.key)}</NavLink>
+                        ))}
+                    </nav>
+                )}
             </header>
 
             <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
@@ -157,7 +216,7 @@ export function MainLayout() {
             </main>
 
             <footer className="border-t border-stone-200 py-6 text-center text-xs text-stone-500 dark:border-stone-800">
-                {t("appName")} · {t("tagline")}
+                {t("appName")} · {tagline}
             </footer>
         </div>
     )

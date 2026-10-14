@@ -1,0 +1,117 @@
+{
+  "categoryDescriptions": {
+    "popular": "Mahnılarda ən çox işlənən ~200 akor: 17 növ × 12 kök. Hər kartda akorun [[root|kök]] vəziyyəti var: kökdən başlayıb notları bir-birinin üstünə düzürsən. Akora klikləsən, bütün [[inversion|çevirmələrini]] və iki əllə çalınışını görəcəksən.",
+    "triad": "Üç notdan ibarət əsas akorlar, yəni [[triad|triadalar]]. Klaviaturada bir düymə atlayaraq basılır: ağ düymələrdə C – E – G. [[major|Major]] (1–3–5) işıqlı, [[minor|minor]] (1–♭3–5) kədərli səslənir.",
+    "sus": "[[third|Tersiya]] əvəzinə 2-ci (sus2) və ya 4-cü (sus4) [[degree|pillə]] basılır. Akor nə major, nə minor olur, ona görə havada qalmış kimi səslənir.",
+    "sixth": "[[triad|Triadaya]] 6-cı və ya 9-cu pillə əlavə olunur, amma 7-ci pillə olmur.",
+    "seventh": "Triadanın üstünə 7-ci pillə, yəni [[seventh|septima]] gəlir. Dörd not bir əlin içinə rahat sığır. Caz, blues və soul-un əsas rəngidir.",
+    "extended": "[[seventhChord|Septakkordun]] üstünə 9, 11 və 13-cü pillələr gəlir. Bütün notlar bir ələ sığmır, ona görə pianoçular kökü (və 7-ci pilləni) sol ələ verir, 5-ci pilləni isə çox vaxt buraxır.",
+    "power": "Yalnız [[root|kök]] və [[fifth|kvinta]] (1–5). Pianoda bu, sol əldə boş, güclü bas səsi üçün işlənir.",
+    "slash": "[[slashChord|Slash akorda]] (C/E) sol əl xəttdən sonrakı notu basda çalır, sağ əl isə akoru. Bu, bas xəttini hamar edir: C – G/B – Am kimi."
+  },
+  "voicings": "Klaviaturada çalınış formaları",
+  "voicingsHint": "Düyməyə klikləsən, o not səslənəcək.",
+  "kinds": {
+    "close0": "Kök vəziyyəti",
+    "close1": "1-ci çevirmə",
+    "close2": "2-ci çevirmə",
+    "close3": "3-cü çevirmə",
+    "twoHands": "İki əllə",
+    "slash": "Bas sol əldə"
+  },
+  "kindHints": {
+    "close0": "Ən aşağıda kök. Akoru öyrənməyə buradan başla.",
+    "close1": "Ən aşağı not yuxarı oktavaya keçir, basda [[third|tersiya]] qalır.",
+    "close2": "Basda [[fifth|kvinta]]. Əl az yer dəyişir, akorlar arasında keçid hamar olur.",
+    "close3": "Basda [[seventh|septima]]. Ancaq dörd notlu akorlarda olur.",
+    "twoHands": "Sol əl kökü basda verir, sağ əl qalan notları. Pianoçuların ən çox işlətdiyi forma budur.",
+    "slash": "Sol əl bas notunu, sağ əl akoru kök vəziyyətində çalır."
+  },
+  "legend": {
+    "root": "Kök",
+    "right": "Sağ əl",
+    "left": "Sol əl"
+  },
+  "arpeggio": "Bir-bir çal",
+  "slashVersions": "Slash variantları",
+  "slashVersionsHint": "Eyni akor, amma basda başqa akor notu. Sol əl bas xəttini addım-addım aparır.",
+  "scales": {
+    "description": "Qammanı klaviaturada gör, eşit və barmaq sırası ilə öyrən. Major, natural minor və harmonik minor üçün hər iki əlin standart barmaq sırası var.",
+    "labels": {
+      "notes": "Notlar",
+      "degrees": "Pillələr"
+    },
+    "labelsTitle": "Düymələrdə göstər",
+    "fingering": "Barmaq sırası",
+    "fingerNames": "1 – baş barmaq, 2 – şəhadət, 3 – orta, 4 – adsız, 5 – çeçələ.",
+    "fingeringHint": "Yuxarı gedəndə sağ əlin baş barmağı altdan keçir, sol əldə isə 3-cü və ya 4-cü barmaq baş barmağın üstündən aşır. Bu yerlər rənglə işarələnib. Aşağı enəndə eyni barmaqları tərsinə işlət.",
+    "moreOctaves": "İki oktava çalanda sağ əl yuxarı notda 5 əvəzinə 1 basıb davam edir, sol əl isə aşağı notda 5 əvəzinə 1.",
+    "noFingering": "Bu qamma üçün standart barmaq sırası yoxdur. Barmaq sırasını görmək üçün major, natural minor və ya harmonik minor seç.",
+    "hands": {
+      "right": "Sağ əl",
+      "left": "Sol əl"
+    },
+    "playHand": {
+      "right": "Sağ əllə çal",
+      "left": "Sol əllə çal"
+    },
+    "table": {
+      "note": "Not",
+      "crossing": "keçid"
+    },
+    "onKeys": "Klaviaturada"
+  },
+  "builder": {
+    "description": "Akoru özün qur: [[root|kökü]] seç, sonra pillələri bir-bir əlavə et və ya dəyiş. Hər addımda akorun adı, notları, səsi və klaviaturadakı yeri dərhal yenilənir.",
+    "onKeys": "Tersiyalar klaviaturada",
+    "howToPlay": "Pianoda necə çalınır",
+    "howToPlayHint": "Böyük akorlar bir ələ sığmır: sol əl kökü basda verir, sağ əl qalan notları yaxın tutur.",
+    "withFifth": "Bu formada kvinta da var.",
+    "openChord": "Bütün çevirmələr və formalar",
+    "noCatalog": "Bu birləşmənin kataloqda adı yoxdur. Notlarını yuxarıdakı klaviaturada görə və eşidə bilərsən.",
+    "hints": {
+      "fifth": {
+        "none": "Kvintanı çıxardın. Pianoçular da böyük akorlarda bunu tez-tez edir: kvinta akorun adını dəyişmir, sadəcə dolğunluq verir, buraxanda isə əldə yer açılır."
+      }
+    },
+    "tours": {
+      "colours": {
+        "steps": {
+          "4": "6 əvəzinə 9-cu pillə, septimasız: {{name}}. Pop və ballada pianosunda çox sevilir."
+        }
+      }
+    }
+  },
+  "progressions": {
+    "voicingStyle": "Sağ əl necə çalsın",
+    "styles": {
+      "smooth": "Hamar keçid",
+      "root": "Hamısı kök vəziyyətində"
+    },
+    "styleHints": {
+      "smooth": "Sağ əl hər akorda əvvəlkinə ən yaxın [[inversion|çevirməni]] seçir: ortaq notlar yerində qalır, qalanları ən yaxın düyməyə keçir. Pianoçular belə çalır. Sol əl basda kökü verir.",
+      "root": "Hər akor kök vəziyyətindədir, ona görə əl hər dəfə yerini dəyişir. İki rejimi növbə ilə dinlə və fərqi eşit."
+    },
+    "onKeys": "Klaviaturada",
+    "bass": "bas",
+    "first": "Başlanğıc akor, kök vəziyyətində.",
+    "held_one": "Əvvəlki akordan {{count}} not yerində qalır: {{notes}}.",
+    "held_other": "Əvvəlki akordan {{count}} not yerində qalır: {{notes}}.",
+    "noneHeld": "Ortaq not yoxdur, əl tam yeni yerə keçir.",
+    "soloHint": "Sağ əllə improvizasiya üçün notlar: arxa fonda [[scale|qamma]] ({{scale}}), üstdə seçilmiş akorun öz notları. Sol əl akoru saxlayarkən sağ əl akorun notlarında dayansa, ən təhlükəsiz səslənər."
+  },
+  "fingers": {
+    "legend": "Düymələrin altındakı rəqəmlər barmaq nömrələridir: 1 – baş barmaq, 2 – şəhadət, 3 – orta, 4 – adsız, 5 – çeçələ. Qara rəqəm sağ əl, mavi rəqəm sol əldir.",
+    "tooWide": "Bu forma bir ələ sığmır, ona görə barmaq nömrəsi yoxdur. Pianoda iki əllə çalınır, «İki əllə» formasına bax.",
+    "towerTooWide": "Bu qüllə bir ələ sığmır. Pianoda necə çalındığını yandakı kartda gör.",
+    "tile": "Barmaqlar"
+  },
+  "intervals": {
+    "description": "Klaviaturada istənilən düyməyə klikləsən, ondan yuxarı hər [[interval|intervalın]] harada olduğu rənglə göstəriləcək. Pianoda interval sadəcə düymələrin sayıdır: qonşu iki düymə, ağ və ya qara olsun, bir yarımtondur.",
+    "clickHint": "Başqa düyməyə klikləsən, o, yeni istinad notu olacaq.",
+    "noteColumn": "Not və barmaqlar",
+    "letters": "{{letters}} → {{count}} hərf",
+    "fingers": "sağ əl {{right}}, sol əl {{left}}",
+    "lettersHint": "İntervalın nömrəsi not hərflərinin sayıdır: C-dən E-yə C, D, E, yəni üç hərf, tersiya. Yarımtonlar isə onun böyük, kiçik və ya təmiz olduğunu deyir. Ona görə C–E♭ də tersiyadır, sadəcə kiçik tersiya. Barmaqlar iki notu birlikdə basmaq üçündür."
+  }
+}
