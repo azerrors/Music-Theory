@@ -569,5 +569,19 @@
     "type": "Akor növü",
     "shapes": "qrifdə {{count}} forma"
   },
-  "atFret": "{{fret}}. laddan"
+  "atFret": "{{fret}}. laddan",
+  "usage": {
+    "title": "Proqressiyalarda",
+    "hint": "Bu akor hansı [[key|tonallıqlarda]] var, orada hansı pillədir ([[romanNumerals|rum rəqəmi]]) və ondan əvvəl, sonra adətən hansı akorlar gəlir. Tonallığı seç.",
+    "keys": "Tonallıqlar",
+    "inKey": "{{key}} tonallığında {{chord}} = {{roman}}.",
+    "harmonic": "Bu akor [[harmonicMinor|harmonik minorun]] yüksəldilmiş 7-ci pilləsindən gəlir.",
+    "before": "Əvvəl gələ bilər",
+    "after": "Sonra gələ bilər",
+    "none": "Adətən başqa akordan sonra gəlmir, proqressiya ilə başlayır.",
+    "presets": "Hazır proqressiyalarda",
+    "noPresets": "Hazır proqressiyalarda bu tonallıqda işlənmir, amma yuxarıdakı akorlarla öz gedişini qura bilərsən.",
+    "open": "Aç",
+    "noKeys": "Bu akor heç bir major və ya minor qammaya tam sığmır, ona görə tonallıqdan kənar rəng kimi işlənir."
+  }
 }

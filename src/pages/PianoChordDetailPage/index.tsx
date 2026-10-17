@@ -13,6 +13,7 @@ import {chroma, formatNote, mod12, rootToSlug, slugToRoot} from "@/lib/theory/no
 import {inversionOf, SLASH_CHORD_TYPES} from "@/lib/theory/slash"
 import {PIANO_PATHS} from "@/router/paths"
 import NotFoundPage from "@/pages/NotFoundPage"
+import {ChordUsage} from "@/widgets/ChordUsage"
 import {PageHeader} from "@/widgets/PageHeader"
 import {PianoChordCard} from "@/widgets/PianoChordCard"
 import {PianoChordKeys} from "@/widgets/PianoChordKeys"
@@ -150,6 +151,8 @@ export default function PianoChordDetailPage() {
                     })}
                 </div>
             </section>
+
+            <ChordUsage key={`${chord.root}-${chord.type.symbol}`} root={chord.root} type={chord.type.symbol} chordPath={PIANO_PATHS.chord} progressionsPath={PIANO_PATHS.progressions}/>
 
             {slashVersions.length > 0 && (
                 <section className="space-y-4">

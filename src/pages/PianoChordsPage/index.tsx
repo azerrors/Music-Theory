@@ -10,6 +10,7 @@ import {rootToSlug, slugToRoot} from "@/lib/theory/notes"
 import {SLASH_CHORD_TYPES} from "@/lib/theory/slash"
 import type {ChordCategory, NoteName} from "@/types/music"
 import {PageHeader} from "@/widgets/PageHeader"
+import {matchesNote, NoteFilter, noteFilterParam, parseNoteFilter, type NoteFilterValue} from "@/widgets/NoteFilter"
 import {RenderWhenNear} from "@/widgets/RenderWhenNear"
 import {PianoChordCard} from "@/widgets/PianoChordCard"
 import {RootNotePicker} from "@/widgets/RootNotePicker"
@@ -84,7 +85,11 @@ export default function PianoChordsPage() {
         () => (filter === "popular" ? popularEntries() : filter === "slash" ? slashEntries(root) : categoryEntries(root, filter)),
         [filter, root],
     )
-    const entries = allEntries.filter(entry => filter !== "popular" || popularType === "all" || entry.chord.type.symbol === popularType)
+    // The popular tab mixes every root, so it gets an "All + 12 notes" filter instead of the root picker.
+    const note = filter === "popular" ? parseNoteFilter(params.get("note")) : "all"
+    const entries = allEntries
+        .filter(entry => matchesNote(entry.chord.root, note))
+        .filter(entry => filter !== "popular" || popularType === "all" || entry.chord.type.symbol === popularType)
     // Popular tab: one section per chord type, in order of how common the type is.
     const popularGroups = filter === "popular"
         ? POPULAR_TYPES
@@ -95,8 +100,13 @@ export default function PianoChordsPage() {
     const popularTypeLabel = (value: PopularTypeFilter) =>
         value === "all" ? t("mobility.filters.all") : value === "M" || value === "m" ? t(`chordTypes.${value}`) : (findChordType(value)?.suffix ?? value)
 
-    const updateParams = (patch: {root?: NoteName; filter?: ChordFilter; type?: PopularTypeFilter}) => {
+    const updateParams = (patch: {root?: NoteName; filter?: ChordFilter; type?: PopularTypeFilter; note?: NoteFilterValue}) => {
         const next = new URLSearchParams(params)
+        if (patch.note) {
+            const value = noteFilterParam(patch.note)
+            if (value) next.set("note", value)
+            else next.delete("note")
+        }
         if (patch.type) {
             if (patch.type === "all") next.delete("type")
             else next.set("type", patch.type)
@@ -128,6 +138,7 @@ export default function PianoChordsPage() {
                         />
                     </div>
                 )}
+                {filter === "popular" && <NoteFilter value={note} onChange={value => updateParams({note: value})}/>}
                 {filter !== "popular" && <RootNotePicker value={root} onChange={value => updateParams({root: value})}/>}
             </div>
 
@@ -136,7 +147,8 @@ export default function PianoChordsPage() {
                     <p>{t("chordCount", {count: entries.length})}</p>
                     <p>{tPiano("fingers.legend")}</p>
                 </div>
-                {filter === "popular"
+                {/* With one note picked the list is short, so it shows as one grid instead of a section per type. */}
+                {filter === "popular" && note === "all"
                     ? popularGroups.map(group => (
                         <section key={group.type} className="space-y-4">
                             <h2 className="text-lg font-semibold tracking-tight">

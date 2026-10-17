@@ -14,6 +14,7 @@ import {PATHS} from "@/router/paths"
 import NotFoundPage from "@/pages/NotFoundPage"
 import {ChordCard} from "@/widgets/ChordCard"
 import {ChordDiagram} from "@/widgets/ChordDiagram"
+import {ChordUsage} from "@/widgets/ChordUsage"
 import {Fretboard} from "@/widgets/Fretboard"
 import {MobilityBadge} from "@/widgets/MobilityBadge"
 import {MobilityPanel} from "@/widgets/MobilityPanel"
@@ -154,6 +155,8 @@ export default function ChordDetailPage() {
                     </div>
                 </section>
             )}
+
+            <ChordUsage key={`${chord.root}-${chord.type.symbol}`} root={chord.root} type={chord.type.symbol} chordPath={PATHS.chord} progressionsPath={PATHS.progressions}/>
 
             <section className="space-y-4">
                 <h2 className="text-xl font-semibold tracking-tight">{t("onFretboard")}</h2>

@@ -14,6 +14,7 @@ import type {ChordCategory, NoteName, Voicing} from "@/types/music"
 import {ChordCard} from "@/widgets/ChordCard"
 import {MOBILITY_FILTERS, MobilityPanel, type MobilityFilter} from "@/widgets/MobilityPanel"
 import {PageHeader} from "@/widgets/PageHeader"
+import {matchesNote, NoteFilter, noteFilterParam, parseNoteFilter, type NoteFilterValue} from "@/widgets/NoteFilter"
 import {RenderWhenNear} from "@/widgets/RenderWhenNear"
 import {RootNotePicker} from "@/widgets/RootNotePicker"
 import {TermText} from "@/widgets/Term"
@@ -125,18 +126,24 @@ export default function ChordsPage() {
                 : filter === "slash" ? slashEntries(root) : categoryEntries(root, filter)),
         [filter, root],
     )
+    // Popular and open tabs mix every root, so they get an "All + 12 notes" filter instead of the root picker.
+    const hasNoteFilter = filter === "popular" || filter === "open"
+    const note = hasNoteFilter ? parseNoteFilter(params.get("note")) : "all"
     const typeParam = params.get("type") as PopularTypeFilter | null
     const popularType: PopularTypeFilter = typeParam && POPULAR_TYPE_FILTERS.includes(typeParam) ? typeParam : "all"
-    const entries = allEntries
+    const noteEntries = allEntries.filter(entry => matchesNote(entry.chord.root, note))
+    const entries = noteEntries
         .filter(entry => matchesMobility(entry, mobility))
         .filter(entry => filter !== "popular" || popularType === "all" || entry.chord.type.symbol === popularType)
+    // With one note picked the list is short, so it shows as one grid instead of a section per type.
+    const isGrouped = hasNoteFilter && note === "all"
     // Popular tab: one section per chord type, in order of how common the type is.
     const popularGroups = filter === "popular"
         ? POPULAR_TYPES
             .map(type => ({type, items: entries.filter(entry => entry.chord.type.symbol === type)}))
             .filter(group => group.items.length > 0)
         : []
-    const movableCount = allEntries.filter(entry => matchesMobility(entry, "movable")).length
+    const movableCount = noteEntries.filter(entry => matchesMobility(entry, "movable")).length
 
     // The open tab is long, so it is split into the same groups as the other tabs.
     const groupOf = (entry: ChordEntry): OpenGroup => (entry.chord.bass ? "slash" : findChordType(entry.chord.type.symbol)?.category ?? "triad")
@@ -149,8 +156,13 @@ export default function ChordsPage() {
     const popularTypeLabel = (value: PopularTypeFilter) =>
         value === "all" ? t("mobility.filters.all") : value === "M" || value === "m" ? t(`chordTypes.${value}`) : (findChordType(value)?.suffix ?? value)
 
-    const updateParams = (patch: {root?: NoteName; filter?: ChordFilter; mobility?: MobilityFilter; type?: PopularTypeFilter}) => {
+    const updateParams = (patch: {root?: NoteName; filter?: ChordFilter; mobility?: MobilityFilter; type?: PopularTypeFilter; note?: NoteFilterValue}) => {
         const next = new URLSearchParams(params)
+        if (patch.note) {
+            const value = noteFilterParam(patch.note)
+            if (value) next.set("note", value)
+            else next.delete("note")
+        }
         if (patch.type) {
             if (patch.type === "all") next.delete("type")
             else next.set("type", patch.type)
@@ -186,7 +198,8 @@ export default function ChordsPage() {
                         />
                     </div>
                 )}
-                {filter !== "open" && filter !== "popular" && <RootNotePicker value={root} onChange={value => updateParams({root: value})}/>}
+                {hasNoteFilter && <NoteFilter value={note} onChange={value => updateParams({note: value})}/>}
+                {!hasNoteFilter && <RootNotePicker value={root} onChange={value => updateParams({root: value})}/>}
             </div>
 
             <div className="grid items-start gap-8 lg:grid-cols-[1fr_18rem]">
@@ -195,7 +208,7 @@ export default function ChordsPage() {
 
                     {entries.length === 0 && <p className="text-sm text-stone-500">{t("mobility.empty")}</p>}
 
-                    {filter === "popular" && popularGroups.map(group => (
+                    {isGrouped && filter === "popular" && popularGroups.map(group => (
                         <section key={group.type} className="space-y-4">
                             <h2 className="text-lg font-semibold tracking-tight">
                                 {t(`chordTypes.${group.type}`)}
@@ -206,8 +219,7 @@ export default function ChordsPage() {
                             </RenderWhenNear>
                         </section>
                     ))}
-                    {filter === "popular" ? null : filter === "open"
-                        ? openGroups.map(group => (
+                    {!isGrouped ? <ChordGrid entries={entries}/> : filter === "open" && openGroups.map(group => (
                             <section key={group.category} className="space-y-4">
                                 <h2 className="text-lg font-semibold tracking-tight">
                                     {t(`chordCategories.${group.category}`)}
@@ -217,14 +229,13 @@ export default function ChordsPage() {
                                     <ChordGrid entries={group.items}/>
                                 </RenderWhenNear>
                             </section>
-                        ))
-                        : <ChordGrid entries={entries}/>}
+                        ))}
                 </div>
 
                 <aside className="order-first lg:order-last">
                     <MobilityPanel
                         movableCount={movableCount}
-                        fixedCount={allEntries.length - movableCount}
+                        fixedCount={noteEntries.length - movableCount}
                         filter={mobility}
                         onFilterChange={value => updateParams({mobility: value})}
                     />

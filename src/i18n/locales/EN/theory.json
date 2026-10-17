@@ -576,5 +576,19 @@
     "shapes_one": "{{count}} shape on the neck",
     "shapes_other": "{{count}} shapes on the neck"
   },
-  "atFret": "from fret {{fret}}"
+  "atFret": "from fret {{fret}}",
+  "usage": {
+    "title": "In progressions",
+    "hint": "Which [[key|keys]] this chord belongs to, which degree it is there ([[romanNumerals|Roman numeral]]) and which chords usually come before and after it. Pick a key.",
+    "keys": "Keys",
+    "inKey": "In {{key}}, {{chord}} = {{roman}}.",
+    "harmonic": "This chord comes from the raised 7th of [[harmonicMinor|harmonic minor]].",
+    "before": "Can come before",
+    "after": "Can come after",
+    "none": "It rarely follows another chord; progressions usually start on it.",
+    "presets": "In ready-made progressions",
+    "noPresets": "None of the ready-made progressions use it in this key, but you can build your own from the chords above.",
+    "open": "Open",
+    "noKeys": "This chord doesn't fit any major or minor scale, so it is used as a colour from outside the key."
+  }
 }
