@@ -30,18 +30,18 @@ export default function GlossaryPage() {
             <PageHeader title={t("title")} description={t("description")}/>
 
             <label className="relative block max-w-md">
-                <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-stone-400"/>
+                <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-base-400"/>
                 <input
                     type="search"
                     value={query}
                     onChange={event => setQuery(event.target.value)}
                     placeholder={t("search")}
                     aria-label={t("search")}
-                    className="h-10 w-full rounded-lg border border-stone-300 bg-white pr-3 pl-9 text-sm hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900"
+                    className="h-10 w-full rounded-lg border border-base-300 bg-white pr-3 pl-9 text-sm hover:border-base-400 dark:border-base-700 dark:bg-base-900"
                 />
             </label>
 
-            {matches.length === 0 && <p className="text-sm text-stone-500">{t("searchEmpty")}</p>}
+            {matches.length === 0 && <p className="text-sm text-base-500">{t("searchEmpty")}</p>}
 
             {GLOSSARY_GROUPS.map(group => {
                 const terms = matches.filter(term => term.group === group)
@@ -57,7 +57,7 @@ export default function GlossaryPage() {
                                     className={cn("scroll-mt-24 space-y-2 p-4", term.id === highlighted && "border-brand-500 ring-2 ring-brand-500/30")}
                                 >
                                     <h3 className="font-semibold">{t(`terms.${term.id}.title`)}</h3>
-                                    <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-400">{t(`terms.${term.id}.body`)}</p>
+                                    <p className="text-sm leading-relaxed text-base-600 dark:text-base-400">{t(`terms.${term.id}.body`)}</p>
                                     {(term.example || term.link) && (
                                         <div className="flex flex-wrap items-center gap-3 pt-1">
                                             {term.example && <ExampleButton example={term.example}/>}

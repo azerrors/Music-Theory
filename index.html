@@ -13,6 +13,10 @@
             if (stored === 'dark' || (!stored && prefersDark)) {
                 document.documentElement.classList.add('dark');
             }
+            try {
+                var accent = JSON.parse(localStorage.getItem('settings') || '{}').accent;
+                if (accent) document.documentElement.dataset.accent = accent;
+            } catch (e) {}
         })();
     </script>
 </head>

@@ -8,15 +8,16 @@
   "instrument": {
     "label": "Instrument",
     "guitar": "Guitar",
-    "piano": "Piano"
+    "piano": "Piano",
+    "switchTo": "Switch to {{instrument}}"
   },
   "picker": {
     "title": "Which instrument do you play?",
-    "subtitle": "Chords, scales and theory are shown in your instrument's language. You can switch any time with the toggle at the top.",
+    "subtitle": "Chords, scales and theory are shown for the instrument you pick. You can switch any time.",
     "guitar": "Chord shapes on the neck, scale positions, progressions, song analysis and more.",
     "piano": "Chords and scales on the keyboard: inversions, two-hand voicings and fingerings.",
-    "soon": "Chords and scales for now",
-    "open": "Open"
+    "open": "Get started",
+    "listen": "Listen"
   },
   "nav": {
     "home": "Home",
@@ -30,7 +31,13 @@
     "builder": "Chord builder",
     "intervals": "Intervals",
     "circle": "Circle of fifths",
-    "more": "More"
+    "more": "More",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar",
+    "practice": "Practice",
+    "practiceEar": "Note by ear",
+    "practiceFind": "Find the note",
+    "practiceCircle": "Circle drill"
   },
   "actions": {
     "play": "Play",
@@ -39,7 +46,9 @@
     "back": "Back",
     "toggleTheme": "Toggle theme",
     "language": "Language",
-    "openMenu": "Open menu"
+    "openMenu": "Open menu",
+    "close": "Close",
+    "openSettings": "Open settings"
   },
   "home": {
     "title": "Don't memorise chords — understand how they're built",
@@ -97,6 +106,24 @@
     "labels": "Show on fretboard",
     "labelNote": "Notes",
     "labelDegree": "Degrees (1, ♭3, 5)",
+    "accent": "Accent colour",
+    "accentHint": "Colour of buttons, root notes and selected items.",
+    "accents": {
+      "ice": "Ice",
+      "teal": "Sea teal",
+      "sage": "Sage",
+      "jade": "Jade",
+      "emerald": "Emerald",
+      "olive": "Olive",
+      "sky": "Sky",
+      "blue": "Blue",
+      "azure": "Azure",
+      "indigo": "Indigo",
+      "orchid": "Orchid",
+      "rose": "Rose",
+      "coral": "Coral",
+      "amber": "Amber"
+    },
     "leftHanded": "Left-handed",
     "leftHandedHint": "Mirrors the fretboard and chord diagrams.",
     "tuning": "Tuning",
@@ -107,7 +134,15 @@
       "halfStepDown": "Half step down (E♭)",
       "dadgad": "DADGAD",
       "openG": "Open G (D G D G B D)"
-    }
+    },
+    "appearance": "Appearance",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeLightName": "Mist",
+    "themeDarkName": "Graphite",
+    "notesSection": "Notes",
+    "guitarSection": "Guitar"
   },
   "notFound": {
     "title": "Page not found",
@@ -123,5 +158,74 @@
     "prefix": "Sounds:",
     "license": "CC BY 3.0",
     "details": "guitar — University of Iowa, piano — VSCO 2"
+  },
+  "breadcrumb": {
+    "label": "Breadcrumb"
+  },
+  "practice": {
+    "start": "Start",
+    "next": "Next",
+    "again": "Start again",
+    "replay": "Play again",
+    "hearChoice": "Hear my choice",
+    "hearAnswer": "Hear the answer",
+    "question": "Question {{current}} of {{total}}",
+    "streak": "Streak: {{count}}",
+    "best": "Best: {{score}}/{{total}}",
+    "correct": "Correct",
+    "wrong": "Not quite",
+    "correctAnswer": "Answer: {{answer}}",
+    "yourAnswer": "Your choice: {{answer}}",
+    "finishedTitle": "Session done",
+    "finishedScore": "{{score}} of {{total}} right",
+    "newBest": "New best",
+    "weakest": "You miss these most",
+    "noWeakest": "No weak spots yet. Keep going.",
+    "level": "Level",
+    "mode": "Mode",
+    "keys": "Enter: next, R: play again",
+    "ear": {
+      "title": "Note by ear",
+      "description": "The lit note plays first, then a second one. Find the second note by ear and press it on the instrument. Each question starts somewhere new on the neck or keys.",
+      "prompt": "Which note came after the lit one?",
+      "startHint": "Browsers only start sound after a click: press the button to begin.",
+      "levels": {
+        "natural": "Natural notes (7)",
+        "all": "All notes (12)"
+      },
+      "match": "Answer",
+      "matches": {
+        "note": "Any octave",
+        "pitch": "Exact pitch"
+      }
+    },
+    "find": {
+      "title": "Find the note",
+      "description": "Find the note on the instrument, or name the spot that is lit.",
+      "modes": {
+        "tap": "Find",
+        "name": "Name"
+      },
+      "promptTapGuitar": "Find {{note}} on the neck",
+      "promptTapPiano": "Find {{note}} on the keyboard",
+      "promptName": "Which note is the lit spot?",
+      "startHint": "Each answer plays its note."
+    },
+    "circle": {
+      "title": "Circle of fifths drill",
+      "description": "Count steps round the circle, find keys by their signature and their relatives. Answer on the circle.",
+      "levels": {
+        "labels": "Names shown",
+        "hidden": "Names hidden"
+      },
+      "stepsClockwise": "{{steps}} steps clockwise from {{from}}",
+      "stepsCounter": "{{steps}} steps counter-clockwise from {{from}}",
+      "signatureSharp": "Which major key has {{count}} sharps (♯)?",
+      "signatureFlat": "Which major key has {{count}} flats (♭)?",
+      "signatureNone": "Which major key has no sharps or flats?",
+      "relativeToMinor": "What is the relative minor of {{from}} major?",
+      "relativeToMajor": "What is the relative major of {{from}} minor?",
+      "startHint": "Each question can be a different kind."
+    }
   }
 }

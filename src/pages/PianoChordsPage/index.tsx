@@ -129,7 +129,7 @@ export default function PianoChordsPage() {
                 />
                 {filter === "popular" && (
                     <div className="space-y-2">
-                        <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase">{t("popular.type")}</p>
+                        <p className="text-xs font-semibold tracking-wide text-base-500 uppercase">{t("popular.type")}</p>
                         <Segmented
                             label={t("popular.type")}
                             value={popularType}
@@ -143,7 +143,7 @@ export default function PianoChordsPage() {
             </div>
 
             <div className="space-y-8">
-                <div className="space-y-1 text-sm text-stone-500">
+                <div className="space-y-1 text-sm text-base-500">
                     <p>{t("chordCount", {count: entries.length})}</p>
                     <p>{tPiano("fingers.legend")}</p>
                 </div>
@@ -153,7 +153,7 @@ export default function PianoChordsPage() {
                         <section key={group.type} className="space-y-4">
                             <h2 className="text-lg font-semibold tracking-tight">
                                 {t(`chordTypes.${group.type}`)}
-                                <span className="ml-2 text-sm font-normal text-stone-500">{group.items.length}</span>
+                                <span className="ml-2 text-sm font-normal text-base-500">{group.items.length}</span>
                             </h2>
                             <RenderWhenNear placeholderHeight={gridPlaceholder(group.items.length)}>
                                 <ChordGrid entries={group.items}/>

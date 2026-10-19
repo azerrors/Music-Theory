@@ -29,8 +29,8 @@ export function Segmented<T extends string>({value, options, onChange, label, cl
                         className={cn(
                             "h-9 min-w-10 rounded-lg border px-3 text-sm font-medium transition-colors pointer-coarse:h-11 pointer-coarse:min-w-11",
                             isActive
-                                ? "border-brand-600 bg-brand-600 text-white"
-                                : "border-stone-300 bg-white text-stone-700 hover:border-stone-400 hover:bg-stone-100 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300 dark:hover:bg-stone-800",
+                                ? "border-brand-600 bg-brand-600 text-on-brand"
+                                : "border-base-300 bg-white text-base-700 hover:border-base-400 hover:bg-base-100 dark:border-base-700 dark:bg-base-900 dark:text-base-300 dark:hover:bg-base-800",
                         )}
                     >
                         {option.label}

@@ -21,6 +21,7 @@ const PADDING_X = 10
 const TOP = 18
 const BOTTOM = 30
 const MARKER_RADIUS = 11.5
+const MIN_SCALE = 0.85
 
 export function Fretboard({markers, fretCount = DEFAULT_FRET_COUNT, onPositionClick, ariaLabel, className}: FretboardProps) {
     const {tuning, leftHanded, labelMode, notation} = useSettings()
@@ -56,8 +57,15 @@ export function Fretboard({markers, fretCount = DEFAULT_FRET_COUNT, onPositionCl
     }
 
     return (
-        <div ref={scrollRef} className={cn("overflow-x-auto rounded-xl border border-stone-200 bg-white p-2 dark:border-stone-800 dark:bg-stone-900", className)}>
-            <svg viewBox={`0 0 ${width} ${height}`} className="h-auto min-w-[720px] w-full select-none" role="group" aria-label={ariaLabel}>
+        <div ref={scrollRef} className={cn("overflow-x-auto rounded-xl border border-base-200 bg-white p-2 dark:border-base-800 dark:bg-base-900", className)}>
+            <svg
+                viewBox={`0 0 ${width} ${height}`}
+                className="h-auto w-full select-none"
+                // Never narrower than 85% of its drawn size: on a phone a long neck scrolls rather than shrinking its frets past a fingertip.
+                style={{minWidth: Math.round(width * MIN_SCALE)}}
+                role="group"
+                aria-label={ariaLabel}
+            >
                 <rect
                     x={boardLeft}
                     y={TOP - 8}
@@ -68,10 +76,10 @@ export function Fretboard({markers, fretCount = DEFAULT_FRET_COUNT, onPositionCl
                 />
 
                 {INLAY_FRETS.filter(fret => fret <= fretCount).map(fret => (
-                    <circle key={fret} cx={fretCenterX(fret)} cy={midY} r={5} className="fill-stone-400/50"/>
+                    <circle key={fret} cx={fretCenterX(fret)} cy={midY} r={5} className="fill-base-400/50"/>
                 ))}
                 {DOUBLE_INLAY_FRETS.filter(fret => fret <= fretCount).map(fret => (
-                    <g key={fret} className="fill-stone-400/50">
+                    <g key={fret} className="fill-base-400/50">
                         <circle cx={fretCenterX(fret)} cy={midY - STRING_GAP} r={5}/>
                         <circle cx={fretCenterX(fret)} cy={midY + STRING_GAP} r={5}/>
                     </g>
@@ -84,7 +92,7 @@ export function Fretboard({markers, fretCount = DEFAULT_FRET_COUNT, onPositionCl
                         x2={wireX(wire)}
                         y1={TOP - 8}
                         y2={TOP + boardHeight + 8}
-                        className={wire === 0 ? "stroke-stone-700 dark:stroke-stone-300" : "stroke-fret"}
+                        className={wire === 0 ? "stroke-base-700 dark:stroke-base-300" : "stroke-fret"}
                         strokeWidth={wire === 0 ? 5 : 2}
                     />
                 ))}
@@ -96,7 +104,7 @@ export function Fretboard({markers, fretCount = DEFAULT_FRET_COUNT, onPositionCl
                         x2={wireX(fretCount)}
                         y1={stringY(string)}
                         y2={stringY(string)}
-                        className="stroke-stone-500 dark:stroke-stone-400"
+                        className="stroke-base-500 dark:stroke-base-400"
                         // Lower strings are drawn thicker, like real wound strings.
                         strokeWidth={0.8 + (stringCount - 1 - string) * 0.35}
                     />
@@ -110,7 +118,7 @@ export function Fretboard({markers, fretCount = DEFAULT_FRET_COUNT, onPositionCl
                         textAnchor="middle"
                         className={cn(
                             "text-[11px] tabular-nums",
-                            INLAY_FRETS.includes(fret) || DOUBLE_INLAY_FRETS.includes(fret) ? "fill-stone-600 font-semibold dark:fill-stone-300" : "fill-stone-400",
+                            INLAY_FRETS.includes(fret) || DOUBLE_INLAY_FRETS.includes(fret) ? "fill-base-600 font-semibold dark:fill-base-300" : "fill-base-400",
                         )}
                     >
                         {fret}
@@ -143,7 +151,7 @@ export function Fretboard({markers, fretCount = DEFAULT_FRET_COUNT, onPositionCl
                             r={marker.small ? MARKER_RADIUS * 0.72 : MARKER_RADIUS}
                             className={marker.fillClass ?? (marker.isRoot
                                 ? "fill-brand-600"
-                                : "fill-stone-800 dark:fill-stone-100")}
+                                : "fill-brand-100 stroke-brand-400 dark:fill-brand-900 dark:stroke-brand-500")}
                         />
                         <text
                             x={fretCenterX(marker.fret)}
@@ -151,7 +159,7 @@ export function Fretboard({markers, fretCount = DEFAULT_FRET_COUNT, onPositionCl
                             textAnchor="middle"
                             className={cn(
                                 marker.small ? "text-[9px] font-medium" : "text-[11px] font-semibold",
-                                marker.textClass ?? (marker.isRoot ? "fill-white" : "fill-white dark:fill-stone-900"),
+                                marker.textClass ?? (marker.isRoot ? "fill-on-brand" : "fill-brand-900 dark:fill-brand-100"),
                             )}
                         >
                             {label(marker)}

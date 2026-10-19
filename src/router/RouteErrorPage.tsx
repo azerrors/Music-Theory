@@ -12,7 +12,7 @@ export function RouteErrorPage() {
         <div className="grid min-h-screen place-items-center p-6 text-center">
             <div className="space-y-3">
                 <h1 className="text-2xl font-bold">{t(isNotFound ? "notFound.title" : "error.title")}</h1>
-                <p className="text-stone-600 dark:text-stone-400">{t(isNotFound ? "notFound.description" : "error.description")}</p>
+                <p className="text-base-600 dark:text-base-400">{t(isNotFound ? "notFound.description" : "error.description")}</p>
                 <Link to={INSTRUMENT_PICKER_PATH} className={buttonVariants()}>{t("notFound.goHome")}</Link>
             </div>
         </div>

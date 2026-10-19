@@ -5,6 +5,7 @@ interface SwitchProps {
     onChange: (checked: boolean) => void
     id?: string
     "aria-describedby"?: string
+    "aria-label"?: string
 }
 
 export function Switch({checked, onChange, ...props}: SwitchProps) {
@@ -16,7 +17,9 @@ export function Switch({checked, onChange, ...props}: SwitchProps) {
             onClick={() => onChange(!checked)}
             className={cn(
                 "relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors",
-                checked ? "bg-brand-600" : "bg-stone-300 dark:bg-stone-700",
+                // A larger invisible hit area than the 24px-tall track, for fingertips.
+                "after:absolute after:-inset-x-1 after:-inset-y-2.5 after:content-['']",
+                checked ? "bg-brand-600" : "bg-base-300 dark:bg-base-700",
             )}
             {...props}
         >

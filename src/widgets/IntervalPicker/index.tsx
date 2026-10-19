@@ -8,7 +8,7 @@ import {Term} from "@/widgets/Term"
 
 /** One colour per interval: `fill` for dots on the neck or keys, `bg` for chips and the table. */
 export const INTERVAL_COLOURS: Record<string, {fill: string; bg: string}> = {
-    "1P": {fill: "fill-brand-600", bg: "bg-brand-600"},
+    "1P": {fill: "fill-brand-strong", bg: "bg-brand-strong"},
     "2m": {fill: "fill-rose-700", bg: "bg-rose-700"},
     "2M": {fill: "fill-orange-600", bg: "bg-orange-600"},
     "3m": {fill: "fill-sky-600", bg: "bg-sky-600"},
@@ -61,7 +61,7 @@ export function IntervalPicker({selected, onChange}: {selected: string[]; onChan
                                 "inline-flex h-8 min-w-10 items-center justify-center gap-1.5 rounded-lg border px-2.5 text-sm font-semibold transition-colors pointer-coarse:h-10 pointer-coarse:min-w-11",
                                 isOn
                                     ? cn("border-transparent text-white", INTERVAL_COLOURS[interval.id]?.bg)
-                                    : "border-stone-300 text-stone-500 hover:border-stone-500 dark:border-stone-700",
+                                    : "border-base-300 text-base-500 hover:border-base-500 dark:border-base-700",
                             )}
                         >
                             {interval.label}
@@ -91,10 +91,10 @@ export function IntervalTable({selected, extraTitle, extraCell, onMelodic, onHar
         <section className="space-y-3">
             <h2 className="text-xl font-semibold tracking-tight"><Term id="interval">{t("intervals.tableTitle")}</Term></h2>
             {/* `relative` keeps the visually hidden header inside the scroller; without it the page itself scrolls sideways on phones. */}
-            <div className="relative overflow-x-auto rounded-xl border border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+            <div className="relative overflow-x-auto rounded-xl border border-base-200 bg-white dark:border-base-800 dark:bg-base-900">
                 <table className="w-full text-left text-sm">
-                    <thead className="text-xs tracking-wide text-stone-500 uppercase">
-                        <tr className="border-b border-stone-200 dark:border-stone-800">
+                    <thead className="text-xs tracking-wide text-base-500 uppercase">
+                        <tr className="border-b border-base-200 dark:border-base-800">
                             <th className="px-3 py-2.5">{t("intervals.columns.interval")}</th>
                             <th className="px-3 py-2.5">{t("intervals.columns.semitones")}</th>
                             <th className="px-3 py-2.5">{t("intervals.columns.feel")}</th>
@@ -102,9 +102,9 @@ export function IntervalTable({selected, extraTitle, extraCell, onMelodic, onHar
                             <th className="px-3 py-2.5"><span className="sr-only">{t("intervals.columns.listen")}</span></th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-stone-100 dark:divide-stone-800">
+                    <tbody className="divide-y divide-base-100 dark:divide-base-800">
                         {SHOWN_INTERVALS.map(interval => (
-                            <tr key={interval.id} className={cn(!selected.includes(interval.id) && "text-stone-400")}>
+                            <tr key={interval.id} className={cn(!selected.includes(interval.id) && "text-base-400")}>
                                 <td className="px-3 py-2">
                                     <span className="flex items-center gap-2">
                                         <span className={cn("grid h-6 min-w-8 place-items-center rounded-md px-1 text-xs font-bold text-white", INTERVAL_COLOURS[interval.id]?.bg)}>
@@ -131,7 +131,7 @@ export function IntervalTable({selected, extraTitle, extraCell, onMelodic, onHar
                     </tbody>
                 </table>
             </div>
-            {footnote && <p className="text-xs text-stone-500">{footnote}</p>}
+            {footnote && <p className="text-xs text-base-500">{footnote}</p>}
         </section>
     )
 }

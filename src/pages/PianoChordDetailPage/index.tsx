@@ -33,7 +33,7 @@ function SlashNote({chord}: {chord: ChordInfo}) {
     const plain = formatChordName({...chord, bass: undefined}, notation)
 
     return (
-        <p className="rounded-lg bg-brand-50 p-3 text-sm text-stone-700 dark:bg-brand-950/50 dark:text-stone-300">
+        <p className="rounded-lg bg-brand-50 p-3 text-sm text-base-700 dark:bg-brand-950/50 dark:text-base-300">
             {t("slash.explain", {chord: plain, bass: formatNote(chord.bass, notation), degree: chord.bassDegree})}
             {" "}
             <TermText text={t(`slash.inversions.${inversion}`)}/>
@@ -55,9 +55,9 @@ function Legend({showLeftHand}: {showLeftHand: boolean}) {
     )
 
     return (
-        <div className="flex flex-wrap gap-4 text-xs text-stone-600 dark:text-stone-400">
-            {item("bg-brand-600", t("legend.root"))}
-            {item("bg-stone-800 ring-1 ring-stone-500", t("legend.right"))}
+        <div className="flex flex-wrap gap-4 text-xs text-base-600 dark:text-base-400">
+            {item("bg-brand-strong", t("legend.root"))}
+            {item("bg-base-800 ring-1 ring-base-500", t("legend.right"))}
             {showLeftHand && item("bg-sky-600", t("legend.left"))}
         </div>
     )
@@ -100,7 +100,7 @@ export default function PianoChordDetailPage() {
             </Link>
 
             <PageHeader
-                title={<>{displayName} <span className="font-medium text-stone-500">· {t(`chordTypes.${chord.type.symbol}`)}</span></>}
+                title={<>{displayName} <span className="font-medium text-base-500">· {t(`chordTypes.${chord.type.symbol}`)}</span></>}
                 description={<TermText text={tPiano(`categoryDescriptions.${chord.bass ? "slash" : chord.type.category}`)}/>}
                 actions={voicings[0] && (
                     <>
@@ -127,8 +127,8 @@ export default function PianoChordDetailPage() {
                 <div className="flex flex-wrap items-end justify-between gap-3">
                     <div>
                         <h2 className="text-xl font-semibold tracking-tight">{tPiano("voicings")}</h2>
-                        <p className="text-sm text-stone-600 dark:text-stone-400">{tPiano("voicingsHint")}</p>
-                        <p className="text-sm text-stone-600 dark:text-stone-400">{tPiano("fingers.legend")}</p>
+                        <p className="text-sm text-base-600 dark:text-base-400">{tPiano("voicingsHint")}</p>
+                        <p className="text-sm text-base-600 dark:text-base-400">{tPiano("fingers.legend")}</p>
                     </div>
                     <Legend showLeftHand={voicings.some(voicing => voicing.left.length > 0)}/>
                 </div>
@@ -140,7 +140,7 @@ export default function PianoChordDetailPage() {
                                 <div className="flex items-start justify-between gap-3">
                                     <div className="space-y-0.5">
                                         <p className="font-semibold">{label}</p>
-                                        <p className="text-sm text-stone-600 dark:text-stone-400"><TermText text={tPiano(`kindHints.${kindKey(voicing)}`)}/></p>
+                                        <p className="text-sm text-base-600 dark:text-base-400"><TermText text={tPiano(`kindHints.${kindKey(voicing)}`)}/></p>
                                     </div>
                                     <PlayButton instrument="piano" midi={voicingNotes(voicing)} className="shrink-0"/>
                                 </div>
@@ -158,7 +158,7 @@ export default function PianoChordDetailPage() {
                 <section className="space-y-4">
                     <div>
                         <h2 className="text-xl font-semibold tracking-tight">{tPiano("slashVersions")}</h2>
-                        <p className="text-sm text-stone-600 dark:text-stone-400">{tPiano("slashVersionsHint")}</p>
+                        <p className="text-sm text-base-600 dark:text-base-400">{tPiano("slashVersionsHint")}</p>
                     </div>
                     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         {slashVersions.map(item => <PianoChordCard key={item.name} chord={item}/>)}

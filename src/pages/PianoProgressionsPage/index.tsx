@@ -92,27 +92,27 @@ function StepTile({index, step, range, isSelected, isPlaying, canRemove, onSelec
     return (
         <div
             className={cn(
-                "relative flex min-w-0 flex-col overflow-hidden rounded-2xl border bg-white shadow-sm transition-colors dark:bg-stone-900",
-                isSelected ? "border-brand-500 ring-2 ring-brand-500/30" : "border-stone-200 dark:border-stone-800",
+                "relative flex min-w-0 flex-col overflow-hidden rounded-2xl border bg-white shadow-sm transition-colors dark:bg-base-900",
+                isSelected ? "border-brand-500 ring-2 ring-brand-500/30" : "border-base-200 dark:border-base-800",
                 isPlaying && "ring-4 ring-brand-400/60",
             )}
         >
             <span className={cn("h-1.5 w-full", FUNCTION_STYLES[step.fn].bar)} title={t(`progressions.functions.${step.fn}`)}/>
             <button type="button" onClick={onSelect} aria-pressed={isSelected} className="flex flex-col items-center gap-1 px-3 pt-2 pb-2">
-                <span className="self-start text-[11px] font-medium text-stone-400 tabular-nums">{index + 1}</span>
+                <span className="self-start text-[11px] font-medium text-base-400 tabular-nums">{index + 1}</span>
                 <span className="text-sm font-semibold text-brand-700 dark:text-brand-400">{step.roman}</span>
                 <span className="text-lg leading-tight font-bold tracking-tight">{step.name}</span>
                 <PianoKeyboard from={range.from} to={range.to} markers={markers} minKeyWidth={6} showOctaves={false} ariaLabel={step.name} className="mt-1"/>
-                <span className="text-xs text-stone-500">
+                <span className="text-xs text-base-500">
                     {step.hands.right.map(midi => keyLabel(midi, step.info, notation)).join(" ")}
                     {" · "}{tPiano("progressions.bass")} {keyLabel(step.hands.left[0] ?? 0, step.info, notation)}
                 </span>
-                <span className="text-xs font-semibold text-stone-700 tabular-nums dark:text-stone-300">
+                <span className="text-xs font-semibold text-base-700 tabular-nums dark:text-base-300">
                     {tPiano("fingers.tile")}: {chordFingering(step.hands.right, "right")?.join(" ") ?? "—"}
                     {" · "}<span className="text-sky-600 dark:text-sky-400">{chordFingering(step.hands.left, "left")?.join(" ") ?? "—"}</span>
                 </span>
             </button>
-            <div className="mt-auto flex items-center justify-center gap-1 border-t border-stone-100 p-1.5 dark:border-stone-800">
+            <div className="mt-auto flex items-center justify-center gap-1 border-t border-base-100 p-1.5 dark:border-base-800">
                 <Button
                     variant="ghost"
                     size="icon"
@@ -144,13 +144,13 @@ function HandsPanel({step, previous, range, isPlaying}: {step: PianoStep; previo
         <Card className="min-w-0 space-y-3">
             <div className="flex flex-wrap items-start justify-between gap-3">
                 <div className="space-y-0.5">
-                    <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase">{tPiano("progressions.onKeys")}</p>
+                    <p className="text-xs font-semibold tracking-wide text-base-500 uppercase">{tPiano("progressions.onKeys")}</p>
                     <p className="text-sm">
-                        <span className="text-stone-500">{t(isPlaying ? "progressions.solo.playing" : "progressions.solo.selected")}</span>{" "}
+                        <span className="text-base-500">{t(isPlaying ? "progressions.solo.playing" : "progressions.solo.selected")}</span>{" "}
                         <strong className="text-lg">{step.name}</strong>{" "}
                         <span className="font-semibold text-brand-700 dark:text-brand-400">{step.roman}</span>
                     </p>
-                    <p className="text-sm text-stone-600 dark:text-stone-400">
+                    <p className="text-sm text-base-600 dark:text-base-400">
                         {!previous
                             ? tPiano("progressions.first")
                             : held.length > 0
@@ -168,9 +168,9 @@ function HandsPanel({step, previous, range, isPlaying}: {step: PianoStep; previo
                 ariaLabel={`${step.name} — ${tPiano("progressions.onKeys")}`}
                 className="mx-auto max-w-3xl"
             />
-            <div className="flex flex-wrap gap-4 text-xs text-stone-600 dark:text-stone-400">
-                <span className="inline-flex items-center gap-1.5"><span className="size-3 rounded-full bg-brand-600"/>{tPiano("legend.root")}</span>
-                <span className="inline-flex items-center gap-1.5"><span className="size-3 rounded-full bg-stone-800 ring-1 ring-stone-500"/>{tPiano("legend.right")}</span>
+            <div className="flex flex-wrap gap-4 text-xs text-base-600 dark:text-base-400">
+                <span className="inline-flex items-center gap-1.5"><span className="size-3 rounded-full bg-brand-strong"/>{tPiano("legend.root")}</span>
+                <span className="inline-flex items-center gap-1.5"><span className="size-3 rounded-full bg-base-800 ring-1 ring-base-500"/>{tPiano("legend.right")}</span>
                 <span className="inline-flex items-center gap-1.5"><span className="size-3 rounded-full bg-sky-600"/>{tPiano("legend.left")}</span>
                 <span className="basis-full">{tPiano("fingers.legend")}</span>
             </div>
@@ -186,10 +186,10 @@ const SOLO_FILL: Record<SoloRole, string | undefined> = {
 }
 
 const SOLO_LEGEND: {role: SoloRole; swatch: string}[] = [
-    {role: "chordRoot", swatch: "bg-brand-600"},
-    {role: "chordTone", swatch: "bg-stone-800 ring-1 ring-stone-500"},
+    {role: "chordRoot", swatch: "bg-brand-strong"},
+    {role: "chordTone", swatch: "bg-base-800 ring-1 ring-base-500"},
     {role: "outside", swatch: "bg-rose-600"},
-    {role: "scale", swatch: "bg-stone-300"},
+    {role: "scale", swatch: "bg-base-300"},
 ]
 
 /** Right-hand improvising over the selected (or sounding) chord: the key's scale, the chord's notes on top. */
@@ -218,7 +218,7 @@ function SoloKeys({tonic, mode, step, isPlaying}: {tonic: NoteName; mode: KeyMod
             <div className="flex flex-wrap items-end justify-between gap-3">
                 <div>
                     <h2 className="text-xl font-semibold tracking-tight">{t("progressions.solo.title")}</h2>
-                    <p className="text-sm text-stone-600 dark:text-stone-400"><TermText text={tPiano("progressions.soloHint", {scale: scaleName})}/></p>
+                    <p className="text-sm text-base-600 dark:text-base-400"><TermText text={tPiano("progressions.soloHint", {scale: scaleName})}/></p>
                 </div>
                 <Segmented
                     label={t("progressions.solo.title")}
@@ -228,7 +228,7 @@ function SoloKeys({tonic, mode, step, isPlaying}: {tonic: NoteName; mode: KeyMod
                 />
             </div>
             <p className="text-sm">
-                <span className="text-stone-500">{t(isPlaying ? "progressions.solo.playing" : "progressions.solo.selected")}</span>{" "}
+                <span className="text-base-500">{t(isPlaying ? "progressions.solo.playing" : "progressions.solo.selected")}</span>{" "}
                 <strong className="text-lg">{step.name}</strong>{" "}
                 <span className="font-semibold text-brand-700 dark:text-brand-400">{step.roman}</span>
             </p>
@@ -242,7 +242,7 @@ function SoloKeys({tonic, mode, step, isPlaying}: {tonic: NoteName; mode: KeyMod
                     className="mx-auto max-w-3xl"
                 />
             </Card>
-            <ul className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-stone-600 dark:text-stone-400">
+            <ul className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-base-600 dark:text-base-400">
                 {SOLO_LEGEND.map(item => (
                     <li key={item.role} className="flex items-center gap-1.5">
                         <span className={cn("size-3 rounded-full", item.swatch)}/> {t(`progressions.solo.roles.${item.role}`)}
@@ -306,14 +306,14 @@ function ProgressionEditor({tonic, mode, preset, style, onStyleChange}: Progress
                         </Button>
                     </div>
                 </StepHeading>
-                <p className="text-sm text-stone-600 dark:text-stone-400">
-                    <strong className="font-semibold text-stone-900 dark:text-stone-100">{t(`progressions.presets.${preset.id}`)}.</strong>{" "}
+                <p className="text-sm text-base-600 dark:text-base-400">
+                    <strong className="font-semibold text-base-900 dark:text-base-100">{t(`progressions.presets.${preset.id}`)}.</strong>{" "}
                     <TermText text={t(`progressions.presetHints.${preset.id}`)}/> {t("progressions.editHint")}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-base-200 bg-white p-4 dark:border-base-800 dark:bg-base-900">
                     <div className="space-y-2">
-                        <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase">{tPiano("progressions.voicingStyle")}</p>
+                        <p className="text-xs font-semibold tracking-wide text-base-500 uppercase">{tPiano("progressions.voicingStyle")}</p>
                         <Segmented
                             label={tPiano("progressions.voicingStyle")}
                             value={style}
@@ -321,7 +321,7 @@ function ProgressionEditor({tonic, mode, preset, style, onStyleChange}: Progress
                             options={VOICING_STYLES.map(value => ({value, label: tPiano(`progressions.styles.${value}`)}))}
                         />
                     </div>
-                    <p className="min-w-0 flex-1 basis-72 text-sm text-stone-600 dark:text-stone-400"><TermText text={tPiano(`progressions.styleHints.${style}`)}/></p>
+                    <p className="min-w-0 flex-1 basis-72 text-sm text-base-600 dark:text-base-400"><TermText text={tPiano(`progressions.styleHints.${style}`)}/></p>
                 </div>
 
                 <FunctionLegend/>

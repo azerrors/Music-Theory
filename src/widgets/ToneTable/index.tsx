@@ -17,13 +17,13 @@ export function ToneTable({notes, degrees}: ToneTableProps) {
 
     return (
         <dl className="grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-2 text-sm">
-            <dt className="font-medium text-stone-500"><Term id="degree">{t("formula")}</Term></dt>
+            <dt className="font-medium text-base-500"><Term id="degree">{t("formula")}</Term></dt>
             <dd className="flex flex-wrap gap-1.5">
                 {degrees.map((degree, index) => (
                     <Badge key={index} variant={index === 0 ? "root" : "outline"}>{degree}</Badge>
                 ))}
             </dd>
-            <dt className="font-medium text-stone-500">{t("notes")}</dt>
+            <dt className="font-medium text-base-500">{t("notes")}</dt>
             <dd className="flex flex-wrap gap-1.5">
                 {notes.map((note, index) => (
                     <Badge key={index} variant={index === 0 ? "root" : "default"}>{formatNote(note, notation)}</Badge>

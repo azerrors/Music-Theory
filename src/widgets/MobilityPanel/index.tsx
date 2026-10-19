@@ -31,8 +31,8 @@ export function MobilityPanel({movableCount, fixedCount, filter, onFilterChange,
                     <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
                         <MoveVertical className="size-4" aria-hidden/>
                     </span>
-                    <p className="text-stone-600 dark:text-stone-400">
-                        <strong className="font-semibold text-stone-900 dark:text-stone-100"><Term id="movableShape">{t("mobility.movable")}</Term> · {movableCount}</strong>
+                    <p className="text-base-600 dark:text-base-400">
+                        <strong className="font-semibold text-base-900 dark:text-base-100"><Term id="movableShape">{t("mobility.movable")}</Term> · {movableCount}</strong>
                         <br/>
                         <TermText text={t("mobility.movableHint")}/>
                     </p>
@@ -41,8 +41,8 @@ export function MobilityPanel({movableCount, fixedCount, filter, onFilterChange,
                     <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300">
                         <Pin className="size-4" aria-hidden/>
                     </span>
-                    <p className="text-stone-600 dark:text-stone-400">
-                        <strong className="font-semibold text-stone-900 dark:text-stone-100"><Term id="openChord">{t("mobility.fixed")}</Term> · {fixedCount}</strong>
+                    <p className="text-base-600 dark:text-base-400">
+                        <strong className="font-semibold text-base-900 dark:text-base-100"><Term id="openChord">{t("mobility.fixed")}</Term> · {fixedCount}</strong>
                         <br/>
                         <TermText text={t("mobility.fixedHint")}/>
                     </p>
@@ -51,7 +51,7 @@ export function MobilityPanel({movableCount, fixedCount, filter, onFilterChange,
 
             {filter && onFilterChange && (
                 <div className="space-y-2">
-                    <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase">{t("mobility.show")}</p>
+                    <p className="text-xs font-semibold tracking-wide text-base-500 uppercase">{t("mobility.show")}</p>
                     <Segmented
                         label={t("mobility.show")}
                         value={filter}

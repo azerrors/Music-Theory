@@ -162,7 +162,7 @@ export function KeySection({tonic, mode, instrument, scaleMidi, onChange}: KeySe
             <StepHeading number={1} title={t("progressions.steps.key")}/>
             <Card className="space-y-5">
                 <div className="space-y-2">
-                    <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase"><Term id="mode">{t("progressions.mode")}</Term></p>
+                    <p className="text-xs font-semibold tracking-wide text-base-500 uppercase"><Term id="mode">{t("progressions.mode")}</Term></p>
                     <Segmented
                         label={t("progressions.mode")}
                         value={mode}
@@ -171,7 +171,7 @@ export function KeySection({tonic, mode, instrument, scaleMidi, onChange}: KeySe
                     />
                 </div>
                 <RootNotePicker value={tonic} onChange={value => onChange({key: value})}/>
-                <div className="space-y-3 border-t border-stone-200 pt-4 dark:border-stone-800">
+                <div className="space-y-3 border-t border-base-200 pt-4 dark:border-base-800">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                         <p className="text-lg font-bold tracking-tight">{keyName}</p>
                         <PlayButton instrument={instrument} midi={scaleMidi} mode="arpeggio" label={t("progressions.playScale")}/>
@@ -197,12 +197,12 @@ function PresetCard({preset, tonic, isActive, onSelect}: {preset: ProgressionPre
                 "flex flex-col gap-1 rounded-xl border p-3 text-left transition-colors",
                 isActive
                     ? "border-brand-500 bg-brand-50 dark:bg-brand-950/40"
-                    : "border-stone-200 bg-white hover:border-stone-400 dark:border-stone-800 dark:bg-stone-900 dark:hover:border-stone-600",
+                    : "border-base-200 bg-white hover:border-base-400 dark:border-base-800 dark:bg-base-900 dark:hover:border-base-600",
             )}
         >
             <span className="font-semibold">{t(`progressions.presets.${preset.id}`)}</span>
             <span className="text-xs font-medium text-brand-700 dark:text-brand-400">{steps.map(step => step.roman).join(" – ")}</span>
-            <span className="text-xs text-stone-500">{steps.map(step => step.name).join(" – ")}</span>
+            <span className="text-xs text-base-500">{steps.map(step => step.name).join(" – ")}</span>
         </button>
     )
 }
@@ -226,19 +226,19 @@ export function PresetSection({tonic, presets, active, onSelect}: {tonic: NoteNa
 export function FunctionLegend() {
     const {t} = useTranslation("theory")
     return (
-        <div className="space-y-2 rounded-xl border border-stone-200 bg-white p-4 text-sm dark:border-stone-800 dark:bg-stone-900">
+        <div className="space-y-2 rounded-xl border border-base-200 bg-white p-4 text-sm dark:border-base-800 dark:bg-base-900">
             <div className="grid gap-2 sm:grid-cols-3">
                 {FUNCTIONS.map(fn => (
                     <div key={fn} className="flex items-start gap-2">
                         <span className={cn("mt-1 h-3 w-6 shrink-0 rounded-full", FUNCTION_STYLES[fn].bar)}/>
-                        <p className="text-stone-600 dark:text-stone-400">
-                            <strong className="font-semibold text-stone-900 dark:text-stone-100"><Term id={fn}>{t(`progressions.functions.${fn}`)}</Term></strong>
+                        <p className="text-base-600 dark:text-base-400">
+                            <strong className="font-semibold text-base-900 dark:text-base-100"><Term id={fn}>{t(`progressions.functions.${fn}`)}</Term></strong>
                             {" — "}{t(`progressions.functionHints.${fn}`)}
                         </p>
                     </div>
                 ))}
             </div>
-            <p className="text-xs text-stone-500"><TermText text={t("progressions.howToRead")}/></p>
+            <p className="text-xs text-base-500"><TermText text={t("progressions.howToRead")}/></p>
         </div>
     )
 }
@@ -269,12 +269,12 @@ function OptionChips({options, current, onPick}: Pick<OptionGroupProps, "options
                         className={cn(
                             "flex items-baseline gap-1.5 rounded-lg border px-2.5 py-1.5 text-sm transition-colors pointer-coarse:py-2.5",
                             isCurrent
-                                ? "border-brand-600 bg-brand-600 text-white"
-                                : "border-stone-300 bg-white hover:border-stone-500 dark:border-stone-700 dark:bg-stone-900 dark:hover:border-stone-500",
+                                ? "border-brand-600 bg-brand-600 text-on-brand"
+                                : "border-base-300 bg-white hover:border-base-500 dark:border-base-700 dark:bg-base-900 dark:hover:border-base-500",
                         )}
                     >
                         <span className="font-semibold">{name}</span>
-                        <span className={cn("text-xs", isCurrent ? "text-brand-100" : "text-stone-500")}>{option.roman}</span>
+                        <span className={cn("text-xs", isCurrent ? "text-brand-100" : "text-base-500")}>{option.roman}</span>
                     </button>
                 )
             })}
@@ -290,7 +290,7 @@ function OptionGroup({title, hint, options, current, onPick, bySource}: OptionGr
         <div className="space-y-2">
             <div>
                 <h4 className="text-sm font-semibold">{title}</h4>
-                <p className="text-xs text-stone-500"><TermText text={hint}/></p>
+                <p className="text-xs text-base-500"><TermText text={hint}/></p>
             </div>
             {bySource
                 ? OUTSIDE_SOURCES.map(source => {
@@ -298,7 +298,7 @@ function OptionGroup({title, hint, options, current, onPick, bySource}: OptionGr
                     if (items.length === 0) return null
                     return (
                         <div key={source} className="space-y-1">
-                            <p className="text-[11px] font-semibold tracking-wide text-stone-400 uppercase">{t(`progressions.sources.${source}`)}</p>
+                            <p className="text-[11px] font-semibold tracking-wide text-base-400 uppercase">{t(`progressions.sources.${source}`)}</p>
                             <OptionChips options={items} current={current} onPick={onPick}/>
                         </div>
                     )
@@ -337,12 +337,12 @@ export function StepEditor({index, step, tonic, mode, canRemove, chordPath, onPi
         <Card className="space-y-5">
             <div className="flex flex-wrap items-start justify-between gap-4">
                 <div className="space-y-1">
-                    <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase">{t("progressions.selected", {n: index + 1})}</p>
+                    <p className="text-xs font-semibold tracking-wide text-base-500 uppercase">{t("progressions.selected", {n: index + 1})}</p>
                     <p className="text-2xl font-bold tracking-tight">
                         {step.name} <span className="text-lg font-semibold text-brand-700 dark:text-brand-400">{step.roman}</span>
                     </p>
                     {chord && (
-                        <p className="text-sm text-stone-600 dark:text-stone-400">
+                        <p className="text-sm text-base-600 dark:text-base-400">
                             {t("notes")}: {chord.notes.map(note => formatNote(note, notation)).join(" · ")}
                             {chord.bass && <> · {t("slash.bass")} {formatNote(chord.bass, notation)}</>}
                         </p>
@@ -351,7 +351,7 @@ export function StepEditor({index, step, tonic, mode, canRemove, chordPath, onPi
                         <span className={cn("rounded-md px-2 py-0.5 text-xs font-semibold", FUNCTION_STYLES[step.fn].chip)}>
                             <Term id={step.fn}>{t(`progressions.functions.${step.fn}`)}</Term>
                         </span>
-                        <span className="text-stone-600 dark:text-stone-400">{t(`progressions.functionHints.${step.fn}`)}</span>
+                        <span className="text-base-600 dark:text-base-400">{t(`progressions.functionHints.${step.fn}`)}</span>
                     </p>
                 </div>
                 <div className="flex gap-2">
@@ -395,23 +395,23 @@ function KeyChordTable({tonic, mode, onAdd}: {tonic: NoteName; mode: KeyMode; on
                 type="button"
                 onClick={() => onAdd(chord)}
                 title={t("progressions.add", {chord: name})}
-                className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium hover:bg-stone-100 pointer-coarse:py-2.5 dark:hover:bg-stone-800"
+                className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium hover:bg-base-100 pointer-coarse:py-2.5 dark:hover:bg-base-800"
             >
-                {name} <Plus className="size-3 text-stone-400"/>
+                {name} <Plus className="size-3 text-base-400"/>
             </button>
         )
     }
 
     return (
-        <div className="overflow-x-auto rounded-xl border border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+        <div className="overflow-x-auto rounded-xl border border-base-200 bg-white dark:border-base-800 dark:bg-base-900">
             <table className="w-full text-center text-sm">
-                <tbody className="divide-y divide-stone-200 dark:divide-stone-800">
+                <tbody className="divide-y divide-base-200 dark:divide-base-800">
                     <tr>
-                        <th scope="row" className="px-4 py-2.5 text-left font-medium text-stone-500"><Term id="romanNumerals">{t("progressions.keyTable.degree")}</Term></th>
+                        <th scope="row" className="px-4 py-2.5 text-left font-medium text-base-500"><Term id="romanNumerals">{t("progressions.keyTable.degree")}</Term></th>
                         {triads.map(chord => <td key={chord.roman} className="px-2 py-2.5 font-semibold">{chord.roman}</td>)}
                     </tr>
                     <tr>
-                        <th scope="row" className="px-4 py-2.5 text-left font-medium text-stone-500"><Term id="harmonicFunction">{t("progressions.keyTable.function")}</Term></th>
+                        <th scope="row" className="px-4 py-2.5 text-left font-medium text-base-500"><Term id="harmonicFunction">{t("progressions.keyTable.function")}</Term></th>
                         {triads.map(chord => {
                             const fn = harmonicFunction(tonic, mode, chord.root, chord.type)
                             return (
@@ -424,11 +424,11 @@ function KeyChordTable({tonic, mode, onAdd}: {tonic: NoteName; mode: KeyMode; on
                         })}
                     </tr>
                     <tr>
-                        <th scope="row" className="px-4 py-2.5 text-left font-medium text-stone-500"><Term id="triad">{t("diatonic.triad")}</Term></th>
+                        <th scope="row" className="px-4 py-2.5 text-left font-medium text-base-500"><Term id="triad">{t("diatonic.triad")}</Term></th>
                         {triads.map(chord => <td key={chord.roman} className="px-1 py-1.5">{cell(chord)}</td>)}
                     </tr>
                     <tr>
-                        <th scope="row" className="px-4 py-2.5 text-left font-medium text-stone-500"><Term id="seventhChord">{t("diatonic.seventh")}</Term></th>
+                        <th scope="row" className="px-4 py-2.5 text-left font-medium text-base-500"><Term id="seventhChord">{t("diatonic.seventh")}</Term></th>
                         {sevenths.map(chord => <td key={chord.roman} className="px-1 py-1.5">{cell(chord)}</td>)}
                     </tr>
                 </tbody>
@@ -443,14 +443,14 @@ function ChromaticChords({tonic, mode, onAdd}: {tonic: NoteName; mode: KeyMode; 
     const chords = chromaticChords(tonic, mode)
 
     return (
-        <details className="group rounded-xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900">
+        <details className="group rounded-xl border border-base-200 bg-white p-4 dark:border-base-800 dark:bg-base-900">
             <summary className="flex cursor-pointer list-none items-center gap-2 font-semibold">
                 <ChevronRight className="size-4 transition-transform group-open:rotate-90"/>
                 {t("progressions.chromatic.title")}
-                <span className="text-xs font-normal text-stone-500">{t("progressions.chromatic.badge")}</span>
+                <span className="text-xs font-normal text-base-500">{t("progressions.chromatic.badge")}</span>
             </summary>
             <div className="mt-4 space-y-4">
-                <p className="text-sm text-stone-600 dark:text-stone-400"><TermText text={t(`progressions.chromatic.hint.${mode}`)}/></p>
+                <p className="text-sm text-base-600 dark:text-base-400"><TermText text={t(`progressions.chromatic.hint.${mode}`)}/></p>
                 {OUTSIDE_SOURCES.map(source => {
                     const items = chords.filter(chord => chord.source === source)
                     if (items.length === 0) return null
@@ -458,7 +458,7 @@ function ChromaticChords({tonic, mode, onAdd}: {tonic: NoteName; mode: KeyMode; 
                         <div key={source} className="space-y-2">
                             <h4 className="text-sm font-semibold">
                                 {t(`progressions.sources.${source}`)}
-                                <span className="ml-2 font-normal text-stone-500">{t(`progressions.sourceHints.${source}`)}</span>
+                                <span className="ml-2 font-normal text-base-500">{t(`progressions.sourceHints.${source}`)}</span>
                             </h4>
                             <div className="flex flex-wrap gap-1.5">
                                 {items.map(chord => {
@@ -469,11 +469,11 @@ function ChromaticChords({tonic, mode, onAdd}: {tonic: NoteName; mode: KeyMode; 
                                             type="button"
                                             onClick={() => onAdd(chord)}
                                             title={t("progressions.add", {chord: name})}
-                                            className="flex items-baseline gap-1.5 rounded-lg border border-stone-300 px-2.5 py-1.5 text-sm hover:border-stone-500 pointer-coarse:py-2.5 dark:border-stone-700"
+                                            className="flex items-baseline gap-1.5 rounded-lg border border-base-300 px-2.5 py-1.5 text-sm hover:border-base-500 pointer-coarse:py-2.5 dark:border-base-700"
                                         >
                                             <span className="font-semibold">{name}</span>
-                                            <span className="text-xs text-stone-500">{chord.roman}</span>
-                                            <Plus className="size-3 self-center text-stone-400"/>
+                                            <span className="text-xs text-base-500">{chord.roman}</span>
+                                            <Plus className="size-3 self-center text-base-400"/>
                                         </button>
                                     )
                                 })}
@@ -494,7 +494,7 @@ export function KeyChordsSection({tonic, mode, onAdd}: {tonic: NoteName; mode: K
         <section className="space-y-3">
             <div>
                 <h2 className="text-xl font-semibold tracking-tight">{t("progressions.keyTable.title")}</h2>
-                <p className="text-sm text-stone-600 dark:text-stone-400"><TermText text={t("progressions.keyTable.hint")}/></p>
+                <p className="text-sm text-base-600 dark:text-base-400"><TermText text={t("progressions.keyTable.hint")}/></p>
             </div>
             <KeyChordTable tonic={tonic} mode={mode} onAdd={onAdd}/>
             <ChromaticChords tonic={tonic} mode={mode} onAdd={onAdd}/>
@@ -510,7 +510,7 @@ export function AddChordTile({tonic, mode, onAdd, className}: {tonic: NoteName; 
             type="button"
             onClick={() => onAdd(diatonicChords(tonic, mode)[0]!)}
             className={cn(
-                "flex min-h-40 flex-col items-center justify-center gap-1 rounded-2xl border-2 border-dashed border-stone-300 text-sm font-medium text-stone-500 hover:border-brand-400 hover:text-brand-700 dark:border-stone-700 dark:hover:text-brand-400",
+                "flex min-h-40 flex-col items-center justify-center gap-1 rounded-2xl border-2 border-dashed border-base-300 text-sm font-medium text-base-500 hover:border-brand-400 hover:text-brand-700 dark:border-base-700 dark:hover:text-brand-400",
                 className,
             )}
         >

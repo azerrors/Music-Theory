@@ -189,7 +189,7 @@ export default function ChordsPage() {
                 />
                 {filter === "popular" && (
                     <div className="space-y-2">
-                        <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase">{t("popular.type")}</p>
+                        <p className="text-xs font-semibold tracking-wide text-base-500 uppercase">{t("popular.type")}</p>
                         <Segmented
                             label={t("popular.type")}
                             value={popularType}
@@ -204,15 +204,15 @@ export default function ChordsPage() {
 
             <div className="grid items-start gap-8 lg:grid-cols-[1fr_18rem]">
                 <div className="min-w-0 space-y-8">
-                    <p className="text-sm text-stone-500">{t("chordCount", {count: entries.length})}</p>
+                    <p className="text-sm text-base-500">{t("chordCount", {count: entries.length})}</p>
 
-                    {entries.length === 0 && <p className="text-sm text-stone-500">{t("mobility.empty")}</p>}
+                    {entries.length === 0 && <p className="text-sm text-base-500">{t("mobility.empty")}</p>}
 
                     {isGrouped && filter === "popular" && popularGroups.map(group => (
                         <section key={group.type} className="space-y-4">
                             <h2 className="text-lg font-semibold tracking-tight">
                                 {t(`chordTypes.${group.type}`)}
-                                <span className="ml-2 text-sm font-normal text-stone-500">{group.items.length}</span>
+                                <span className="ml-2 text-sm font-normal text-base-500">{group.items.length}</span>
                             </h2>
                             <RenderWhenNear placeholderHeight={gridPlaceholder(group.items.length)}>
                                 <ChordGrid entries={group.items}/>
@@ -223,7 +223,7 @@ export default function ChordsPage() {
                             <section key={group.category} className="space-y-4">
                                 <h2 className="text-lg font-semibold tracking-tight">
                                     {t(`chordCategories.${group.category}`)}
-                                    <span className="ml-2 text-sm font-normal text-stone-500">{group.items.length}</span>
+                                    <span className="ml-2 text-sm font-normal text-base-500">{group.items.length}</span>
                                 </h2>
                                 <RenderWhenNear placeholderHeight={gridPlaceholder(group.items.length)}>
                                     <ChordGrid entries={group.items}/>

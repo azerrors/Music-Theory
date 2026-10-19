@@ -1,50 +1,89 @@
-import {Suspense, useEffect, useRef, useState} from "react"
-import {Link, NavLink, Outlet, useLocation} from "react-router"
+import {Suspense, useCallback, useState} from "react"
+import {Link, Outlet, useLocation} from "react-router"
 import {useTranslation} from "react-i18next"
-import {ChevronDown, Moon, Settings, Sun} from "lucide-react"
-import {buttonVariants, Button} from "@/components/ui/button"
-import {Select} from "@/components/ui/select"
-import {INSTRUMENTS, useInstrument, type Instrument} from "@/hooks/useInstrument"
-import {useTheme} from "@/hooks/useTheme"
-import {LANGUAGES} from "@/i18n"
+import {Menu} from "lucide-react"
+import {AudioLinesIcon} from "@/components/icons/audio-lines"
+import {BlocksIcon} from "@/components/icons/blocks"
+import {BrainIcon} from "@/components/icons/brain"
+import {BookTextIcon} from "@/components/icons/book-text"
+import {ChartNoAxesColumnIncreasingIcon} from "@/components/icons/chart-no-axes-column-increasing"
+import {CompassIcon} from "@/components/icons/compass"
+import {FileChartLineIcon} from "@/components/icons/file-chart-line"
+import {GitCommitHorizontalIcon} from "@/components/icons/git-commit-horizontal"
+import {LayoutGridIcon} from "@/components/icons/layout-grid"
+import {SearchIcon} from "@/components/icons/search"
+import {Drawer} from "@/components/ui/drawer"
+import {useInstrument, type Instrument} from "@/hooks/useInstrument"
 import {cn} from "@/lib/utils"
 import {INSTRUMENT_PICKER_PATH, PATHS, PIANO_PATHS} from "@/router/paths"
 import {PageLoader} from "@/widgets/PageLoader"
+import {SettingsPanel} from "@/widgets/SettingsPanel"
+import {Breadcrumb, headerButton, InstrumentToggle, LanguageSelect, SettingsButton} from "./HeaderBar"
+import {Logo} from "./Logo"
+import {Sidebar, type NavGroup} from "./Sidebar"
 
-interface NavItem {
-    to: string
-    key: string
-}
-
-/** Always visible on wide screens. */
-const GUITAR_PRIMARY_NAV: NavItem[] = [
-    {to: PATHS.chords, key: "nav.chords"},
-    {to: PATHS.builder, key: "nav.builder"},
-    {to: PATHS.scales, key: "nav.scales"},
-    {to: PATHS.progressions, key: "nav.progressions"},
-    {to: PATHS.song, key: "nav.song"},
-]
-
-/** Under "More" on wide screens; small screens list everything in one scrollable row. */
-const GUITAR_MORE_NAV: NavItem[] = [
-    {to: PATHS.intervals, key: "nav.intervals"},
-    {to: PATHS.circle, key: "nav.circle"},
-    {to: PATHS.fretboard, key: "nav.fretboard"},
-    {to: PATHS.glossary, key: "nav.glossary"},
-]
-
-/** The piano section grows tab by tab; chords come first. */
-const PIANO_PRIMARY_NAV: NavItem[] = [
-    {to: PIANO_PATHS.chords, key: "nav.chords"},
-    {to: PIANO_PATHS.builder, key: "nav.builder"},
-    {to: PIANO_PATHS.scales, key: "nav.scales"},
-    {to: PIANO_PATHS.progressions, key: "nav.progressions"},
-    {to: PIANO_PATHS.intervals, key: "nav.intervals"},
-]
-
-const NAV: Record<Instrument, {primary: NavItem[]; more: NavItem[]}> = {
-    guitar: {primary: GUITAR_PRIMARY_NAV, more: GUITAR_MORE_NAV},
-    piano: {primary: PIANO_PRIMARY_NAV, more: []},
+/** Wide screens show these as sidebar groups; small screens list every item in one scrollable row. */
+const NAV: Record<Instrument, NavGroup[]> = {
+    guitar: [
+        {
+            items: [
+                {to: PATHS.chords, key: "nav.chords", icon: LayoutGridIcon},
+                {to: PATHS.builder, key: "nav.builder", icon: BlocksIcon},
+                {to: PATHS.scales, key: "nav.scales", icon: AudioLinesIcon},
+                {to: PATHS.progressions, key: "nav.progressions", icon: GitCommitHorizontalIcon},
+                {to: PATHS.song, key: "nav.song", icon: FileChartLineIcon},
+            ],
+        },
+        {
+            items: [
+                {
+                    to: "/guitar/practice",
+                    key: "nav.practice",
+                    icon: BrainIcon,
+                    children: [
+                        {to: PATHS.practiceEar, key: "nav.practiceEar"},
+                        {to: PATHS.practiceFind, key: "nav.practiceFind"},
+                        {to: PATHS.practiceCircle, key: "nav.practiceCircle"},
+                    ],
+                },
+            ],
+        },
+        {
+            labelKey: "nav.more",
+            items: [
+                {to: PATHS.intervals, key: "nav.intervals", icon: ChartNoAxesColumnIncreasingIcon},
+                {to: PATHS.circle, key: "nav.circle", icon: CompassIcon},
+                {to: PATHS.fretboard, key: "nav.fretboard", icon: SearchIcon},
+                {to: PATHS.glossary, key: "nav.glossary", icon: BookTextIcon},
+            ],
+        },
+    ],
+    // The piano section grows tab by tab; chords come first.
+    piano: [
+        {
+            items: [
+                {to: PIANO_PATHS.chords, key: "nav.chords", icon: LayoutGridIcon},
+                {to: PIANO_PATHS.builder, key: "nav.builder", icon: BlocksIcon},
+                {to: PIANO_PATHS.scales, key: "nav.scales", icon: AudioLinesIcon},
+                {to: PIANO_PATHS.progressions, key: "nav.progressions", icon: GitCommitHorizontalIcon},
+                {to: PIANO_PATHS.intervals, key: "nav.intervals", icon: ChartNoAxesColumnIncreasingIcon},
+            ],
+        },
+        {
+            items: [
+                {
+                    to: "/piano/practice",
+                    key: "nav.practice",
+                    icon: BrainIcon,
+                    children: [
+                        {to: PIANO_PATHS.practiceEar, key: "nav.practiceEar"},
+                        {to: PIANO_PATHS.practiceFind, key: "nav.practiceFind"},
+                        {to: PIANO_PATHS.practiceCircle, key: "nav.practiceCircle"},
+                    ],
+                },
+            ],
+        },
+    ],
 }
 
 const INSTRUMENT_HOME: Record<Instrument, string> = {
@@ -52,92 +91,18 @@ const INSTRUMENT_HOME: Record<Instrument, string> = {
     piano: PIANO_PATHS.home,
 }
 
-function InstrumentSwitch({current, className}: {current: Instrument; className?: string}) {
-    const {t} = useTranslation()
+const COLLAPSED_KEY = "sidebar-collapsed"
 
-    return (
-        <div role="group" aria-label={t("instrument.label")} className={cn("flex shrink-0 rounded-lg bg-stone-200/60 p-0.5 dark:bg-stone-800", className)}>
-            {INSTRUMENTS.map(instrument => (
-                <Link
-                    key={instrument}
-                    to={INSTRUMENT_HOME[instrument]}
-                    aria-current={instrument === current ? "true" : undefined}
-                    className={cn(
-                        "rounded-md px-2.5 py-1 text-xs font-medium whitespace-nowrap transition-colors pointer-coarse:py-2",
-                        instrument === current
-                            ? "bg-white text-stone-900 shadow-sm dark:bg-stone-950 dark:text-stone-100"
-                            : "text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100",
-                    )}
-                >
-                    {t(`instrument.${instrument}`)}
-                </Link>
-            ))}
-        </div>
-    )
-}
-
-function MoreMenu({items, linkClass}: {items: NavItem[]; linkClass: (state: {isActive: boolean}) => string}) {
-    const {t} = useTranslation()
-    const {pathname} = useLocation()
-    const [open, setOpen] = useState(false)
-    const ref = useRef<HTMLDivElement>(null)
-    const isActive = items.some(item => pathname.startsWith(item.to))
-
-    // Close on outside clicks and Escape; picking a link closes it too.
-    useEffect(() => {
-        if (!open) return
-        const onPointer = (event: PointerEvent) => {
-            if (!ref.current?.contains(event.target as Node)) setOpen(false)
-        }
-        const onKey = (event: KeyboardEvent) => {
-            if (event.key === "Escape") setOpen(false)
-        }
-        window.addEventListener("pointerdown", onPointer)
-        window.addEventListener("keydown", onKey)
-        return () => {
-            window.removeEventListener("pointerdown", onPointer)
-            window.removeEventListener("keydown", onKey)
-        }
-    }, [open])
-
-    return (
-        <div ref={ref} className="relative">
-            <button
-                type="button"
-                aria-expanded={open}
-                aria-haspopup="true"
-                onClick={() => setOpen(current => !current)}
-                className={cn(linkClass({isActive}), "inline-flex items-center gap-1")}
-            >
-                {t("nav.more")} <ChevronDown className={cn("size-4 transition-transform", open && "rotate-180")}/>
-            </button>
-            {open && (
-                <div className="absolute top-full left-0 z-30 mt-1 flex w-52 flex-col gap-0.5 rounded-xl border border-stone-200 bg-white p-1.5 shadow-lg dark:border-stone-800 dark:bg-stone-900">
-                    {items.map(item => (
-                        <NavLink key={item.to} to={item.to} className={linkClass} onClick={() => setOpen(false)}>{t(item.key)}</NavLink>
-                    ))}
-                </div>
-            )}
-        </div>
-    )
-}
-
-function Logo() {
-    return (
-        <svg viewBox="0 0 32 32" className="size-8 shrink-0" aria-hidden>
-            <rect width="32" height="32" rx="8" className="fill-brand-700"/>
-            <g className="stroke-brand-100" strokeWidth="1.6">
-                <path d="M9 6v20M13 6v20M17 6v20M21 6v20"/>
-                <path d="M7 11h16M7 16h16M7 21h16" strokeOpacity=".5"/>
-            </g>
-            <circle cx="17" cy="13.5" r="2.6" className="fill-brand-100"/>
-        </svg>
-    )
+function readCollapsed(): boolean {
+    try {
+        return localStorage.getItem(COLLAPSED_KEY) === "1"
+    } catch {
+        return false
+    }
 }
 
 export function MainLayout() {
-    const {t, i18n} = useTranslation()
-    const {theme, toggleTheme} = useTheme()
+    const {t} = useTranslation()
     const {pathname} = useLocation()
     const instrument = useInstrument()
     // The picker is the one page that belongs to neither instrument, so it has no section nav.
@@ -145,87 +110,139 @@ export function MainLayout() {
     const nav = NAV[instrument]
     const tagline = isPicker ? t("taglines.shared") : t(`taglines.${instrument}`)
 
-    const navLinkClass = ({isActive}: {isActive: boolean}) => cn(
-        "rounded-lg px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-colors pointer-coarse:py-2.5",
-        isActive
-            ? "bg-brand-100 text-brand-800 dark:bg-brand-950 dark:text-brand-200"
-            : "text-stone-600 hover:bg-stone-200/60 hover:text-stone-900 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-100",
+    // Wide screens: the sidebar folds down to its icons, remembered on this device.
+    const [collapsed, setCollapsed] = useState(readCollapsed)
+    const toggleSidebar = () => setCollapsed(current => {
+        try {
+            localStorage.setItem(COLLAPSED_KEY, current ? "0" : "1")
+        } catch {
+            // Private mode: the choice just isn't remembered.
+        }
+        return !current
+    })
+    const [settingsOpen, setSettingsOpen] = useState(false)
+    const closeSettings = useCallback(() => setSettingsOpen(false), [])
+
+    // Small screens: the sidebar opens as a drawer from the left, and closes once a page is picked.
+    const [navOpen, setNavOpen] = useState(false)
+    const closeNav = useCallback(() => setNavOpen(false), [])
+    const [navPath, setNavPath] = useState(pathname)
+    if (pathname !== navPath) {
+        setNavPath(pathname)
+        setNavOpen(false)
+    }
+
+    const brand = (
+        <Link to={INSTRUMENT_PICKER_PATH} className="flex items-center gap-2.5 rounded-lg">
+            <Logo/>
+            <span className="leading-tight">
+                <span className="block font-bold tracking-tight">{t("appName")}</span>
+                <span className="hidden text-xs text-base-500 sm:block">{tagline}</span>
+            </span>
+        </Link>
     )
 
-    return (
-        <div className="flex min-h-screen flex-col">
-            <header className="sticky top-0 z-20 border-b border-stone-200 bg-stone-50 dark:border-stone-800 dark:bg-stone-950">
-                <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 sm:px-6">
-                    <Link to={INSTRUMENT_PICKER_PATH} className="flex items-center gap-2.5 rounded-lg">
-                        <Logo/>
-                        <span className="leading-tight">
-                            <span className="block font-bold tracking-tight">{t("appName")}</span>
-                            <span className="block text-xs text-stone-500">{tagline}</span>
-                        </span>
-                    </Link>
+    // Right of the header: switch instrument, language, settings.
+    const controls = (
+        <div className="ml-auto flex shrink-0 items-center gap-1">
+            {!isPicker && <InstrumentToggle current={instrument}/>}
+            <LanguageSelect/>
+            <SettingsButton onClick={() => setSettingsOpen(true)}/>
+        </div>
+    )
 
-                    {!isPicker && (
-                        <nav className="ml-4 hidden items-center gap-1 lg:flex">
-                            {nav.primary.map(item => (
-                                <NavLink key={item.to} to={item.to} className={navLinkClass}>{t(item.key)}</NavLink>
-                            ))}
-                            {nav.more.length > 0 && <MoreMenu items={nav.more} linkClass={navLinkClass}/>}
-                        </nav>
-                    )}
+    const settingsDrawer = (
+        <Drawer open={settingsOpen} onClose={closeSettings} title={t("settings.title")} closeLabel={t("actions.close")}>
+            <SettingsPanel/>
+        </Drawer>
+    )
 
-                    <div className="ml-auto flex items-center gap-1.5">
-                        {!isPicker && <InstrumentSwitch current={instrument} className="hidden sm:flex"/>}
-                        <Select
-                            aria-label={t("actions.language")}
-                            value={i18n.resolvedLanguage}
-                            onChange={event => void i18n.changeLanguage(event.target.value)}
-                            className="w-20"
-                        >
-                            {LANGUAGES.map(language => (
-                                <option key={language} value={language}>{language.toUpperCase()}</option>
-                            ))}
-                        </Select>
-                        <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label={t("actions.toggleTheme")}>
-                            {theme === "dark" ? <Sun/> : <Moon/>}
-                        </Button>
-                        <NavLink
-                            to={PATHS.settings}
-                            aria-label={t("nav.settings")}
-                            className={({isActive}) => cn(buttonVariants({variant: "ghost", size: "icon"}), isActive && "bg-stone-200/60 dark:bg-stone-800")}
-                        >
-                            <Settings/>
-                        </NavLink>
+    const page = (
+        <Suspense fallback={<PageLoader/>}>
+            {/* Keyed by path, so each new page plays the entrance. */}
+            <div key={pathname} className="pg-enter">
+                <Outlet/>
+            </div>
+        </Suspense>
+    )
+
+    if (isPicker) {
+        // A full-bleed stage under a plain header, with no section nav.
+        return (
+            <div className="flex min-h-screen flex-col">
+                <header className="sticky top-0 z-20 border-b border-base-200 bg-base-50 dark:border-base-800 dark:bg-base-950">
+                    <div className="flex h-16 items-center gap-4 px-4 sm:px-6">
+                        {brand}
+                        {controls}
                     </div>
+                </header>
+                <main className="flex flex-1 flex-col">
+                    <Suspense fallback={<PageLoader/>}>
+                        <Outlet/>
+                    </Suspense>
+                </main>
+                {settingsDrawer}
+            </div>
+        )
+    }
+
+    // Instrument pages: a floating sidebar beside a floating header, both inset from the window's edges.
+    return (
+        <div className="flex min-h-svh gap-3 p-2 sm:p-3">
+            <Sidebar
+                instrument={instrument}
+                groups={nav}
+                home={INSTRUMENT_HOME[instrument]}
+                tagline={tagline}
+                collapsed={collapsed}
+                onToggle={toggleSidebar}
+                className="sticky top-3 z-30 hidden h-[calc(100svh-1.5rem)] shrink-0 lg:block"
+            />
+
+            <div className="flex min-w-0 flex-1 flex-col gap-3">
+                {/* The page colour runs up behind the floating header, so content scrolling under it never shows in the gap above. */}
+                <div className="sticky top-0 z-20 -mt-2 bg-base-50 pt-2 sm:-mt-3 sm:pt-3 dark:bg-base-950">
+                    <header className="rounded-[18px] border border-base-200 bg-white dark:border-base-800 dark:bg-base-900">
+                        <div className="flex h-[4.5rem] items-center gap-3 px-3 sm:gap-4 sm:px-5">
+                            <button
+                                type="button"
+                                onClick={() => setNavOpen(true)}
+                                aria-label={t("actions.openMenu")}
+                                aria-haspopup="dialog"
+                                aria-expanded={navOpen}
+                                className={cn(headerButton, "-ml-1 shrink-0 lg:hidden")}
+                            >
+                                <Menu className="size-5" strokeWidth={1.5}/>
+                            </button>
+                            <div className="shrink-0 lg:hidden">{brand}</div>
+                            <div className="hidden min-w-0 sm:block">
+                                <Breadcrumb instrument={instrument} groups={nav}/>
+                            </div>
+                            {controls}
+                        </div>
+                    </header>
                 </div>
 
-                {/* Small screens: the nav moves to a scrollable row under the header, led by the instrument switch on phones. */}
-                {!isPicker && (
-                    <nav className="flex items-center gap-1 overflow-x-auto px-4 pb-3 lg:hidden">
-                        <InstrumentSwitch current={instrument} className="mr-2 sm:hidden"/>
-                        {[...nav.primary, ...nav.more].map(item => (
-                            <NavLink key={item.to} to={item.to} className={navLinkClass}>{t(item.key)}</NavLink>
-                        ))}
-                    </nav>
-                )}
-            </header>
+                <main className="mx-auto w-full max-w-6xl flex-1 px-2 py-4 sm:px-4 lg:px-6">
+                    {page}
+                </main>
 
-            <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
-                <Suspense fallback={<PageLoader/>}>
-                    <Outlet/>
-                </Suspense>
-            </main>
-
-            <footer className="space-y-1 border-t border-stone-200 py-6 text-center text-xs text-stone-500 dark:border-stone-800">
-                <p>{t("appName")} · {tagline}</p>
-                {/* The samples are CC BY 3.0, which asks for this credit wherever they are used. */}
-                <p>
-                    {t("credits.prefix")}{" "}
-                    <a href="https://github.com/nbrosowsky/tonejs-instruments" target="_blank" rel="noreferrer" className="underline hover:text-stone-700 dark:hover:text-stone-300">tonejs-instruments</a>
-                    {" ("}
-                    <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noreferrer" className="underline hover:text-stone-700 dark:hover:text-stone-300">{t("credits.license")}</a>
-                    {"): "}{t("credits.details")}
-                </p>
-            </footer>
+                <footer className="space-y-1 border-t border-base-200 py-6 text-center text-xs text-base-500 dark:border-base-800">
+                    <p>{t("appName")} · {tagline}</p>
+                    {/* The samples are CC BY 3.0, which asks for this credit wherever they are used. */}
+                    <p>
+                        {t("credits.prefix")}{" "}
+                        <a href="https://github.com/nbrosowsky/tonejs-instruments" target="_blank" rel="noreferrer" className="underline hover:text-base-700 dark:hover:text-base-300">tonejs-instruments</a>
+                        {" ("}
+                        <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noreferrer" className="underline hover:text-base-700 dark:hover:text-base-300">{t("credits.license")}</a>
+                        {"): "}{t("credits.details")}
+                    </p>
+                </footer>
+            </div>
+            {settingsDrawer}
+            <Drawer open={navOpen} onClose={closeNav} side="left" bare title={t("instrument." + instrument)} closeLabel={t("actions.close")}>
+                <Sidebar instrument={instrument} groups={nav} home={INSTRUMENT_HOME[instrument]} tagline={tagline} collapsed={false} className="h-full"/>
+            </Drawer>
         </div>
     )
 }

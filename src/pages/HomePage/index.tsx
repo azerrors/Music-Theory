@@ -34,7 +34,7 @@ export default function HomePage() {
         <div className="space-y-14">
             <section className="max-w-3xl space-y-5 pt-4">
                 <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl">{t("home.title")}</h1>
-                <p className="text-lg text-stone-600 text-pretty dark:text-stone-400">{t("home.subtitle")}</p>
+                <p className="text-lg text-base-600 text-pretty dark:text-base-400">{t("home.subtitle")}</p>
                 <Link to={PATHS.chords} className={buttonVariants({size: "md"})}>
                     {t("home.cta")} <ArrowRight/>
                 </Link>
@@ -56,7 +56,7 @@ export default function HomePage() {
                 <Card className="grid items-center gap-8 p-6 sm:p-8 md:grid-cols-[1fr_auto]">
                     <div className="space-y-4">
                         <h2 className="text-2xl font-bold tracking-tight">{t("home.how.title")}</h2>
-                        <p className="text-stone-600 text-pretty dark:text-stone-400"><TermText text={t("home.how.body")}/></p>
+                        <p className="text-base-600 text-pretty dark:text-base-400"><TermText text={t("home.how.body")}/></p>
                         <ToneTable notes={EXAMPLE_CHORD.notes} degrees={EXAMPLE_CHORD.degrees}/>
                     </div>
                     <div className="flex flex-col items-center gap-3">

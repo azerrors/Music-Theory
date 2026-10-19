@@ -58,10 +58,10 @@ export default function IntervalsPage() {
                 <p className="text-sm">
                     {t("intervals.reference")}{" "}
                     <strong className="text-lg">{referenceName}</strong>{" "}
-                    <span className="text-stone-500">{t("intervals.position", {string: t(`intervals.strings.${reference.string}`), fret: reference.fret})}</span>
+                    <span className="text-base-500">{t("intervals.position", {string: t(`intervals.strings.${reference.string}`), fret: reference.fret})}</span>
                 </p>
                 <IntervalPicker selected={selected} onChange={setSelected}/>
-                <p className="text-xs text-stone-500">{t("intervals.clickHint")}</p>
+                <p className="text-xs text-base-500">{t("intervals.clickHint")}</p>
             </Card>
 
             <Fretboard

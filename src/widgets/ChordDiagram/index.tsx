@@ -60,7 +60,7 @@ export function ChordDiagram({voicing, root, chordNotes, title, className}: Chor
                     x2={LEFT + gridWidth}
                     y1={TOP + FRET_GAP * index}
                     y2={TOP + FRET_GAP * index}
-                    className="stroke-stone-400 dark:stroke-stone-600"
+                    className="stroke-base-400 dark:stroke-base-600"
                     strokeWidth={index === 0 && baseFret === 1 ? 4 : 1}
                 />
             ))}
@@ -71,7 +71,7 @@ export function ChordDiagram({voicing, root, chordNotes, title, className}: Chor
                     x2={stringX(string)}
                     y1={TOP}
                     y2={TOP + gridHeight}
-                    className="stroke-stone-500 dark:stroke-stone-400"
+                    className="stroke-base-500 dark:stroke-base-400"
                     strokeWidth={1.1}
                 />
             ))}
@@ -81,7 +81,7 @@ export function ChordDiagram({voicing, root, chordNotes, title, className}: Chor
                     x={leftHanded ? LEFT + gridWidth + DOT_RADIUS + 3 : LEFT - DOT_RADIUS - 3}
                     y={fretY(baseFret) + 4}
                     textAnchor={leftHanded ? "start" : "end"}
-                    className="fill-stone-500 text-[10px] font-medium"
+                    className="fill-base-500 text-[10px] font-medium"
                 >
                     {baseFret}fr
                 </text>
@@ -95,13 +95,13 @@ export function ChordDiagram({voicing, root, chordNotes, title, className}: Chor
                         width={Math.abs(barreXs[1]! - barreXs[0]!) + DOT_RADIUS * 2}
                         height={DOT_RADIUS * 2}
                         rx={DOT_RADIUS}
-                        className="fill-stone-800 dark:fill-stone-200"
+                        className="fill-brand-100 stroke-brand-400 dark:fill-brand-900 dark:stroke-brand-500"
                     />
                     <text
                         x={(barreXs[0]! + barreXs[1]!) / 2}
                         y={fretY(barre.fret) + 3.5}
                         textAnchor="middle"
-                        className="fill-white text-[10px] font-semibold dark:fill-stone-900"
+                        className="fill-brand-900 text-[10px] font-semibold dark:fill-brand-100"
                     >
                         1
                     </text>
@@ -114,7 +114,7 @@ export function ChordDiagram({voicing, root, chordNotes, title, className}: Chor
 
                 if (fret === null) {
                     return (
-                        <text key={string} x={x} y={TOP - 10} textAnchor="middle" className="fill-stone-500 text-[11px]">
+                        <text key={string} x={x} y={TOP - 10} textAnchor="middle" className="fill-base-500 text-[11px]">
                             ×
                         </text>
                     )
@@ -131,7 +131,7 @@ export function ChordDiagram({voicing, root, chordNotes, title, className}: Chor
                             r={4}
                             fill="none"
                             strokeWidth={1.4}
-                            className={isRoot ? "stroke-brand-600" : "stroke-stone-500"}
+                            className={isRoot ? "stroke-brand-600" : "stroke-base-500"}
                         />
                     )
                 }
@@ -145,13 +145,13 @@ export function ChordDiagram({voicing, root, chordNotes, title, className}: Chor
                             cx={x}
                             cy={fretY(fret)}
                             r={DOT_RADIUS}
-                            className={isRoot ? "fill-brand-600" : "fill-stone-800 dark:fill-stone-200"}
+                            className={isRoot ? "fill-brand-600" : "fill-brand-100 stroke-brand-400 dark:fill-brand-900 dark:stroke-brand-500"}
                         />
                         <text
                             x={x}
                             y={fretY(fret) + 3.5}
                             textAnchor="middle"
-                            className={cn("text-[10px] font-semibold", isRoot ? "fill-white" : "fill-white dark:fill-stone-900")}
+                            className={cn("text-[10px] font-semibold", isRoot ? "fill-on-brand" : "fill-brand-900 dark:fill-brand-100")}
                         >
                             {voicing.fingers[string] ?? ""}
                         </text>
@@ -169,7 +169,7 @@ export function ChordDiagram({voicing, root, chordNotes, title, className}: Chor
                         textAnchor="middle"
                         className={cn(
                             "text-[10px] font-medium",
-                            chroma(pitch) === rootChroma ? "fill-brand-700 dark:fill-brand-400" : "fill-stone-500",
+                            chroma(pitch) === rootChroma ? "fill-brand-700 dark:fill-brand-400" : "fill-base-500",
                         )}
                     >
                         {noteLabel(pitch)}

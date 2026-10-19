@@ -58,7 +58,7 @@ function HandCard({scale, hand, fingers, labels}: HandCardProps) {
     const markers: KeyMarker[] = midi.map((note, index) => {
         const isRoot = index === 0 || index === midi.length - 1
         // The left hand's keys and fingers are blue, but the roots keep the root colour in both hands.
-        return {midi: note, label: label(index), isRoot, isLeftHand: hand === "left", fillClass: hand === "left" && isRoot ? "fill-brand-600" : undefined, finger: fingers?.[index]}
+        return {midi: note, label: label(index), isRoot, isLeftHand: hand === "left", fillClass: hand === "left" && isRoot ? "fill-brand-strong" : undefined, finger: fingers?.[index]}
     })
 
     return (
@@ -73,13 +73,13 @@ function HandCard({scale, hand, fingers, labels}: HandCardProps) {
                     <table className="w-full text-center text-sm tabular-nums">
                         <tbody>
                             <tr>
-                                <th scope="row" className="py-1.5 pr-3 text-left text-xs font-medium text-stone-500">{t("scales.table.note")}</th>
+                                <th scope="row" className="py-1.5 pr-3 text-left text-xs font-medium text-base-500">{t("scales.table.note")}</th>
                                 {midi.map((note, index) => (
-                                    <td key={note} className="px-1 py-1.5 text-stone-600 dark:text-stone-400">{formatNote(noteAt(index), notation)}</td>
+                                    <td key={note} className="px-1 py-1.5 text-base-600 dark:text-base-400">{formatNote(noteAt(index), notation)}</td>
                                 ))}
                             </tr>
                             <tr>
-                                <th scope="row" className="py-1.5 pr-3 text-left text-xs font-medium text-stone-500">{t("scales.fingering")}</th>
+                                <th scope="row" className="py-1.5 pr-3 text-left text-xs font-medium text-base-500">{t("scales.fingering")}</th>
                                 {fingers.map((finger, index) => (
                                     <td key={index} className="px-0.5 py-1">
                                         <span
@@ -87,8 +87,8 @@ function HandCard({scale, hand, fingers, labels}: HandCardProps) {
                                             className={cn(
                                                 "inline-flex size-7 items-center justify-center rounded-md font-semibold",
                                                 crossingAt.has(index)
-                                                    ? "bg-brand-600 text-white"
-                                                    : "bg-stone-100 text-stone-800 dark:bg-stone-800 dark:text-stone-200",
+                                                    ? "bg-brand-600 text-on-brand"
+                                                    : "bg-base-100 text-base-800 dark:bg-base-800 dark:text-base-200",
                                             )}
                                         >
                                             {finger}
@@ -134,18 +134,19 @@ export default function PianoScalesPage() {
 
             <Card className="space-y-5">
                 <div className="flex flex-wrap items-end gap-4">
-                    <label className="space-y-2">
-                        <span className="block text-xs font-semibold tracking-wide text-stone-500 uppercase">{t("scale")}</span>
-                        <Select value={scale.def.id} onChange={event => updateParams({scale: event.target.value})} className="w-64">
-                            {SCALE_GROUPS.map(group => (
-                                <optgroup key={group} label={t(`scaleGroups.${group}`)}>
-                                    {SCALES.filter(item => item.group === group).map(item => (
-                                        <option key={item.id} value={item.id}>{t(`scales.${item.id}`)}</option>
-                                    ))}
-                                </optgroup>
-                            ))}
-                        </Select>
-                    </label>
+                    <div className="space-y-2">
+                        <span aria-hidden="true" className="block text-xs font-semibold tracking-wide text-base-500 uppercase">{t("scale")}</span>
+                        <Select
+                            label={t("scale")}
+                            value={scale.def.id}
+                            onChange={scale => updateParams({scale})}
+                            groups={SCALE_GROUPS.map(group => ({
+                                label: t(`scaleGroups.${group}`),
+                                options: SCALES.filter(item => item.group === group).map(item => ({value: item.id, label: t(`scales.${item.id}`)})),
+                            }))}
+                            className="w-64"
+                        />
+                    </div>
                     <PlayButton instrument="piano" mode="arpeggio" midi={upAndDown(handScaleMidi(scale, "right"))} variant="primary" size="md"/>
                 </div>
                 <RootNotePicker value={scale.root} onChange={value => updateParams({root: value})}/>
@@ -163,11 +164,11 @@ export default function PianoScalesPage() {
                         {fingering
                             ? (
                                 <>
-                                    <p className="text-sm font-medium text-stone-700 dark:text-stone-300">{tPiano("scales.fingerNames")}</p>
-                                    <p className="text-sm text-stone-600 text-pretty dark:text-stone-400">{tPiano("scales.fingeringHint")}</p>
+                                    <p className="text-sm font-medium text-base-700 dark:text-base-300">{tPiano("scales.fingerNames")}</p>
+                                    <p className="text-sm text-base-600 text-pretty dark:text-base-400">{tPiano("scales.fingeringHint")}</p>
                                 </>
                             )
-                            : <p className="text-sm text-stone-600 text-pretty dark:text-stone-400">{tPiano("scales.noFingering")}</p>}
+                            : <p className="text-sm text-base-600 text-pretty dark:text-base-400">{tPiano("scales.noFingering")}</p>}
                     </div>
                     <Segmented
                         label={tPiano("scales.labelsTitle")}
@@ -181,30 +182,30 @@ export default function PianoScalesPage() {
                     <HandCard scale={scale} hand="right" fingers={fingering?.right ?? null} labels={labels}/>
                     <HandCard scale={scale} hand="left" fingers={fingering?.left ?? null} labels={labels}/>
                 </div>
-                {fingering && <p className="text-sm text-stone-500">{tPiano("scales.moreOctaves")}</p>}
+                {fingering && <p className="text-sm text-base-500">{tPiano("scales.moreOctaves")}</p>}
             </section>
 
             {diatonic && (
                 <section className="space-y-3">
                     <div>
                         <h3 className="text-lg font-semibold tracking-tight">{t("diatonic.title")}</h3>
-                        <p className="text-sm text-stone-600 dark:text-stone-400"><TermText text={t("diatonic.description")}/></p>
+                        <p className="text-sm text-base-600 dark:text-base-400"><TermText text={t("diatonic.description")}/></p>
                     </div>
-                    <div className="overflow-x-auto rounded-xl border border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+                    <div className="overflow-x-auto rounded-xl border border-base-200 bg-white dark:border-base-800 dark:bg-base-900">
                         <table className="w-full text-center text-sm">
-                            <tbody className="divide-y divide-stone-200 dark:divide-stone-800">
+                            <tbody className="divide-y divide-base-200 dark:divide-base-800">
                                 <tr>
-                                    <th scope="row" className="px-4 py-2.5 text-left font-medium text-stone-500">{t("diatonic.degree")}</th>
+                                    <th scope="row" className="px-4 py-2.5 text-left font-medium text-base-500">{t("diatonic.degree")}</th>
                                     {diatonic.map(chord => <td key={chord.roman} className="px-3 py-2.5 font-semibold">{chord.roman}</td>)}
                                 </tr>
                                 <tr>
-                                    <th scope="row" className="px-4 py-2.5 text-left font-medium text-stone-500"><Term id="triad">{t("diatonic.triad")}</Term></th>
+                                    <th scope="row" className="px-4 py-2.5 text-left font-medium text-base-500"><Term id="triad">{t("diatonic.triad")}</Term></th>
                                     {diatonic.map(chord => (
                                         <td key={chord.roman} className="px-3 py-2.5"><ChordLink symbol={chord.triadSymbol} label={chord.triad}/></td>
                                     ))}
                                 </tr>
                                 <tr>
-                                    <th scope="row" className="px-4 py-2.5 text-left font-medium text-stone-500"><Term id="seventhChord">{t("diatonic.seventh")}</Term></th>
+                                    <th scope="row" className="px-4 py-2.5 text-left font-medium text-base-500"><Term id="seventhChord">{t("diatonic.seventh")}</Term></th>
                                     {diatonic.map(chord => (
                                         <td key={chord.roman} className="px-3 py-2.5"><ChordLink symbol={chord.seventhSymbol} label={chord.seventh}/></td>
                                     ))}

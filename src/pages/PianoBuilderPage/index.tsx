@@ -65,7 +65,7 @@ export default function PianoBuilderPage() {
                         <div className="flex flex-wrap items-end justify-between gap-3">
                             <div>
                                 <p className="text-4xl font-bold tracking-tight">{title}</p>
-                                <p className="text-sm text-stone-500">
+                                <p className="text-sm text-base-500">
                                     {chord.type ? t(`chordTypes.${chord.type.symbol}`) : t("builder.unnamedHint")}
                                 </p>
                             </div>
@@ -85,7 +85,7 @@ export default function PianoBuilderPage() {
                         </div>
                         <ToneTable notes={chord.notes} degrees={chord.degrees}/>
                         <div className="space-y-2">
-                            <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase">{tPiano("builder.onKeys")}</p>
+                            <p className="text-xs font-semibold tracking-wide text-base-500 uppercase">{tPiano("builder.onKeys")}</p>
                             <PianoKeyboard
                                 from={towerRange.from}
                                 to={towerRange.to}
@@ -93,7 +93,7 @@ export default function PianoBuilderPage() {
                                 onKeyClick={midi => void player.note(midi)}
                                 ariaLabel={`${title} — ${tPiano("builder.onKeys")}`}
                             />
-                            <p className="text-xs text-stone-500">{towerFingers.size > 0 ? tPiano("fingers.legend") : tPiano("fingers.towerTooWide")}</p>
+                            <p className="text-xs text-base-500">{towerFingers.size > 0 ? tPiano("fingers.legend") : tPiano("fingers.towerTooWide")}</p>
                         </div>
                     </Card>
 
@@ -116,10 +116,10 @@ export default function PianoBuilderPage() {
                         {info && playable && chord.type
                             ? (
                                 <>
-                                    <p className="text-sm text-stone-600 dark:text-stone-400">{tPiano("builder.howToPlayHint")}</p>
+                                    <p className="text-sm text-base-600 dark:text-base-400">{tPiano("builder.howToPlayHint")}</p>
                                     <PianoChordKeys chord={info} voicing={playable} title={title}/>
-                                    <p className="text-xs text-stone-500">{tPiano("fingers.legend")}</p>
-                                    {chord.impliedFifth && <p className="text-xs text-stone-500">{tPiano("builder.withFifth")}</p>}
+                                    <p className="text-xs text-base-500">{tPiano("fingers.legend")}</p>
+                                    {chord.impliedFifth && <p className="text-xs text-base-500">{tPiano("builder.withFifth")}</p>}
                                     <div className="flex flex-wrap items-center justify-between gap-2">
                                         <PlayButton instrument="piano" midi={voicingNotes(playable)}/>
                                         <Link to={PIANO_PATHS.chord(root, chord.type.symbol)} className="inline-flex min-h-6 items-center pointer-coarse:min-h-10 gap-1 text-sm font-medium text-brand-700 hover:underline dark:text-brand-400">
@@ -128,7 +128,7 @@ export default function PianoBuilderPage() {
                                     </div>
                                 </>
                             )
-                            : <p className="text-sm text-stone-500">{tPiano("builder.noCatalog")}</p>}
+                            : <p className="text-sm text-base-500">{tPiano("builder.noCatalog")}</p>}
                     </Card>
                 </aside>
             </div>
@@ -136,12 +136,12 @@ export default function PianoBuilderPage() {
             {/* Small screens: the result card scrolls away above the controls, so keep the chord in view. */}
             <div
                 aria-live="polite"
-                className="fixed inset-x-0 bottom-0 z-20 border-t border-stone-200 bg-stone-50/95 px-4 py-2 backdrop-blur lg:hidden dark:border-stone-800 dark:bg-stone-950/95"
+                className="fixed inset-x-0 bottom-0 z-20 border-t border-base-200 bg-base-50/95 px-4 py-2 backdrop-blur lg:hidden dark:border-base-800 dark:bg-base-950/95"
             >
                 <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
                     <div className="min-w-0">
                         <p className="truncate text-xl font-bold tracking-tight">{title}</p>
-                        <p className="truncate text-xs text-stone-500">{chord.degrees.join(" – ")}</p>
+                        <p className="truncate text-xs text-base-500">{chord.degrees.join(" – ")}</p>
                     </div>
                     <Button size="sm" onClick={playTower} aria-label={t("builder.playChord")}>
                         {player.isLoading ? <Loader2 className="animate-spin"/> : <Volume2/>}

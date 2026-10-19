@@ -30,7 +30,7 @@ export function NoteFilter({value, onChange}: {value: NoteFilterValue; onChange:
 
     return (
         <div className="space-y-2">
-            <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase"><Term id="root">{heading}</Term></p>
+            <p className="text-xs font-semibold tracking-wide text-base-500 uppercase"><Term id="root">{heading}</Term></p>
             <Segmented
                 label={heading}
                 value={value}

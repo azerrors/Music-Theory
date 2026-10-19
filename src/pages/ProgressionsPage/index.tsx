@@ -64,14 +64,14 @@ function StepTile({index, step, isSelected, isPlaying, canRemove, onSelect, onRe
     return (
         <div
             className={cn(
-                "relative flex flex-col overflow-hidden rounded-2xl border bg-white shadow-sm transition-colors dark:bg-stone-900",
-                isSelected ? "border-brand-500 ring-2 ring-brand-500/30" : "border-stone-200 dark:border-stone-800",
+                "relative flex flex-col overflow-hidden rounded-2xl border bg-white shadow-sm transition-colors dark:bg-base-900",
+                isSelected ? "border-brand-500 ring-2 ring-brand-500/30" : "border-base-200 dark:border-base-800",
                 isPlaying && "ring-4 ring-brand-400/60",
             )}
         >
             <span className={cn("h-1.5 w-full", FUNCTION_STYLES[step.fn].bar)} title={t(`progressions.functions.${step.fn}`)}/>
             <button type="button" onClick={onSelect} aria-pressed={isSelected} className="flex flex-col items-center gap-1 px-3 pt-2 pb-1">
-                <span className="self-start text-[11px] font-medium text-stone-400 tabular-nums">{index + 1}</span>
+                <span className="self-start text-[11px] font-medium text-base-400 tabular-nums">{index + 1}</span>
                 <span className="text-sm font-semibold text-brand-700 dark:text-brand-400">{step.roman}</span>
                 <span className="text-lg leading-tight font-bold tracking-tight">{step.name}</span>
                 {step.voicing && (
@@ -84,7 +84,7 @@ function StepTile({index, step, isSelected, isPlaying, canRemove, onSelect, onRe
                     />
                 )}
             </button>
-            <div className="mt-auto flex items-center justify-center gap-1 border-t border-stone-100 p-1.5 dark:border-stone-800">
+            <div className="mt-auto flex items-center justify-center gap-1 border-t border-base-100 p-1.5 dark:border-base-800">
                 <Button
                     variant="ghost"
                     size="icon"
@@ -106,17 +106,17 @@ function StepTile({index, step, isSelected, isPlaying, canRemove, onSelect, onRe
 }
 
 const SOLO_STYLES: Record<SoloRole, Pick<FretMarker, "fillClass" | "textClass" | "small">> = {
-    chordRoot: {fillClass: "fill-brand-600", textClass: "fill-white"},
-    chordTone: {fillClass: "fill-stone-800 dark:fill-stone-100", textClass: "fill-white dark:fill-stone-900"},
+    chordRoot: {fillClass: "fill-brand-600", textClass: "fill-on-brand"},
+    chordTone: {fillClass: "fill-brand-100 stroke-brand-400 dark:fill-brand-900 dark:stroke-brand-500", textClass: "fill-brand-900 dark:fill-brand-100"},
     outside: {fillClass: "fill-rose-600", textClass: "fill-white"},
-    scale: {fillClass: "fill-stone-300 dark:fill-stone-700", textClass: "fill-stone-700 dark:fill-stone-200", small: true},
+    scale: {fillClass: "fill-base-300 dark:fill-base-700", textClass: "fill-base-700 dark:fill-base-200", small: true},
 }
 
 const SOLO_LEGEND: {role: SoloRole; swatch: string}[] = [
     {role: "chordRoot", swatch: "bg-brand-600"},
-    {role: "chordTone", swatch: "bg-stone-800 dark:bg-stone-100"},
+    {role: "chordTone", swatch: "bg-base-800 dark:bg-base-100"},
     {role: "outside", swatch: "bg-rose-600"},
-    {role: "scale", swatch: "bg-stone-300 dark:bg-stone-700"},
+    {role: "scale", swatch: "bg-base-300 dark:bg-base-700"},
 ]
 
 /**
@@ -147,7 +147,7 @@ function SoloMap({tonic, mode, step, isPlaying}: {tonic: NoteName; mode: KeyMode
             <div className="flex flex-wrap items-end justify-between gap-3">
                 <div>
                     <h2 className="text-xl font-semibold tracking-tight">{t("progressions.solo.title")}</h2>
-                    <p className="text-sm text-stone-600 dark:text-stone-400"><TermText text={t("progressions.solo.hint", {scale: scaleName})}/></p>
+                    <p className="text-sm text-base-600 dark:text-base-400"><TermText text={t("progressions.solo.hint", {scale: scaleName})}/></p>
                 </div>
                 <Segmented
                     label={t("progressions.solo.title")}
@@ -157,12 +157,12 @@ function SoloMap({tonic, mode, step, isPlaying}: {tonic: NoteName; mode: KeyMode
                 />
             </div>
             <p className="text-sm">
-                <span className="text-stone-500">{t(isPlaying ? "progressions.solo.playing" : "progressions.solo.selected")}</span>{" "}
+                <span className="text-base-500">{t(isPlaying ? "progressions.solo.playing" : "progressions.solo.selected")}</span>{" "}
                 <strong className="text-lg">{step.name}</strong>{" "}
                 <span className="font-semibold text-brand-700 dark:text-brand-400">{step.roman}</span>
             </p>
             <Fretboard markers={markers} ariaLabel={`${t("progressions.solo.title")}: ${step.name}`}/>
-            <ul className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-stone-600 dark:text-stone-400">
+            <ul className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-base-600 dark:text-base-400">
                 {SOLO_LEGEND.map(item => (
                     <li key={item.role} className="flex items-center gap-1.5">
                         <span className={cn("size-3 rounded-full", item.swatch)}/> {t(`progressions.solo.roles.${item.role}`)}
@@ -206,8 +206,8 @@ function ProgressionEditor({tonic, mode, preset}: {tonic: NoteName; mode: KeyMod
                         </Button>
                     </div>
                 </StepHeading>
-                <p className="text-sm text-stone-600 dark:text-stone-400">
-                    <strong className="font-semibold text-stone-900 dark:text-stone-100">{t(`progressions.presets.${preset.id}`)}.</strong>{" "}
+                <p className="text-sm text-base-600 dark:text-base-400">
+                    <strong className="font-semibold text-base-900 dark:text-base-100">{t(`progressions.presets.${preset.id}`)}.</strong>{" "}
                     <TermText text={t(`progressions.presetHints.${preset.id}`)}/> {t("progressions.editHint")}
                 </p>
 

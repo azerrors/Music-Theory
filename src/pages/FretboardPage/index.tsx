@@ -78,7 +78,7 @@ export default function FretboardPage() {
 
             <div className="grid gap-4 md:grid-cols-2">
                 <Card className="space-y-3">
-                    <p className="text-sm font-medium text-stone-500">{t("detector.selected")}</p>
+                    <p className="text-sm font-medium text-base-500">{t("detector.selected")}</p>
                     <div className="flex min-h-8 flex-wrap gap-1.5">
                         {noteNames.map((note, index) => (
                             <Badge key={note} variant={index === 0 ? "root" : "default"}>{formatNote(note, notation)}</Badge>
@@ -86,13 +86,13 @@ export default function FretboardPage() {
                     </div>
                 </Card>
                 <Card className="space-y-3">
-                    <p className="text-sm font-medium text-stone-500">{t("detector.result")}</p>
-                    {noteNames.length < 2 && <p className="text-sm text-stone-500">{t("detector.empty")}</p>}
-                    {noteNames.length >= 2 && chords.length === 0 && <p className="text-sm text-stone-500">{t("detector.unknown")}</p>}
+                    <p className="text-sm font-medium text-base-500">{t("detector.result")}</p>
+                    {noteNames.length < 2 && <p className="text-sm text-base-500">{t("detector.empty")}</p>}
+                    {noteNames.length >= 2 && chords.length === 0 && <p className="text-sm text-base-500">{t("detector.unknown")}</p>}
                     <div className="flex flex-wrap gap-x-4 gap-y-1">
                         {chords.map((name, index) => {
                             const parsed = parseChordSymbol(name)
-                            const className = index === 0 ? "text-2xl font-bold" : "text-lg font-medium text-stone-600 dark:text-stone-400"
+                            const className = index === 0 ? "text-2xl font-bold" : "text-lg font-medium text-base-600 dark:text-base-400"
                             return parsed && !name.includes("/")
                                 ? <Link key={name} to={PATHS.chord(parsed.root, parsed.type.symbol)} className={`${className} hover:text-brand-700 hover:underline`}>{name}</Link>
                                 : <span key={name} className={className}>{name}</span>

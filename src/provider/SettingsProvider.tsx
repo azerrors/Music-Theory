@@ -1,5 +1,6 @@
 import {createContext, useCallback, useEffect, useMemo, useState, type ReactNode} from "react"
 import {STANDARD_TUNING, TUNINGS} from "@/constants/tunings"
+import {DEFAULT_ACCENT, type AccentId} from "@/constants/accents"
 import {readJson, writeJson} from "@/lib/localStorage"
 import type {Notation, Tuning} from "@/types/music"
 
@@ -10,6 +11,7 @@ export interface Settings {
     labelMode: LabelMode
     leftHanded: boolean
     tuningId: string
+    accent: AccentId
 }
 
 export interface SettingsContextValue extends Settings {
@@ -24,6 +26,7 @@ const DEFAULT_SETTINGS: Settings = {
     labelMode: "note",
     leftHanded: false,
     tuningId: STANDARD_TUNING.id,
+    accent: DEFAULT_ACCENT,
 }
 
 export const SettingsContext = createContext<SettingsContextValue | null>(null)
@@ -34,6 +37,10 @@ export function SettingsProvider({children}: {children: ReactNode}) {
     useEffect(() => {
         writeJson(STORAGE_KEY, settings)
     }, [settings])
+
+    useEffect(() => {
+        document.documentElement.dataset.accent = settings.accent
+    }, [settings.accent])
 
     const update = useCallback((patch: Partial<Settings>) => {
         setSettings(prev => ({...prev, ...patch}))

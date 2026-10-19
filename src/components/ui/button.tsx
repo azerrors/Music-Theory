@@ -7,14 +7,15 @@ export const buttonVariants = cva(
     {
         variants: {
             variant: {
-                primary: "bg-brand-600 text-white hover:bg-brand-700",
-                secondary: "bg-stone-200/70 text-stone-900 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-100 dark:hover:bg-stone-700",
-                outline: "border border-stone-300 bg-transparent hover:bg-stone-100 dark:border-stone-700 dark:hover:bg-stone-800",
-                ghost: "hover:bg-stone-200/60 dark:hover:bg-stone-800",
+                primary: "bg-brand-600 text-on-brand hover:bg-brand-700",
+                secondary: "bg-base-200/70 text-base-900 hover:bg-base-200 dark:bg-base-800 dark:text-base-100 dark:hover:bg-base-700",
+                outline: "border border-base-300 bg-transparent hover:bg-base-100 dark:border-base-700 dark:hover:bg-base-800",
+                ghost: "hover:bg-base-200/60 dark:hover:bg-base-800",
             },
             size: {
                 sm: "h-8 px-3 pointer-coarse:h-10",
                 md: "h-9 px-4 pointer-coarse:h-11",
+                lg: "h-11 px-5 text-base pointer-coarse:h-12",
                 icon: "size-9 pointer-coarse:size-11",
             },
         },

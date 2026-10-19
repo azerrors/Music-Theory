@@ -22,7 +22,7 @@ export function RootNotePicker({value, onChange, label, term = "root"}: RootNote
 
     return (
         <div className="space-y-2">
-            <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase"><Term id={term}>{heading}</Term></p>
+            <p className="text-xs font-semibold tracking-wide text-base-500 uppercase"><Term id={term}>{heading}</Term></p>
             <Segmented
                 label={heading}
                 value={value}

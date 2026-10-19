@@ -33,7 +33,7 @@ function SlashNote({chord}: {chord: ChordInfo}) {
     const plain = formatChordName({...chord, bass: undefined}, notation)
 
     return (
-        <p className="rounded-lg bg-brand-50 p-3 text-sm text-stone-700 dark:bg-brand-950/50 dark:text-stone-300">
+        <p className="rounded-lg bg-brand-50 p-3 text-sm text-base-700 dark:bg-brand-950/50 dark:text-base-300">
             {t("slash.explain", {chord: plain, bass: formatNote(chord.bass, notation), degree: chord.bassDegree})}
             {" "}
             <TermText text={t(`slash.inversions.${inversion}`)}/>
@@ -91,7 +91,7 @@ export default function ChordDetailPage() {
             </Link>
 
             <PageHeader
-                title={<>{displayName} <span className="font-medium text-stone-500">· {t(`chordTypes.${chord.type.symbol}`)}</span></>}
+                title={<>{displayName} <span className="font-medium text-base-500">· {t(`chordTypes.${chord.type.symbol}`)}</span></>}
                 description={<TermText text={t(`chordCategoryDescriptions.${chord.bass ? "slash" : chord.type.category}`)}/>}
                 actions={voicings[0] && <PlayButton midi={voicingMidi(voicings[0])} variant="primary" size="md"/>}
             />
@@ -113,13 +113,13 @@ export default function ChordDetailPage() {
                 <section className="min-w-0 space-y-4">
                     <h2 className="text-xl font-semibold tracking-tight">{t("voicings")}</h2>
                     {voicings.length === 0
-                        ? <p className="text-sm text-stone-500">{t("noVoicings")}</p>
+                        ? <p className="text-sm text-base-500">{t("noVoicings")}</p>
                         : (
                             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                                 {voicings.map(voicing => (
                                     <Card key={voicing.id} className="flex flex-col items-center gap-3">
                                         <div className="text-center">
-                                            <p className="text-sm font-medium text-stone-600 dark:text-stone-400">{t(`shapes.${voicing.shape}`)}</p>
+                                            <p className="text-sm font-medium text-base-600 dark:text-base-400">{t(`shapes.${voicing.shape}`)}</p>
                                             {voicing.shape !== "open" && (
                                                 <p className="text-xs font-semibold text-brand-700 dark:text-brand-400">{t("atFret", {fret: voicingPosition(voicing)})}</p>
                                             )}
@@ -136,7 +136,7 @@ export default function ChordDetailPage() {
                 <aside>
                     <MobilityPanel movableCount={movableCount} fixedCount={voicings.length - movableCount}>
                         {movableCount > 0 && (
-                            <p className="rounded-lg bg-stone-100 p-3 text-sm text-stone-700 dark:bg-stone-800 dark:text-stone-300">
+                            <p className="rounded-lg bg-base-100 p-3 text-sm text-base-700 dark:bg-base-800 dark:text-base-300">
                                 {t("mobility.slideHint", {up: neighbour(1), down: neighbour(-1), twelve: displayName})}
                             </p>
                         )}
@@ -148,7 +148,7 @@ export default function ChordDetailPage() {
                 <section className="space-y-4">
                     <div>
                         <h2 className="text-xl font-semibold tracking-tight">{t("slash.inversionsTitle")}</h2>
-                        <p className="text-sm text-stone-600 dark:text-stone-400"><TermText text={t("slash.inversionsHint")}/></p>
+                        <p className="text-sm text-base-600 dark:text-base-400"><TermText text={t("slash.inversionsHint")}/></p>
                     </div>
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
                         {inversions.map(item => <ChordCard key={item.chord.name} chord={item.chord} voicing={item.voicing}/>)}

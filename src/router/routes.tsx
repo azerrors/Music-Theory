@@ -20,6 +20,9 @@ const PianoScalesPage = lazy(() => import("@/pages/PianoScalesPage"))
 const PianoBuilderPage = lazy(() => import("@/pages/PianoBuilderPage"))
 const PianoProgressionsPage = lazy(() => import("@/pages/PianoProgressionsPage"))
 const PianoIntervalsPage = lazy(() => import("@/pages/PianoIntervalsPage"))
+const EarPracticePage = lazy(() => import("@/pages/EarPracticePage"))
+const FindNotePracticePage = lazy(() => import("@/pages/FindNotePracticePage"))
+const CirclePracticePage = lazy(() => import("@/pages/CirclePracticePage"))
 const SettingsPage = lazy(() => import("@/pages/SettingsPage"))
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"))
 
@@ -46,6 +49,14 @@ export const appRoutes: RouteObject[] = [
     {path: PIANO_PATHS.builder, element: <PianoBuilderPage/>},
     {path: PIANO_PATHS.progressions, element: <PianoProgressionsPage/>},
     {path: PIANO_PATHS.intervals, element: <PianoIntervalsPage/>},
+
+    // Practice: one page per exercise, answered on whichever instrument the path is under.
+    {path: PATHS.practiceEar, element: <EarPracticePage/>},
+    {path: PATHS.practiceFind, element: <FindNotePracticePage/>},
+    {path: PATHS.practiceCircle, element: <CirclePracticePage/>},
+    {path: PIANO_PATHS.practiceEar, element: <EarPracticePage/>},
+    {path: PIANO_PATHS.practiceFind, element: <FindNotePracticePage/>},
+    {path: PIANO_PATHS.practiceCircle, element: <CirclePracticePage/>},
 
     {path: PATHS.settings, element: <SettingsPage/>},
     {path: "*", element: <NotFoundPage/>},

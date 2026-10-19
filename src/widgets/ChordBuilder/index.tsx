@@ -118,7 +118,7 @@ export function TourCard({tour, stepText, onStep, onClose}: TourCardProps) {
                         <p className="text-xs font-semibold tracking-wide text-brand-800 uppercase dark:text-brand-300">
                             {t("builder.tours.stepOf", {n: tour.index + 1, total: activeTour.steps.length})}
                         </p>
-                        <button type="button" onClick={onClose} aria-label={t("builder.tours.close")} className="rounded-md p-1 text-stone-500 hover:bg-white/60 dark:hover:bg-stone-800">
+                        <button type="button" onClick={onClose} aria-label={t("builder.tours.close")} className="rounded-md p-1 text-base-500 hover:bg-white/60 dark:hover:bg-base-800">
                             <X className="size-4"/>
                         </button>
                     </div>
@@ -153,7 +153,7 @@ export function SlotControls({root, state, onRoot, onChange}: SlotControlsProps)
             <RootNotePicker value={root} onChange={onRoot}/>
             {BUILDER_SLOTS.map(slot => (
                 <div key={slot} className="space-y-2">
-                    <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase">
+                    <p className="text-xs font-semibold tracking-wide text-base-500 uppercase">
                         <Term id={SLOT_TERMS[slot]}>{t(`builder.slots.${slot}`)}</Term>
                     </p>
                     <Segmented
@@ -184,7 +184,7 @@ export function ChangeCard({root, title, change, previous, hintText}: ChangeCard
     return (
         <Card className="space-y-2">
             <CardTitle>{t("builder.change.title")}</CardTitle>
-            <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+            <p className="text-sm leading-relaxed text-base-600 dark:text-base-400">
                 {change ? hintText(change) : t("builder.change.empty")}
             </p>
             {change && previous && (
@@ -220,8 +220,8 @@ export function ThirdsLadder({root, state}: {root: NoteName; state: BuilderState
                             className={cn(
                                 "grid grid-cols-[3rem_1fr_auto] items-center gap-2 rounded-lg px-3 py-1.5 text-sm transition-colors",
                                 isOn
-                                    ? floor.key === "root" ? "bg-brand-600 text-white" : "bg-stone-800 text-white dark:bg-stone-200 dark:text-stone-900"
-                                    : "border border-dashed border-stone-300 text-stone-400 dark:border-stone-700",
+                                    ? floor.key === "root" ? "bg-brand-600 text-on-brand" : "bg-brand-100 text-brand-900 dark:bg-brand-900 dark:text-brand-100"
+                                    : "border border-dashed border-base-300 text-base-400 dark:border-base-700",
                             )}
                         >
                             <span className="font-semibold tabular-nums">{isOn ? optionLabel(floor.value, "") || "1" : floor.label}</span>
@@ -231,7 +231,7 @@ export function ThirdsLadder({root, state}: {root: NoteName; state: BuilderState
                     )
                 })}
             </ol>
-            <p className="text-xs leading-relaxed text-stone-500"><TermText text={t("builder.ladder.hint")}/></p>
+            <p className="text-xs leading-relaxed text-base-500"><TermText text={t("builder.ladder.hint")}/></p>
         </Card>
     )
 }

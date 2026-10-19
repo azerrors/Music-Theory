@@ -8,15 +8,16 @@
   "instrument": {
     "label": "Alət",
     "guitar": "Gitara",
-    "piano": "Piano"
+    "piano": "Piano",
+    "switchTo": "{{instrument}} bölməsinə keç"
   },
   "picker": {
     "title": "Hansı alətdə çalırsan?",
-    "subtitle": "Akorlar, qammalar və nəzəriyyə seçdiyin alətin dilində göstəriləcək. Sonra yuxarıdakı düymə ilə istənilən vaxt dəyişə bilərsən.",
+    "subtitle": "Akorlar, qammalar və nəzəriyyə seçdiyin alətə uyğun göstəriləcək. Sonra istənilən vaxt dəyişə bilərsən.",
     "guitar": "Qrifdə akor formaları, qammaların pozisiyaları, proqressiyalar, mahnı analizi və daha çoxu.",
     "piano": "Klaviaturada akorlar və qammalar: çevirmələr, iki əllə çalınış və barmaq sıraları.",
-    "soon": "Hələlik akorlar və qammalar",
-    "open": "Aç"
+    "open": "Başla",
+    "listen": "Dinlə"
   },
   "nav": {
     "home": "Ana səhifə",
@@ -30,7 +31,13 @@
     "builder": "Akor qurucu",
     "intervals": "İntervallar",
     "circle": "Kvinta dairəsi",
-    "more": "Daha çox"
+    "more": "Daha çox",
+    "collapse": "Paneli yığ",
+    "expand": "Paneli aç",
+    "practice": "Məşqlər",
+    "practiceEar": "Not tanıma",
+    "practiceFind": "Not tapma",
+    "practiceCircle": "Dairə məşqi"
   },
   "actions": {
     "play": "Səsləndir",
@@ -39,7 +46,9 @@
     "back": "Geri",
     "toggleTheme": "Mövzunu dəyiş",
     "language": "Dil",
-    "openMenu": "Menyunu aç"
+    "openMenu": "Menyunu aç",
+    "close": "Bağla",
+    "openSettings": "Ayarları aç"
   },
   "home": {
     "title": "Akorları əzbərləmə, qurulmasını anla",
@@ -97,6 +106,24 @@
     "labels": "Qrifdə göstər",
     "labelNote": "Notları",
     "labelDegree": "Pillələri (1, ♭3, 5)",
+    "accent": "Akset rəngi",
+    "accentHint": "Düymələrin, kök notların və seçilmiş elementlərin rəngi.",
+    "accents": {
+      "ice": "Buz",
+      "teal": "Dəniz firuzəsi",
+      "sage": "Adaçayı",
+      "jade": "Jade",
+      "emerald": "Zümrüd",
+      "olive": "Zeytun",
+      "sky": "Səma",
+      "blue": "Mavi",
+      "azure": "Azur",
+      "indigo": "İndiqo",
+      "orchid": "Orxideya",
+      "rose": "Gül",
+      "coral": "Mərcan",
+      "amber": "Kəhrəba"
+    },
     "leftHanded": "Solaxay rejim",
     "leftHandedHint": "Qrif və akor diaqramları güzgü kimi çevrilir.",
     "tuning": "Köklənmə",
@@ -107,7 +134,15 @@
       "halfStepDown": "Yarım ton aşağı (E♭)",
       "dadgad": "DADGAD",
       "openG": "Open G (D G D G B D)"
-    }
+    },
+    "appearance": "Görünüş",
+    "theme": "Tema",
+    "themeLight": "İşıqlı",
+    "themeDark": "Qaranlıq",
+    "themeLightName": "Duman",
+    "themeDarkName": "Qrafit",
+    "notesSection": "Notlar",
+    "guitarSection": "Gitara"
   },
   "notFound": {
     "title": "Səhifə tapılmadı",
@@ -123,5 +158,74 @@
     "prefix": "Səslər:",
     "license": "CC BY 3.0",
     "details": "gitara — University of Iowa, piano — VSCO 2"
+  },
+  "breadcrumb": {
+    "label": "Səhifənin yeri"
+  },
+  "practice": {
+    "start": "Başla",
+    "next": "Növbəti",
+    "again": "Yenidən başla",
+    "replay": "Yenidən dinlə",
+    "hearChoice": "Seçimimi dinlə",
+    "hearAnswer": "Düzgününü dinlə",
+    "question": "Sual {{current}} / {{total}}",
+    "streak": "Seriya: {{count}}",
+    "best": "Rekord: {{score}}/{{total}}",
+    "correct": "Düzdür",
+    "wrong": "Səhv",
+    "correctAnswer": "Düzgün cavab: {{answer}}",
+    "yourAnswer": "Sənin seçimin: {{answer}}",
+    "finishedTitle": "Sessiya bitdi",
+    "finishedScore": "{{total}} sualdan {{score}} düzgün",
+    "newBest": "Yeni rekord",
+    "weakest": "Ən çox səhv etdiklərin",
+    "noWeakest": "Hələ zəif yerin görünmür. Davam et.",
+    "level": "Səviyyə",
+    "mode": "Rejim",
+    "keys": "Enter: növbəti, R: yenidən dinlə",
+    "ear": {
+      "title": "Not tanıma",
+      "description": "Əvvəl alətdə işarələnmiş not, sonra ikinci not səslənir. İkinci notu qulaqla tap və alətdə onun üstünə bas. Notlar hər dəfə qrifin və klaviaturanın başqa yerində olur.",
+      "prompt": "İşarələnmiş notdan sonra hansı not səsləndi?",
+      "startHint": "Brauzer səsi yalnız bir kliklə açır: başlamaq üçün düyməyə bas.",
+      "levels": {
+        "natural": "Təbii notlar (7)",
+        "all": "Bütün notlar (12)"
+      },
+      "match": "Cavab",
+      "matches": {
+        "note": "İstənilən oktava",
+        "pitch": "Dəqiq səs"
+      }
+    },
+    "find": {
+      "title": "Not tapma",
+      "description": "Notu alətin üstündə tap, ya da işarələnmiş yerin hansı not olduğunu de.",
+      "modes": {
+        "tap": "Tap",
+        "name": "Adlandır"
+      },
+      "promptTapGuitar": "Qrifdə {{note}} notunu tap",
+      "promptTapPiano": "Klaviaturada {{note}} notunu tap",
+      "promptName": "İşarələnmiş yer hansı notdur?",
+      "startHint": "Hər cavabda not səslənəcək."
+    },
+    "circle": {
+      "title": "Kvinta dairəsi məşqi",
+      "description": "Dairədə addım say, açar işarələrini və paralel tonallıqları tap. Cavabı dairənin üstündə seç.",
+      "levels": {
+        "labels": "Adlar görünür",
+        "hidden": "Adlar gizli"
+      },
+      "stepsClockwise": "{{from}}-dən saat əqrəbi istiqamətində {{steps}} addım",
+      "stepsCounter": "{{from}}-dən saat əqrəbinin əksinə {{steps}} addım",
+      "signatureSharp": "Hansı major tonallıqda {{count}} diyez (♯) var?",
+      "signatureFlat": "Hansı major tonallıqda {{count}} bemol (♭) var?",
+      "signatureNone": "Hansı major tonallıqda heç bir işarə yoxdur?",
+      "relativeToMinor": "{{from}} major-un paralel minoru hansıdır?",
+      "relativeToMajor": "{{from}} minor-un paralel majoru hansıdır?",
+      "startHint": "Hər sual fərqli növdə ola bilər."
+    }
   }
 }

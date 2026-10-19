@@ -46,7 +46,7 @@ export default function BuilderPage() {
                         <div className="flex flex-wrap items-end justify-between gap-3">
                             <div>
                                 <p className="text-4xl font-bold tracking-tight">{title}</p>
-                                <p className="text-sm text-stone-500">
+                                <p className="text-sm text-base-500">
                                     {chord.type ? t(`chordTypes.${chord.type.symbol}`) : t("builder.unnamedHint")}
                                 </p>
                             </div>
@@ -86,13 +86,13 @@ export default function BuilderPage() {
                             ? (
                                 <>
                                     <ChordDiagram voicing={voicing} root={root} chordNotes={chord.notes} title={title}/>
-                                    {chord.impliedFifth && <p className="text-center text-xs text-stone-500">{t("builder.diagramWithFifth")}</p>}
+                                    {chord.impliedFifth && <p className="text-center text-xs text-base-500">{t("builder.diagramWithFifth")}</p>}
                                     <Link to={PATHS.chord(root, chord.type.symbol)} className="inline-flex min-h-6 items-center pointer-coarse:min-h-10 gap-1 text-sm font-medium text-brand-700 hover:underline dark:text-brand-400">
                                         {t("builder.openChord")} <ArrowRight className="size-4"/>
                                     </Link>
                                 </>
                             )
-                            : <p className="py-6 text-center text-sm text-stone-500">{t("builder.noDiagram")}</p>}
+                            : <p className="py-6 text-center text-sm text-base-500">{t("builder.noDiagram")}</p>}
                     </Card>
                 </aside>
             </div>
@@ -105,12 +105,12 @@ export default function BuilderPage() {
             {/* Small screens: the result card scrolls away above the controls, so keep the chord in view. */}
             <div
                 aria-live="polite"
-                className="fixed inset-x-0 bottom-0 z-20 border-t border-stone-200 bg-stone-50/95 px-4 py-2 backdrop-blur lg:hidden dark:border-stone-800 dark:bg-stone-950/95"
+                className="fixed inset-x-0 bottom-0 z-20 border-t border-base-200 bg-base-50/95 px-4 py-2 backdrop-blur lg:hidden dark:border-base-800 dark:bg-base-950/95"
             >
                 <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
                     <div className="min-w-0">
                         <p className="truncate text-xl font-bold tracking-tight">{title}</p>
-                        <p className="truncate text-xs text-stone-500">{chord.degrees.join(" – ")}</p>
+                        <p className="truncate text-xs text-base-500">{chord.degrees.join(" – ")}</p>
                     </div>
                     <Button size="sm" onClick={() => void player.strum(builderMidi(root, state))} aria-label={t("builder.playChord")}>
                         {player.isLoading ? <Loader2 className="animate-spin"/> : <Volume2/>}

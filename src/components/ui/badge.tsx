@@ -7,9 +7,9 @@ const badgeVariants = cva(
     {
         variants: {
             variant: {
-                root: "bg-brand-600 text-white",
-                default: "bg-stone-200/80 text-stone-800 dark:bg-stone-800 dark:text-stone-200",
-                outline: "border border-stone-300 text-stone-700 dark:border-stone-700 dark:text-stone-300",
+                root: "bg-brand-600 text-on-brand",
+                default: "bg-base-200/80 text-base-800 dark:bg-base-800 dark:text-base-200",
+                outline: "border border-base-300 text-base-700 dark:border-base-700 dark:text-base-300",
             },
         },
         defaultVariants: {variant: "default"},

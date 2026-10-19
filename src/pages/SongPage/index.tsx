@@ -37,7 +37,7 @@ import {Term, TermText} from "@/widgets/Term"
 const EXAMPLES = ["G Em C D", "Am F C G", "C G/B Am F", "E7 A7 E7 B7 A7 E7", "Dm7 G7 Cmaj7", "Am G F E"]
 
 const FIT_STYLES: Record<ChordFit, string> = {
-    diatonic: "text-stone-500",
+    diatonic: "text-base-500",
     harmonic: "text-rose-700 dark:text-rose-400",
     blues: "text-sky-700 dark:text-sky-400",
     secondary: "text-violet-700 dark:text-violet-400",
@@ -77,7 +77,7 @@ function ChordChips({chords, className}: {chords: SongChord[]; className?: strin
                 <Link
                     key={index}
                     to={PATHS.chord(chord.root, chord.type, chord.bass)}
-                    className="rounded-lg border border-stone-300 bg-white px-2.5 py-1 text-sm font-semibold hover:border-brand-500 pointer-coarse:py-2.5 dark:border-stone-700 dark:bg-stone-900"
+                    className="rounded-lg border border-base-300 bg-white px-2.5 py-1 text-sm font-semibold hover:border-brand-500 pointer-coarse:py-2.5 dark:border-base-700 dark:bg-base-900"
                 >
                     {chordName(chord, notation)}
                 </Link>
@@ -158,16 +158,16 @@ export default function SongPage() {
                         placeholder={t("song.placeholder")}
                         aria-label={t("song.steps.input")}
                         rows={3}
-                        className="w-full resize-y rounded-lg border border-stone-300 bg-white p-3 font-mono text-base hover:border-stone-400 dark:border-stone-700 dark:bg-stone-950"
+                        className="w-full resize-y rounded-lg border border-base-300 bg-white p-3 font-mono text-base hover:border-base-400 dark:border-base-700 dark:bg-base-950"
                     />
                     <div className="flex flex-wrap items-center gap-1.5 text-sm">
-                        <span className="text-stone-500">{t("song.examples")}</span>
+                        <span className="text-base-500">{t("song.examples")}</span>
                         {EXAMPLES.map(example => (
                             <button
                                 key={example}
                                 type="button"
                                 onClick={() => updateText(example)}
-                                className="rounded-md bg-stone-100 px-2 py-1 font-mono text-xs hover:bg-stone-200 pointer-coarse:py-2.5 dark:bg-stone-800 dark:hover:bg-stone-700"
+                                className="rounded-md bg-base-100 px-2 py-1 font-mono text-xs hover:bg-base-200 pointer-coarse:py-2.5 dark:bg-base-800 dark:hover:bg-base-700"
                             >
                                 {example}
                             </button>
@@ -175,7 +175,7 @@ export default function SongPage() {
                     </div>
 
                     {parsed.length > 0 && (
-                        <div className="space-y-2 border-t border-stone-200 pt-4 dark:border-stone-800">
+                        <div className="space-y-2 border-t border-base-200 pt-4 dark:border-base-800">
                             <div className="flex flex-wrap gap-1.5">
                                 {parsed.map((token, index) => (
                                     <span
@@ -185,7 +185,7 @@ export default function SongPage() {
                                             "rounded-md px-2 py-0.5 text-sm font-semibold",
                                             !token.chord && "bg-red-100 text-red-800 line-through dark:bg-red-950 dark:text-red-300",
                                             token.simplifiedFrom && "bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200",
-                                            token.chord && !token.simplifiedFrom && "bg-stone-100 dark:bg-stone-800",
+                                            token.chord && !token.simplifiedFrom && "bg-base-100 dark:bg-base-800",
                                         )}
                                     >
                                         {token.chord ? chordName(token.chord, notation) : token.token}
@@ -204,7 +204,7 @@ export default function SongPage() {
             </section>
 
             {!key || !target
-                ? <p className="text-sm text-stone-500">{t("song.empty")}</p>
+                ? <p className="text-sm text-base-500">{t("song.empty")}</p>
                 : (
                     <>
                         <KeySection
@@ -269,12 +269,12 @@ function KeySection({tonic, mode, chords, isManual, alternatives, onPick, onAuto
             <Card className="space-y-5">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="space-y-1">
-                        <p className="text-xs font-semibold tracking-wide text-stone-500 uppercase">
+                        <p className="text-xs font-semibold tracking-wide text-base-500 uppercase">
                             <Term id="key">{t("song.key.label")}</Term>
                             {isManual && <span className="ml-2 normal-case">· {t("song.key.manual")}</span>}
                         </p>
                         <p className="text-3xl font-bold tracking-tight">{keyLabel(tonic, mode, notation, t)}</p>
-                        <p className="text-sm text-stone-600 dark:text-stone-400">{t("song.key.share", {count: distinct.length, inKey})}</p>
+                        <p className="text-sm text-base-600 dark:text-base-400">{t("song.key.share", {count: distinct.length, inKey})}</p>
                     </div>
                     <Link
                         to={`${PATHS.progressions}?key=${rootToSlug(tonic)}&mode=${mode}${preset ? `&preset=${preset.id}` : ""}`}
@@ -296,7 +296,7 @@ function KeySection({tonic, mode, chords, isManual, alternatives, onPick, onAuto
                 )}
 
                 {relative && !isManual && (
-                    <p className="text-sm text-stone-600 dark:text-stone-400">
+                    <p className="text-sm text-base-600 dark:text-base-400">
                         <TermText text={t("song.key.relative", {
                             first: keyLabel(tonic, mode, notation, t),
                             second: keyLabel(relative.tonic, relative.mode, notation, t),
@@ -306,13 +306,13 @@ function KeySection({tonic, mode, chords, isManual, alternatives, onPick, onAuto
 
                 {(alternatives.length > 0 || isManual) && (
                     <div className="flex flex-wrap items-center gap-1.5 text-sm">
-                        <span className="text-stone-500">{t("song.key.alternatives")}</span>
+                        <span className="text-base-500">{t("song.key.alternatives")}</span>
                         {alternatives.map(item => (
                             <button
                                 key={`${item.tonic}-${item.mode}`}
                                 type="button"
                                 onClick={() => onPick(item.tonic, item.mode)}
-                                className="rounded-lg border border-stone-300 px-2.5 py-1 font-medium hover:border-stone-500 pointer-coarse:py-2.5 dark:border-stone-700"
+                                className="rounded-lg border border-base-300 px-2.5 py-1 font-medium hover:border-base-500 pointer-coarse:py-2.5 dark:border-base-700"
                             >
                                 {keyLabel(item.tonic, item.mode, notation, t)}
                             </button>
@@ -330,7 +330,7 @@ function KeySection({tonic, mode, chords, isManual, alternatives, onPick, onAuto
                         <Link
                             key={`${item.chord.root}-${item.chord.type}-${item.chord.bass ?? ""}`}
                             to={PATHS.chord(item.chord.root, item.chord.type, item.chord.bass)}
-                            className="overflow-hidden rounded-xl border border-stone-200 bg-white hover:border-brand-400 dark:border-stone-800 dark:bg-stone-900"
+                            className="overflow-hidden rounded-xl border border-base-200 bg-white hover:border-brand-400 dark:border-base-800 dark:bg-base-900"
                         >
                             <span className={cn("block h-1.5", FUNCTION_STYLES[item.fn].bar)}/>
                             <span className="block p-2.5 text-center">
@@ -343,7 +343,7 @@ function KeySection({tonic, mode, chords, isManual, alternatives, onPick, onAuto
                 </div>
 
                 {fitsShown.length > 0 && (
-                    <ul className="space-y-1 text-sm text-stone-600 dark:text-stone-400">
+                    <ul className="space-y-1 text-sm text-base-600 dark:text-base-400">
                         {fitsShown.map(fit => {
                             const term = FIT_TERMS[fit]
                             const label = t(`song.fits.${fit}`)
@@ -382,10 +382,10 @@ function TransposeSection({tonic, mode, target, chords, onTarget}: TransposeSect
             <StepHeading number={3} title={<Term id="transposition">{t("song.steps.transpose")}</Term>}/>
             <Card className="space-y-4">
                 <RootNotePicker value={target} onChange={onTarget} label={t("song.transpose.label")} term="key"/>
-                <div className="flex flex-wrap items-center justify-between gap-3 border-t border-stone-200 pt-4 dark:border-stone-800">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-t border-base-200 pt-4 dark:border-base-800">
                     <p className="text-sm">
                         <strong className="font-semibold">{keyLabel(tonic, mode, notation, t)} → {keyLabel(target, mode, notation, t)}</strong>
-                        <span className="ml-2 text-stone-500">
+                        <span className="ml-2 text-base-500">
                             {shift === 0 ? t("song.transpose.same") : t(shift > 0 ? "song.transpose.up" : "song.transpose.down", {count: Math.abs(shift)})}
                         </span>
                     </p>
@@ -393,7 +393,7 @@ function TransposeSection({tonic, mode, target, chords, onTarget}: TransposeSect
                 </div>
                 <ChordChips chords={transposed}/>
                 {capoInstead > 0 && capoInstead <= 7 && (
-                    <p className="rounded-lg bg-stone-100 p-3 text-sm text-stone-700 dark:bg-stone-800 dark:text-stone-300">
+                    <p className="rounded-lg bg-base-100 p-3 text-sm text-base-700 dark:bg-base-800 dark:text-base-300">
                         <TermText text={t("song.transpose.capoInstead", {count: capoInstead})}/>
                     </p>
                 )}
@@ -420,7 +420,7 @@ function CapoSection({target, mode, chords, picked, onPick}: CapoSectionProps) {
     return (
         <section className="space-y-4">
             <StepHeading number={4} title={<Term id="capo">{t("song.steps.capo")}</Term>}/>
-            <p className="text-sm text-stone-600 dark:text-stone-400">{t("song.capo.hint", {key: keyLabel(target, mode, notation, t)})}</p>
+            <p className="text-sm text-base-600 dark:text-base-400">{t("song.capo.hint", {key: keyLabel(target, mode, notation, t)})}</p>
 
             <div className="grid gap-2 md:grid-cols-2">
                 {options.map((option, index) => {
@@ -436,16 +436,16 @@ function CapoSection({target, mode, chords, picked, onPick}: CapoSectionProps) {
                                 "space-y-2 rounded-xl border p-3 text-left transition-colors",
                                 isSelected
                                     ? "border-brand-500 bg-brand-50 dark:bg-brand-950/40"
-                                    : "border-stone-200 bg-white hover:border-stone-400 dark:border-stone-800 dark:bg-stone-900",
+                                    : "border-base-200 bg-white hover:border-base-400 dark:border-base-800 dark:bg-base-900",
                             )}
                         >
                             <span className="flex flex-wrap items-center gap-2">
                                 <span className="font-bold">{option.capo === 0 ? t("song.capo.none") : t("song.capo.fret", {count: option.capo})}</span>
-                                <span className="text-sm text-stone-500">{t("song.capo.shapes", {key: keyLabel(shapeKey, mode, notation, t)})}</span>
-                                {index === 0 && <span className="rounded-md bg-brand-600 px-1.5 py-0.5 text-[11px] font-semibold text-white">{t("song.capo.best")}</span>}
+                                <span className="text-sm text-base-500">{t("song.capo.shapes", {key: keyLabel(shapeKey, mode, notation, t)})}</span>
+                                {index === 0 && <span className="rounded-md bg-brand-600 px-1.5 py-0.5 text-[11px] font-semibold text-on-brand">{t("song.capo.best")}</span>}
                             </span>
                             <span className="block text-sm font-semibold">{uniqueChords(option.shapes).map(chord => chordName(chord, notation)).join(" · ")}</span>
-                            <span className="block text-xs text-stone-500">{t("song.capo.open", {count: option.openCount, total})}</span>
+                            <span className="block text-xs text-base-500">{t("song.capo.open", {count: option.openCount, total})}</span>
                         </button>
                     )
                 })}
@@ -468,12 +468,12 @@ function CapoSection({target, mode, chords, picked, onPick}: CapoSectionProps) {
                                 <span className="font-bold">{name}</span>
                                 {voicing && info
                                     ? <ChordDiagram voicing={voicing} root={chord.root} chordNotes={chord.bass ? [...info.notes, chord.bass] : info.notes} title={name} className="max-w-32"/>
-                                    : <span className="py-6 text-xs text-stone-500">{t("noVoicings")}</span>}
+                                    : <span className="py-6 text-xs text-base-500">{t("noVoicings")}</span>}
                             </div>
                         )
                     })}
                 </div>
-                {selected.capo > 0 && <p className="text-xs text-stone-500">{t("song.capo.diagramsNote", {count: selected.capo})}</p>}
+                {selected.capo > 0 && <p className="text-xs text-base-500">{t("song.capo.diagramsNote", {count: selected.capo})}</p>}
             </Card>
         </section>
     )

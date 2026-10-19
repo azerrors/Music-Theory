@@ -61,10 +61,10 @@ export function PianoKeyboard({from, to, markers, onKeyClick, minKeyWidth = MIN_
 
     // Keys stay ivory in dark mode too, so the markers keep one colour in both themes.
     const markerFill = (marker: KeyMarker) => marker.fillClass ?? (marker.subtle
-        ? "fill-stone-300"
+        ? "fill-base-300"
         : marker.isLeftHand
         ? "fill-sky-600"
-        : marker.isRoot ? "fill-brand-600" : "fill-stone-800")
+        : marker.isRoot ? "fill-brand-strong" : "fill-base-800")
 
     const renderKey = (midi: number) => {
         const black = isBlack(midi)
@@ -85,10 +85,10 @@ export function PianoKeyboard({from, to, markers, onKeyClick, minKeyWidth = MIN_
                     onClick={onKeyClick ? () => onKeyClick(midi) : undefined}
                     className={cn(
                         black
-                            ? tinted ? "fill-stone-600 dark:fill-stone-500" : "fill-stone-900 dark:fill-stone-950"
-                            : tinted ? "fill-brand-100 dark:fill-brand-200" : "fill-white dark:fill-stone-100",
-                        "stroke-stone-400 dark:stroke-stone-600",
-                        onKeyClick && (black ? "cursor-pointer hover:fill-stone-700" : "cursor-pointer hover:fill-stone-100 dark:hover:fill-stone-300"),
+                            ? tinted ? "fill-base-600 dark:fill-base-500" : "fill-base-900 dark:fill-base-950"
+                            : tinted ? "fill-brand-100 dark:fill-brand-200" : "fill-white dark:fill-base-100",
+                        "stroke-base-400 dark:stroke-base-600",
+                        onKeyClick && (black ? "cursor-pointer hover:fill-base-700" : "cursor-pointer hover:fill-base-100 dark:hover:fill-base-300"),
                     )}
                     strokeWidth={black ? 0.5 : 1}
                 />
@@ -107,7 +107,7 @@ export function PianoKeyboard({from, to, markers, onKeyClick, minKeyWidth = MIN_
                             dominantBaseline="central"
                             fontSize={marker.label.length > 2 ? (black ? 5.5 : 6.5) : (black ? 7 : 8.5)}
                             fontWeight={600}
-                            className={marker.subtle ? "fill-stone-700" : "fill-white"}
+                            className={marker.subtle ? "fill-base-700" : "fill-white"}
                         >
                             {marker.label}
                         </text>
@@ -140,7 +140,7 @@ export function PianoKeyboard({from, to, markers, onKeyClick, minKeyWidth = MIN_
                         textAnchor="middle"
                         fontSize={11}
                         fontWeight={700}
-                        className={marker.isLeftHand ? "fill-sky-600 dark:fill-sky-400" : "fill-stone-800 dark:fill-stone-100"}
+                        className={marker.isLeftHand ? "fill-sky-600 dark:fill-sky-400" : "fill-base-800 dark:fill-base-100"}
                     >
                         {marker.finger}
                     </text>
@@ -152,7 +152,7 @@ export function PianoKeyboard({from, to, markers, onKeyClick, minKeyWidth = MIN_
                         y={WHITE_HEIGHT + fingerRow + OCTAVE_LABEL_HEIGHT - 3}
                         textAnchor="middle"
                         fontSize={8}
-                        className={octaveOf(midi) === 4 ? "fill-stone-600 font-semibold dark:fill-stone-300" : "fill-stone-400"}
+                        className={octaveOf(midi) === 4 ? "fill-base-600 font-semibold dark:fill-base-300" : "fill-base-400"}
                     >
                         C{octaveOf(midi)}
                     </text>

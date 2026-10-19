@@ -68,7 +68,7 @@ export default function PianoIntervalsPage() {
                     <strong className="text-sm">{formatNote(targetOf(interval), notation)}</strong>
                     {" · "}{tPiano("intervals.letters", {letters: shown, count: letters.length})}
                 </span>
-                <span className="block text-stone-500">
+                <span className="block text-base-500">
                     {tPiano("intervals.fingers", {
                         right: chordFingering(pair, "right")?.join("–") ?? "—",
                         left: chordFingering(pair, "left")?.join("–") ?? "—",
@@ -86,10 +86,10 @@ export default function PianoIntervalsPage() {
                 <p className="text-sm">
                     {t("intervals.reference")}{" "}
                     <strong className="text-lg">{referenceName}</strong>{" "}
-                    <span className="text-stone-500">({referenceNote}{referenceOctave})</span>
+                    <span className="text-base-500">({referenceNote}{referenceOctave})</span>
                 </p>
                 <IntervalPicker selected={selected} onChange={setSelected}/>
-                <p className="text-xs text-stone-500">{tPiano("intervals.clickHint")}</p>
+                <p className="text-xs text-base-500">{tPiano("intervals.clickHint")}</p>
             </Card>
 
             <Card className="min-w-0 space-y-3">
@@ -103,7 +103,7 @@ export default function PianoIntervalsPage() {
                     }}
                     ariaLabel={t("intervals.boardLabel", {note: referenceName})}
                 />
-                {single && <p className="text-xs text-stone-500">{tPiano("fingers.legend")}</p>}
+                {single && <p className="text-xs text-base-500">{tPiano("fingers.legend")}</p>}
             </Card>
 
             <IntervalTable

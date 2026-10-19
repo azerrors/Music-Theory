@@ -32,7 +32,7 @@ export function ExampleButton({example, className}: {example: GlossaryExample; c
         <button
             type="button"
             onClick={play}
-            className={className ?? "inline-flex items-center gap-1.5 rounded-md bg-stone-100 px-2 py-1 text-xs font-medium hover:bg-stone-200 pointer-coarse:min-h-10 pointer-coarse:px-3 dark:bg-stone-800 dark:hover:bg-stone-700"}
+            className={className ?? "inline-flex items-center gap-1.5 rounded-md bg-base-100 px-2 py-1 text-xs font-medium hover:bg-base-200 pointer-coarse:min-h-10 pointer-coarse:px-3 dark:bg-base-800 dark:hover:bg-base-700"}
         >
             {player.isLoading ? <Loader2 className="size-3.5 animate-spin"/> : <Volume2 className="size-3.5"/>}
             {t("actions.play")}
@@ -132,10 +132,10 @@ export function Term({id, children}: TermProps) {
                     onFocus={show}
                     onBlur={hideSoon}
                     style={{top: position.top, left: position.left, width: POPOVER_WIDTH}}
-                    className="fixed z-50 space-y-2 rounded-xl border border-stone-200 bg-white p-4 text-left text-sm font-normal tracking-normal normal-case shadow-xl dark:border-stone-700 dark:bg-stone-900"
+                    className="fixed z-50 space-y-2 rounded-xl border border-base-200 bg-white p-4 text-left text-sm font-normal tracking-normal normal-case shadow-xl dark:border-base-700 dark:bg-base-900"
                 >
-                    <p className="font-semibold text-stone-900 dark:text-stone-100">{t(`terms.${term.id}.title`)}</p>
-                    <p className="leading-relaxed text-stone-600 dark:text-stone-400">{t(`terms.${term.id}.body`)}</p>
+                    <p className="font-semibold text-base-900 dark:text-base-100">{t(`terms.${term.id}.title`)}</p>
+                    <p className="leading-relaxed text-base-600 dark:text-base-400">{t(`terms.${term.id}.body`)}</p>
                     <div className="flex flex-wrap items-center gap-2 pt-1">
                         {term.example && <ExampleButton example={term.example}/>}
                         <Link

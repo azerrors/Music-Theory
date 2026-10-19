@@ -48,7 +48,7 @@ export default function ScalesPage() {
     const positionMarkers: FretMarker[] | undefined = position && [
         ...markersForTones(tuning, fretCount, zipTones(scale.notes, scale.degrees))
             .filter(marker => !position.notes.some(note => note.string === marker.string && note.fret === marker.fret))
-            .map(marker => ({...marker, isRoot: false, small: true, fillClass: "fill-stone-300 dark:fill-stone-700", textClass: "fill-stone-700 dark:fill-stone-200"})),
+            .map(marker => ({...marker, isRoot: false, small: true, fillClass: "fill-base-300 dark:fill-base-700", textClass: "fill-base-700 dark:fill-base-200"})),
         ...position.notes.map(note => ({string: note.string, fret: note.fret, note: note.note, degree: note.degree, isRoot: note.degree === "1"})),
     ]
     const diatonic = getDiatonicChords(scale.root, scale.def.id)
@@ -75,18 +75,19 @@ export default function ScalesPage() {
 
             <Card className="space-y-5">
                 <div className="flex flex-wrap items-end gap-4">
-                    <label className="space-y-2">
-                        <span className="block text-xs font-semibold tracking-wide text-stone-500 uppercase">{t("scale")}</span>
-                        <Select value={scale.def.id} onChange={event => updateParams({scale: event.target.value})} className="w-64">
-                            {SCALE_GROUPS.map(group => (
-                                <optgroup key={group} label={t(`scaleGroups.${group}`)}>
-                                    {SCALES.filter(item => item.group === group).map(item => (
-                                        <option key={item.id} value={item.id}>{t(`scales.${item.id}`)}</option>
-                                    ))}
-                                </optgroup>
-                            ))}
-                        </Select>
-                    </label>
+                    <div className="space-y-2">
+                        <span aria-hidden="true" className="block text-xs font-semibold tracking-wide text-base-500 uppercase">{t("scale")}</span>
+                        <Select
+                            label={t("scale")}
+                            value={scale.def.id}
+                            onChange={scale => updateParams({scale})}
+                            groups={SCALE_GROUPS.map(group => ({
+                                label: t(`scaleGroups.${group}`),
+                                options: SCALES.filter(item => item.group === group).map(item => ({value: item.id, label: t(`scales.${item.id}`)})),
+                            }))}
+                            className="w-64"
+                        />
+                    </div>
                     <PlayButton midi={scaleMidi(scale)} mode="arpeggio" variant="primary" size="md"/>
                 </div>
                 <RootNotePicker value={scale.root} onChange={value => updateParams({root: value})}/>
@@ -114,11 +115,11 @@ export default function ScalesPage() {
                 </div>
                 {positions.length > 0 && (
                     <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
-                        <p className="text-stone-600 dark:text-stone-400">
+                        <p className="text-base-600 dark:text-base-400">
                             {position
                                 ? (
                                     <>
-                                        <strong className="text-stone-900 dark:text-stone-100">{t("positions.title", {n: position.number})}</strong>
+                                        <strong className="text-base-900 dark:text-base-100">{t("positions.title", {n: position.number})}</strong>
                                         {" · "}{t("positions.frets", {from: position.minFret, to: position.maxFret})}
                                         {" · "}{t(`positions.perString.${position.system}`)}
                                         {position.maxFret - position.minFret > COMFORTABLE_SPAN && <> · <span className="text-amber-700 dark:text-amber-400">{t("positions.stretch")}</span></>}
@@ -136,23 +137,23 @@ export default function ScalesPage() {
                 <section className="space-y-3">
                     <div>
                         <h3 className="text-lg font-semibold tracking-tight">{t("diatonic.title")}</h3>
-                        <p className="text-sm text-stone-600 dark:text-stone-400"><TermText text={t("diatonic.description")}/></p>
+                        <p className="text-sm text-base-600 dark:text-base-400"><TermText text={t("diatonic.description")}/></p>
                     </div>
-                    <div className="overflow-x-auto rounded-xl border border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+                    <div className="overflow-x-auto rounded-xl border border-base-200 bg-white dark:border-base-800 dark:bg-base-900">
                         <table className="w-full text-center text-sm">
-                            <tbody className="divide-y divide-stone-200 dark:divide-stone-800">
+                            <tbody className="divide-y divide-base-200 dark:divide-base-800">
                                 <tr>
-                                    <th scope="row" className="px-4 py-2.5 text-left font-medium text-stone-500">{t("diatonic.degree")}</th>
+                                    <th scope="row" className="px-4 py-2.5 text-left font-medium text-base-500">{t("diatonic.degree")}</th>
                                     {diatonic.map(chord => <td key={chord.roman} className="px-3 py-2.5 font-semibold">{chord.roman}</td>)}
                                 </tr>
                                 <tr>
-                                    <th scope="row" className="px-4 py-2.5 text-left font-medium text-stone-500"><Term id="triad">{t("diatonic.triad")}</Term></th>
+                                    <th scope="row" className="px-4 py-2.5 text-left font-medium text-base-500"><Term id="triad">{t("diatonic.triad")}</Term></th>
                                     {diatonic.map(chord => (
                                         <td key={chord.roman} className="px-3 py-2.5"><ChordLink symbol={chord.triadSymbol} label={chord.triad}/></td>
                                     ))}
                                 </tr>
                                 <tr>
-                                    <th scope="row" className="px-4 py-2.5 text-left font-medium text-stone-500"><Term id="seventhChord">{t("diatonic.seventh")}</Term></th>
+                                    <th scope="row" className="px-4 py-2.5 text-left font-medium text-base-500"><Term id="seventhChord">{t("diatonic.seventh")}</Term></th>
                                     {diatonic.map(chord => (
                                         <td key={chord.roman} className="px-3 py-2.5"><ChordLink symbol={chord.seventhSymbol} label={chord.seventh}/></td>
                                     ))}

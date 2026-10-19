@@ -7,23 +7,340 @@
 @theme {
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
 
-  /* Warm "rosewood and brass" accent used for roots and primary actions. */
-  --color-brand-50: #fff8eb;
-  --color-brand-100: #feeac7;
-  --color-brand-200: #fdd28a;
-  --color-brand-300: #fbb44d;
-  --color-brand-400: #f99a24;
-  --color-brand-500: #f1760b;
-  --color-brand-600: #d55406;
-  --color-brand-700: #b13909;
-  --color-brand-800: #8f2c0e;
-  --color-brand-900: #76250f;
-  --color-brand-950: #431004;
+  /*
+   * Neutral ramp for surfaces, borders and text. It is re-pointed per theme
+   * (see :root and .dark below), so every stop reads correctly in both modes:
+   * light is the cool "Duman" grey, dark is the neutral "Qrafit" graphite.
+   */
+  --color-base-50: var(--base-50);
+  --color-base-100: var(--base-100);
+  --color-base-200: var(--base-200);
+  --color-base-300: var(--base-300);
+  --color-base-400: var(--base-400);
+  --color-base-500: var(--base-500);
+  --color-base-600: var(--base-600);
+  --color-base-700: var(--base-700);
+  --color-base-800: var(--base-800);
+  --color-base-900: var(--base-900);
+  --color-base-950: var(--base-950);
+
+  /*
+   * Accent ramp, chosen by the user (html[data-accent]). 600 is the fill for
+   * buttons and roots and 700 its hover; both flip per theme so the fill stays
+   * bright on dark surfaces. `on-brand` is the text on that fill, and
+   * `brand-strong` is the light-theme fill for surfaces that never go dark
+   * (piano keys, interval chips with white text, the logo).
+   */
+  --color-brand-50: var(--accent-50);
+  --color-brand-100: var(--accent-100);
+  --color-brand-200: var(--accent-200);
+  --color-brand-300: var(--accent-300);
+  --color-brand-400: var(--accent-400);
+  --color-brand-500: var(--accent-500);
+  --color-brand-600: var(--brand-fill);
+  --color-brand-700: var(--brand-hover);
+  --color-brand-800: var(--accent-800);
+  --color-brand-900: var(--accent-900);
+  --color-brand-950: var(--accent-950);
+  --color-on-brand: var(--brand-on);
+  --color-brand-strong: var(--accent-fill-light);
 
   /* Fretboard wood and hardware. */
   --color-wood: #e9d8bd;
   --color-wood-dark: #3a2a1d;
   --color-fret: #a8a29e;
+}
+
+/* Light theme — "Duman". */
+:root {
+  --base-50: #f3f6f9;
+  --base-100: #e9eef3;
+  --base-200: #dbe3ea;
+  --base-300: #c3cfda;
+  --base-400: #94a3b3;
+  --base-500: #5f6f7f;
+  --base-600: #4e5d6c;
+  --base-700: #36434f;
+  --base-800: #24303b;
+  --base-900: #0f1b26;
+  --base-950: #08111a;
+
+  --brand-fill: var(--accent-fill-light);
+  --brand-hover: var(--accent-hover-light);
+  --brand-on: var(--accent-on-light);
+}
+
+/* Dark theme — "Qrafit". */
+.dark {
+  --base-50: #fafafa;
+  --base-100: #f4f4f5;
+  --base-200: #e4e4e7;
+  --base-300: #d4d4d8;
+  --base-400: #a1a1aa;
+  --base-500: #8b8b94;
+  --base-600: #5c5c66;
+  --base-700: #3f3f46;
+  --base-800: #2a2a2e;
+  --base-900: #17171a;
+  --base-950: #0c0c0e;
+
+  --brand-fill: var(--accent-fill-dark);
+  --brand-hover: var(--accent-hover-dark);
+  --brand-on: var(--accent-on-dark);
+}
+
+/* Accents. "Buz" (Nordic ice) is the default. */
+:root,
+[data-accent="ice"] {
+  --accent-50: #eef7fa;
+  --accent-100: #d6edf3;
+  --accent-200: #b3dce7;
+  --accent-300: #88c0d0;
+  --accent-400: #63a6bb;
+  --accent-500: #4a8ba1;
+  --accent-800: #284a5a;
+  --accent-900: #223e4c;
+  --accent-950: #142833;
+  --accent-fill-light: #3b6e86;
+  --accent-hover-light: #2f5a6e;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #88c0d0;
+  --accent-hover-dark: #a8d3df;
+  --accent-on-dark: #0d2229;
+}
+
+[data-accent="indigo"] {
+  --accent-50: #eef2ff;
+  --accent-100: #e0e7ff;
+  --accent-200: #c7d2fe;
+  --accent-300: #a5b4fc;
+  --accent-400: #818cf8;
+  --accent-500: #6366f1;
+  --accent-800: #3730a3;
+  --accent-900: #312e81;
+  --accent-950: #1e1b4b;
+  --accent-fill-light: #4f46e5;
+  --accent-hover-light: #4338ca;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #a5b4fc;
+  --accent-hover-dark: #c7d2fe;
+  --accent-on-dark: #1e1b4b;
+}
+
+[data-accent="emerald"] {
+  --accent-50: #ecfdf5;
+  --accent-100: #d1fae5;
+  --accent-200: #a7f3d0;
+  --accent-300: #6ee7b7;
+  --accent-400: #34d399;
+  --accent-500: #10b981;
+  --accent-800: #065f46;
+  --accent-900: #064e3b;
+  --accent-950: #022c22;
+  --accent-fill-light: #047857;
+  --accent-hover-light: #065f46;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #34d399;
+  --accent-hover-dark: #6ee7b7;
+  --accent-on-dark: #022c22;
+}
+
+[data-accent="rose"] {
+  --accent-50: #fff1f2;
+  --accent-100: #ffe4e6;
+  --accent-200: #fecdd3;
+  --accent-300: #fda4af;
+  --accent-400: #fb7185;
+  --accent-500: #f43f5e;
+  --accent-800: #9f1239;
+  --accent-900: #881337;
+  --accent-950: #4c0519;
+  --accent-fill-light: #be123c;
+  --accent-hover-light: #9f1239;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #fb7185;
+  --accent-hover-dark: #fda4af;
+  --accent-on-dark: #4c0519;
+}
+
+[data-accent="teal"] {
+  --accent-50: #effaf9;
+  --accent-100: #e0f5f3;
+  --accent-200: #c5ede9;
+  --accent-300: #9adfda;
+  --accent-400: #6bd1c8;
+  --accent-500: #3dc2b7;
+  --accent-800: #226d67;
+  --accent-900: #1b5651;
+  --accent-950: #103330;
+  --accent-fill-light: #277e77;
+  --accent-hover-light: #1f635d;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #36ada3;
+  --accent-hover-dark: #46c5bb;
+  --accent-on-dark: #0c2725;
+}
+
+[data-accent="sage"] {
+  --accent-50: #f2f7f7;
+  --accent-100: #e6f0ef;
+  --accent-200: #cfe2e0;
+  --accent-300: #accdca;
+  --accent-400: #86b6b1;
+  --accent-500: #609f99;
+  --accent-800: #365956;
+  --accent-900: #2a4643;
+  --accent-950: #192928;
+  --accent-fill-light: #4b7c78;
+  --accent-hover-light: #3e6662;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #6da7a1;
+  --accent-hover-dark: #86b6b2;
+  --accent-on-dark: #13201f;
+}
+
+[data-accent="sky"] {
+  --accent-50: #edf7fc;
+  --accent-100: #dbeefa;
+  --accent-200: #bce0f5;
+  --accent-300: #8bc9ee;
+  --accent-400: #55b0e7;
+  --accent-500: #2097df;
+  --accent-800: #12557d;
+  --accent-900: #0e4262;
+  --accent-950: #08273a;
+  --accent-fill-light: #057ac0;
+  --accent-hover-light: #04639d;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #4bb8fa;
+  --accent-hover-dark: #73c8fb;
+  --accent-on-dark: #0a1d29;
+}
+
+[data-accent="azure"] {
+  --accent-50: #eef3fc;
+  --accent-100: #dce8f9;
+  --accent-200: #bed4f4;
+  --accent-300: #8eb4ec;
+  --accent-400: #5991e3;
+  --accent-500: #256eda;
+  --accent-800: #153e7a;
+  --accent-900: #103060;
+  --accent-950: #0a1d39;
+  --accent-fill-light: #2971db;
+  --accent-hover-light: #2061c0;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #6f9fe6;
+  --accent-hover-dark: #92b6ec;
+  --accent-on-dark: #0a1729;
+}
+
+[data-accent="blue"] {
+  --accent-50: #edf6fc;
+  --accent-100: #dbecfa;
+  --accent-200: #bcdcf5;
+  --accent-300: #8bc2ee;
+  --accent-400: #55a6e7;
+  --accent-500: #208adf;
+  --accent-800: #124e7d;
+  --accent-900: #0e3d62;
+  --accent-950: #08243a;
+  --accent-fill-light: #0b76cc;
+  --accent-hover-light: #0963aa;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #39a1f4;
+  --accent-hover-dark: #60b3f6;
+  --accent-on-dark: #0a1b29;
+}
+
+[data-accent="jade"] {
+  --accent-50: #f1f9f6;
+  --accent-100: #e3f2ed;
+  --accent-200: #cbe7dd;
+  --accent-300: #a4d5c5;
+  --accent-400: #7bc2aa;
+  --accent-500: #51ae8f;
+  --accent-800: #2d6250;
+  --accent-900: #244d3f;
+  --accent-950: #152d25;
+  --accent-fill-light: #3b8068;
+  --accent-hover-light: #306855;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #50ad8e;
+  --accent-hover-dark: #6bbba0;
+  --accent-on-dark: #10231d;
+}
+
+[data-accent="olive"] {
+  --accent-50: #f5f7f2;
+  --accent-100: #ecf0e6;
+  --accent-200: #dbe2cf;
+  --accent-300: #c0cdac;
+  --accent-400: #a3b686;
+  --accent-500: #859f60;
+  --accent-800: #4b5936;
+  --accent-900: #3b462a;
+  --accent-950: #232919;
+  --accent-fill-light: #677b4a;
+  --accent-hover-light: #54653d;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #8ea66b;
+  --accent-hover-dark: #a1b584;
+  --accent-on-dark: #1b2013;
+}
+
+[data-accent="amber"] {
+  --accent-50: #fcf8ed;
+  --accent-100: #faf1db;
+  --accent-200: #f5e4bc;
+  --accent-300: #eed08b;
+  --accent-400: #e7bb55;
+  --accent-500: #dfa520;
+  --accent-800: #7d5d12;
+  --accent-900: #62490e;
+  --accent-950: #3a2b08;
+  --accent-fill-light: #9b6c00;
+  --accent-hover-light: #775300;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #f2a900;
+  --accent-hover-dark: #ffba1c;
+  --accent-on-dark: #29200a;
+}
+
+[data-accent="coral"] {
+  --accent-50: #fcf2ed;
+  --accent-100: #fae4db;
+  --accent-200: #f5cdbc;
+  --accent-300: #eea98b;
+  --accent-400: #e78155;
+  --accent-500: #df5920;
+  --accent-800: #7d3212;
+  --accent-900: #62270e;
+  --accent-950: #3a1708;
+  --accent-fill-light: #cd440a;
+  --accent-hover-light: #ab3908;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #f78d60;
+  --accent-hover-dark: #f9a987;
+  --accent-on-dark: #29130a;
+}
+
+[data-accent="orchid"] {
+  --accent-50: #f7eefb;
+  --accent-100: #f0def7;
+  --accent-200: #e3c1f1;
+  --accent-300: #ce93e6;
+  --accent-400: #b862da;
+  --accent-500: #a130cf;
+  --accent-800: #5a1b74;
+  --accent-900: #47155b;
+  --accent-950: #2a0d36;
+  --accent-fill-light: #a942d3;
+  --accent-hover-light: #992ec4;
+  --accent-on-light: #ffffff;
+  --accent-fill-dark: #c681e2;
+  --accent-hover-dark: #d5a2ea;
+  --accent-on-dark: #200a29;
 }
 
 @layer base {
@@ -36,11 +353,167 @@
   }
 
   body {
-    @apply bg-stone-50 text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100;
+    @apply bg-base-50 text-base-900 antialiased dark:bg-base-950 dark:text-base-100;
     font-feature-settings: "cv11", "ss01";
   }
 
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-brand-500;
   }
+}
+
+/* Instrument picker: music notes drifting up through the panels. */
+@keyframes note-float {
+  0% { transform: translateY(0) rotate(-8deg); opacity: 0; }
+  15% { opacity: 0.85; }
+  70% { opacity: 0.5; }
+  100% { transform: translateY(-180px) rotate(10deg); opacity: 0; }
+}
+
+/* Sidebar: the active page's frame draws itself in (layout/MainLayout/Sidebar.tsx). */
+.nv-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: nv-draw 700ms cubic-bezier(0.77, 0, 0.175, 1) both;
+}
+
+@keyframes nv-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Each new page fades and lifts in (layout/MainLayout). */
+.pg-enter {
+  animation: pg-enter 320ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes pg-enter {
+  from { opacity: 0; transform: translateY(6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nv-draw { animation: none; stroke-dashoffset: 0; }
+  .pg-enter { animation: none; }
+}
+
+/* Sidebar: the active page's corner marks land one after another, its node ripples once. */
+.nv-corner {
+  animation: nv-corner 320ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes nv-corner {
+  from { opacity: 0; scale: 0; }
+}
+
+.nv-fill {
+  animation: fade-in-fill 500ms 200ms ease-out both;
+}
+
+@keyframes fade-in-fill {
+  from { opacity: 0; }
+}
+
+.nv-node {
+  animation: nv-node 700ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes nv-node {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--color-brand-600) 55%, transparent); }
+  100% { box-shadow: 0 0 0 7px transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nv-corner, .nv-fill, .nv-node { animation: none; }
+}
+
+/* Theme switch: the new theme grows out of the click point (hooks/useTheme), so the old view must not cross-fade. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Select: the list drops in from its button (components/ui/select). */
+.sel-enter {
+  animation: sel-enter 180ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes sel-enter {
+  from { opacity: 0; transform: translateY(-4px) scale(0.97); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sel-enter { animation: none; }
+}
+
+/* Drawer: the panel slides in from the right over a fading backdrop (components/ui/drawer). */
+.dr-slide-in { animation: dr-slide-in 420ms cubic-bezier(0.32, 0.72, 0, 1) both; }
+.dr-slide-out { animation: dr-slide-out 260ms cubic-bezier(0.32, 0.72, 0, 1) both; }
+.dr-fade-in { animation: dr-fade 300ms ease-out both; }
+.dr-fade-out { animation: dr-fade 260ms ease-in reverse both; }
+
+@keyframes dr-slide-in {
+  from { transform: translateX(calc(100% + 1rem)); }
+}
+
+@keyframes dr-slide-out {
+  to { transform: translateX(calc(100% + 1rem)); }
+}
+
+@keyframes dr-fade {
+  from { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dr-slide-in, .dr-slide-out, .dr-fade-in, .dr-fade-out { animation-duration: 1ms; }
+}
+
+/* Header: on an instrument switch the corner icon rises and knocks into the big one, which drops
+   back into the corner (layout/MainLayout/HeaderBar). The corner badge sits 14px right and below the centre. */
+.inst-rise {
+  animation: inst-rise 620ms cubic-bezier(0.34, 1.3, 0.64, 1) both;
+}
+
+@keyframes inst-rise {
+  0% { transform: translate(14px, 14px) scale(0.45); }
+  45% { transform: translate(-1px, -3px) scale(1.15); }
+  70% { transform: translate(0, 1px) scale(0.96); }
+  100% { transform: none; }
+}
+
+.inst-drop {
+  animation: inst-drop 620ms cubic-bezier(0.34, 1.3, 0.64, 1) both;
+}
+
+@keyframes inst-drop {
+  0%, 38% { transform: translate(-14px, -14px) scale(2.2); }
+  75% { transform: translate(2px, 3px) scale(0.92); }
+  100% { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inst-rise, .inst-drop { animation: none; }
+}
+
+/* Practice: the feedback line rises in after an answer (widgets/practice/PracticeShell). */
+.fb-enter {
+  animation: pg-enter 260ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fb-enter { animation: none; }
+}
+
+.dr-slide-in-left { animation: dr-slide-in-left 420ms cubic-bezier(0.32, 0.72, 0, 1) both; }
+.dr-slide-out-left { animation: dr-slide-out-left 260ms cubic-bezier(0.32, 0.72, 0, 1) both; }
+
+@keyframes dr-slide-in-left {
+  from { transform: translateX(calc(-100% - 1rem)); }
+}
+
+@keyframes dr-slide-out-left {
+  to { transform: translateX(calc(-100% - 1rem)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dr-slide-in-left, .dr-slide-out-left { animation-duration: 1ms; }
 }
