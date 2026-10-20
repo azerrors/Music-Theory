@@ -3,6 +3,7 @@ import {useTranslation} from "react-i18next"
 import {useInstrument} from "@/hooks/useInstrument"
 import {usePracticeSession} from "@/hooks/usePracticeSession"
 import {useSettings} from "@/hooks/useSettings"
+import {azAblative} from "@/lib/practice/azAblative"
 import {CIRCLE_LEVELS, circleQuestion, sameSlot, slotKey, slotNote, type CircleLevel, type CircleQuestion, type CircleSlot} from "@/lib/practice/questions"
 import {CIRCLE_MAJORS, keySignature} from "@/lib/theory/circle"
 import {chroma, formatNote} from "@/lib/theory/notes"
@@ -54,7 +55,7 @@ export default function CirclePracticePage() {
 
     let prompt = ""
     if (question?.kind === "steps") {
-        prompt = t(question.direction === "clockwise" ? "practice.circle.stepsClockwise" : "practice.circle.stepsCounter", {from: name(question.from), steps: question.steps})
+        prompt = t(question.direction === "clockwise" ? "practice.circle.stepsClockwise" : "practice.circle.stepsCounter", {from: name(question.from), fromSuffix: azAblative(name(question.from)), steps: question.steps})
     } else if (question?.kind === "signature") {
         const {type, count} = question.signature
         prompt = type === "none" ? t("practice.circle.signatureNone") : t(type === "sharp" ? "practice.circle.signatureSharp" : "practice.circle.signatureFlat", {count})

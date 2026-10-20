@@ -14,6 +14,7 @@ import {
     weightedPick,
     type Random,
 } from "./questions"
+import {azAblative} from "./azAblative"
 import {emptyStore, exerciseStats, HISTORY_LIMIT, itemWeight, readStore, recordAnswer, recordSession, weakestItems, writeStore} from "./stats"
 
 /** A fixed sequence of "random" numbers, repeated. */
@@ -184,5 +185,12 @@ describe("practice store", () => {
         expect(readStore(storage)).toEqual(store)
         data.set("practice:v1", "{not json")
         expect(readStore(storage)).toEqual(emptyStore())
+    })
+})
+
+describe("azAblative", () => {
+    it("follows how the note is said", () => {
+        const cases: Record<string, string> = {C: "-dən", D: "-dən", E: "-dən", F: "-dən", G: "-dən", A: "-dan", B: "-dən", "F♯": "-dən", "B♭": "-dan", Do: "-dan", Re: "-dən", Fa: "-dan", Sol: "-dan", La: "-dan", Si: "-dən"}
+        Object.entries(cases).forEach(([label, suffix]) => expect(azAblative(label)).toBe(suffix))
     })
 })

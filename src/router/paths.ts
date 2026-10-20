@@ -21,6 +21,8 @@ export const PATHS = {
     practiceEar: "/guitar/practice/ear",
     practiceFind: "/guitar/practice/find",
     practiceCircle: "/guitar/practice/circle",
+    practiceKeys: "/guitar/practice/keys",
+    practiceIntervals: "/guitar/practice/intervals",
     settings: "/settings",
 } as const
 
@@ -34,6 +36,8 @@ export const PIANO_PATHS = {
     practiceEar: "/piano/practice/ear",
     practiceFind: "/piano/practice/find",
     practiceCircle: "/piano/practice/circle",
+    practiceKeys: "/piano/practice/keys",
+    practiceIntervals: "/piano/practice/intervals",
     chordPattern: "/piano/chords/:root/:type",
     chord: (root: NoteName, type: string, bass?: NoteName) =>
         `/piano/chords/${rootToSlug(root)}/${encodeURIComponent(type)}${bass ? `?bass=${rootToSlug(bass)}` : ""}`,

@@ -43,7 +43,9 @@ const NAV: Record<Instrument, NavGroup[]> = {
                     children: [
                         {to: PATHS.practiceEar, key: "nav.practiceEar"},
                         {to: PATHS.practiceFind, key: "nav.practiceFind"},
+                        {to: PATHS.practiceIntervals, key: "nav.practiceIntervals"},
                         {to: PATHS.practiceCircle, key: "nav.practiceCircle"},
+                        {to: PATHS.practiceKeys, key: "nav.practiceKeys"},
                     ],
                 },
             ],
@@ -78,7 +80,9 @@ const NAV: Record<Instrument, NavGroup[]> = {
                     children: [
                         {to: PIANO_PATHS.practiceEar, key: "nav.practiceEar"},
                         {to: PIANO_PATHS.practiceFind, key: "nav.practiceFind"},
+                        {to: PIANO_PATHS.practiceIntervals, key: "nav.practiceIntervals"},
                         {to: PIANO_PATHS.practiceCircle, key: "nav.practiceCircle"},
+                        {to: PIANO_PATHS.practiceKeys, key: "nav.practiceKeys"},
                     ],
                 },
             ],

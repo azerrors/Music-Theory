@@ -24,6 +24,8 @@ interface PracticeShellProps<L extends string> {
     /** Starts the session; also the user gesture that lets the browser play sound. */
     onStart: () => void
     startHint: string
+    /** Why the session cannot start yet (e.g. too few intervals picked); Start stays off until it is gone. */
+    startBlocked?: string
     prompt: ReactNode
     /** Replays the question's sound, when it has one (R key). */
     onReplay?: () => void
@@ -65,7 +67,7 @@ function Progress({results, total}: {results: boolean[]; total: number}) {
  * answer area, feedback and the "next" step, and the summary when the session is over.
  */
 export function PracticeShell<L extends string>(props: PracticeShellProps<L>) {
-    const {title, description, session, levelLabel, levels, level, onLevel, extraControls, onStart, startHint, prompt, onReplay, correctText, choiceText, answerActions, formatItem, children} = props
+    const {title, description, session, levelLabel, levels, level, onLevel, extraControls, onStart, startBlocked, startHint, prompt, onReplay, correctText, choiceText, answerActions, formatItem, children} = props
     const {t} = useTranslation()
     const {started, finished, answer, results, streak, best, newBest, stats, score, total, next} = session
 
@@ -106,7 +108,8 @@ export function PracticeShell<L extends string>(props: PracticeShellProps<L>) {
             {!started ? (
                 <Card className="flex flex-col items-start gap-4 p-8">
                     <p className="max-w-lg text-base-600 dark:text-base-400">{startHint}</p>
-                    <Button size="lg" onClick={onStart}>{t("practice.start")}<ArrowRight/></Button>
+                    {startBlocked && <p role="status" className="text-sm font-medium text-rose-700 dark:text-rose-400">{startBlocked}</p>}
+                    <Button size="lg" onClick={onStart} disabled={Boolean(startBlocked)}>{t("practice.start")}<ArrowRight/></Button>
                 </Card>
             ) : finished ? (
                 <Card className="space-y-6 p-8">

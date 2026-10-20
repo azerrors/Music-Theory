@@ -37,7 +37,9 @@
     "practice": "Məşqlər",
     "practiceEar": "Not tanıma",
     "practiceFind": "Not tapma",
-    "practiceCircle": "Dairə məşqi"
+    "practiceCircle": "Dairə məşqi",
+    "practiceKeys": "Tonallıq tapmacası",
+    "practiceIntervals": "İnterval məşqi"
   },
   "actions": {
     "play": "Səsləndir",
@@ -183,7 +185,24 @@
     "noWeakest": "Hələ zəif yerin görünmür. Davam et.",
     "level": "Səviyyə",
     "mode": "Rejim",
-    "keys": "Enter: növbəti, R: yenidən dinlə",
+    "keys": {
+      "title": "Tonallıq tapmacası",
+      "description": "Akorlardan tonallığı tap, tonallığa aid olmayan akoru seç, ya da proqressiyada boş qalan akoru tamamla.",
+      "modes": {
+        "key": "Hansı tonallıq?",
+        "odd": "Artığı tap",
+        "fill": "Tamamla"
+      },
+      "levels": {
+        "major": "Yalnız major",
+        "all": "Major və minor"
+      },
+      "promptKey": "Bu akorlar hansı tonallığa aiddir?",
+      "promptOdd": "{{key}} tonallığına hansı akor aid deyil?",
+      "promptFill": "{{key}}: boş yerə hansı akor gəlir?",
+      "manyKeys": "Bu akorlar bir neçə tonallığa uyğun gəlir; hamısı düzgün sayılır.",
+      "startHint": "Akorlar səslənəcək; istənilən akora basıb ayrıca dinləyə bilərsən."
+    },
     "ear": {
       "title": "Not tanıma",
       "description": "Əvvəl alətdə işarələnmiş not, sonra ikinci not səslənir. İkinci notu qulaqla tap və alətdə onun üstünə bas. Notlar hər dəfə qrifin və klaviaturanın başqa yerində olur.",
@@ -218,14 +237,42 @@
         "labels": "Adlar görünür",
         "hidden": "Adlar gizli"
       },
-      "stepsClockwise": "{{from}}-dən saat əqrəbi istiqamətində {{steps}} addım",
-      "stepsCounter": "{{from}}-dən saat əqrəbinin əksinə {{steps}} addım",
+      "stepsClockwise": "{{from}}{{fromSuffix}} saat əqrəbi istiqamətində {{steps}} addım",
+      "stepsCounter": "{{from}}{{fromSuffix}} saat əqrəbinin əksinə {{steps}} addım",
       "signatureSharp": "Hansı major tonallıqda {{count}} diyez (♯) var?",
       "signatureFlat": "Hansı major tonallıqda {{count}} bemol (♭) var?",
       "signatureNone": "Hansı major tonallıqda heç bir işarə yoxdur?",
       "relativeToMinor": "{{from}} major-un paralel minoru hansıdır?",
       "relativeToMajor": "{{from}} minor-un paralel majoru hansıdır?",
       "startHint": "Hər sual fərqli növdə ola bilər."
+    },
+    "intervals": {
+      "title": "İnterval məşqi",
+      "description": "İki not arasındakı məsafəni qulaqla tanı, ya da verilmiş notdan intervalı alətdə qur.",
+      "modes": {
+        "ear": "Qulaqla",
+        "build": "Alətdə qur"
+      },
+      "levels": {
+        "basic": "Əsas (5)",
+        "more": "Orta (9)",
+        "all": "Hamısı (12)",
+        "custom": "Öz seçimim"
+      },
+      "playback": "Səslənmə",
+      "playbacks": {
+        "up": "Yuxarı",
+        "down": "Aşağı",
+        "together": "Birlikdə"
+      },
+      "promptEar": "Bu iki not arasında hansı interval var?",
+      "promptBuildUp": "{{note}}{{from}} {{interval}} yuxarı hansı notdur?",
+      "promptBuildDown": "{{note}}{{from}} {{interval}} aşağı hansı notdur?",
+      "startHintEar": "İki not səslənəcək; intervalı aşağıdakı düymələrdən seç.",
+      "startHintBuild": "Notun yeri alətdə işıqlanacaq; istənilən intervalı onun dəqiq səsində bas.",
+      "customLabel": "Məşq ediləcək intervallar:",
+      "needTwo": "Qulaqla rejimi üçün ən az 2 interval seç.",
+      "needOne": "Ən az 1 interval seç."
     }
   }
 }

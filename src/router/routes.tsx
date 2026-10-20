@@ -23,6 +23,8 @@ const PianoIntervalsPage = lazy(() => import("@/pages/PianoIntervalsPage"))
 const EarPracticePage = lazy(() => import("@/pages/EarPracticePage"))
 const FindNotePracticePage = lazy(() => import("@/pages/FindNotePracticePage"))
 const CirclePracticePage = lazy(() => import("@/pages/CirclePracticePage"))
+const KeyPuzzlePracticePage = lazy(() => import("@/pages/KeyPuzzlePracticePage"))
+const IntervalPracticePage = lazy(() => import("@/pages/IntervalPracticePage"))
 const SettingsPage = lazy(() => import("@/pages/SettingsPage"))
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"))
 
@@ -57,6 +59,10 @@ export const appRoutes: RouteObject[] = [
     {path: PIANO_PATHS.practiceEar, element: <EarPracticePage/>},
     {path: PIANO_PATHS.practiceFind, element: <FindNotePracticePage/>},
     {path: PIANO_PATHS.practiceCircle, element: <CirclePracticePage/>},
+    {path: PATHS.practiceKeys, element: <KeyPuzzlePracticePage/>},
+    {path: PIANO_PATHS.practiceKeys, element: <KeyPuzzlePracticePage/>},
+    {path: PATHS.practiceIntervals, element: <IntervalPracticePage/>},
+    {path: PIANO_PATHS.practiceIntervals, element: <IntervalPracticePage/>},
 
     {path: PATHS.settings, element: <SettingsPage/>},
     {path: "*", element: <NotFoundPage/>},

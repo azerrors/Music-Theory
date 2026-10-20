@@ -37,7 +37,9 @@
     "practice": "Practice",
     "practiceEar": "Note by ear",
     "practiceFind": "Find the note",
-    "practiceCircle": "Circle drill"
+    "practiceCircle": "Circle drill",
+    "practiceKeys": "Key puzzles",
+    "practiceIntervals": "Interval drill"
   },
   "actions": {
     "play": "Play",
@@ -183,7 +185,24 @@
     "noWeakest": "No weak spots yet. Keep going.",
     "level": "Level",
     "mode": "Mode",
-    "keys": "Enter: next, R: play again",
+    "keys": {
+      "title": "Key puzzles",
+      "description": "Find the key from its chords, pick the chord that does not belong, or fill the gap in a progression.",
+      "modes": {
+        "key": "Which key?",
+        "odd": "Odd one out",
+        "fill": "Fill the gap"
+      },
+      "levels": {
+        "major": "Major only",
+        "all": "Major and minor"
+      },
+      "promptKey": "Which key are these chords in?",
+      "promptOdd": "Which chord is not in {{key}}?",
+      "promptFill": "{{key}}: which chord fills the gap?",
+      "manyKeys": "These chords fit more than one key; any of them counts.",
+      "startHint": "The chords will play; press any chord to hear it on its own."
+    },
     "ear": {
       "title": "Note by ear",
       "description": "The lit note plays first, then a second one. Find the second note by ear and press it on the instrument. Each question starts somewhere new on the neck or keys.",
@@ -226,6 +245,34 @@
       "relativeToMinor": "What is the relative minor of {{from}} major?",
       "relativeToMajor": "What is the relative major of {{from}} minor?",
       "startHint": "Each question can be a different kind."
+    },
+    "intervals": {
+      "title": "Interval drill",
+      "description": "Hear the gap between two notes and name it, or build an interval from a given note on the instrument.",
+      "modes": {
+        "ear": "By ear",
+        "build": "Build it"
+      },
+      "levels": {
+        "basic": "Basic (5)",
+        "more": "More (9)",
+        "all": "All (12)",
+        "custom": "My pick"
+      },
+      "playback": "Playback",
+      "playbacks": {
+        "up": "Up",
+        "down": "Down",
+        "together": "Together"
+      },
+      "promptEar": "What is the interval between these two notes?",
+      "promptBuildUp": "Which note is a {{interval}} above {{note}}?",
+      "promptBuildDown": "Which note is a {{interval}} below {{note}}?",
+      "startHintEar": "Two notes will play; pick the interval from the buttons below.",
+      "startHintBuild": "A note will light up on the instrument; press the asked interval at its exact pitch.",
+      "customLabel": "Intervals to practise:",
+      "needTwo": "Pick at least 2 intervals for by-ear practice.",
+      "needOne": "Pick at least 1 interval."
     }
   }
 }
