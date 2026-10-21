@@ -68,7 +68,7 @@ export function Breadcrumb({instrument, groups}: {instrument: Instrument; groups
                 {crumbs.map((crumb, index) => {
                     const isLast = index === crumbs.length - 1
                     return (
-                        <li key={crumb.label} className={cn("flex min-w-0 items-center gap-1", index < crumbs.length - 2 && "max-sm:hidden")}>
+                        <li key={`${index}-${crumb.label}`} className={cn("flex min-w-0 items-center gap-1", index < crumbs.length - 2 && "max-sm:hidden")}>
                             {index > 0 && <ChevronRight aria-hidden="true" className="size-3.5 shrink-0 text-base-300 dark:text-base-700" strokeWidth={1.5}/>}
                             {isLast ? (
                                 <span aria-current="page" className="flex min-w-0 items-center gap-2 px-1.5 font-medium text-base-900 dark:text-base-50">

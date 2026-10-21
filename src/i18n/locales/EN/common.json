@@ -274,5 +274,10 @@
       "needTwo": "Pick at least 2 intervals for by-ear practice.",
       "needOne": "Pick at least 1 interval."
     }
+  },
+  "play": {
+    "lastNote": "Last note",
+    "guitarHint": "Tap anywhere on the neck and play freely.",
+    "pianoHint": "Tap the keys and play freely. On a computer keyboard, A W S E D F T G Y H U J K play too."
   }
 }

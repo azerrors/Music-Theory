@@ -25,6 +25,7 @@ const FindNotePracticePage = lazy(() => import("@/pages/FindNotePracticePage"))
 const CirclePracticePage = lazy(() => import("@/pages/CirclePracticePage"))
 const KeyPuzzlePracticePage = lazy(() => import("@/pages/KeyPuzzlePracticePage"))
 const IntervalPracticePage = lazy(() => import("@/pages/IntervalPracticePage"))
+const PlayPage = lazy(() => import("@/pages/PlayPage"))
 const SettingsPage = lazy(() => import("@/pages/SettingsPage"))
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"))
 
@@ -63,6 +64,10 @@ export const appRoutes: RouteObject[] = [
     {path: PIANO_PATHS.practiceKeys, element: <KeyPuzzlePracticePage/>},
     {path: PATHS.practiceIntervals, element: <IntervalPracticePage/>},
     {path: PIANO_PATHS.practiceIntervals, element: <IntervalPracticePage/>},
+
+    // Free play: the same page, on whichever instrument the path is under.
+    {path: PATHS.play, element: <PlayPage/>},
+    {path: PIANO_PATHS.play, element: <PlayPage/>},
 
     {path: PATHS.settings, element: <SettingsPage/>},
     {path: "*", element: <NotFoundPage/>},

@@ -10,6 +10,7 @@ import {ChartNoAxesColumnIncreasingIcon} from "@/components/icons/chart-no-axes-
 import {CompassIcon} from "@/components/icons/compass"
 import {FileChartLineIcon} from "@/components/icons/file-chart-line"
 import {GitCommitHorizontalIcon} from "@/components/icons/git-commit-horizontal"
+import {MusicIcon} from "@/components/icons/music"
 import {LayoutGridIcon} from "@/components/icons/layout-grid"
 import {SearchIcon} from "@/components/icons/search"
 import {Drawer} from "@/components/ui/drawer"
@@ -48,6 +49,7 @@ const NAV: Record<Instrument, NavGroup[]> = {
                         {to: PATHS.practiceKeys, key: "nav.practiceKeys"},
                     ],
                 },
+                {to: PATHS.play, key: "instrument.guitar", icon: MusicIcon},
             ],
         },
         {
@@ -85,6 +87,7 @@ const NAV: Record<Instrument, NavGroup[]> = {
                         {to: PIANO_PATHS.practiceKeys, key: "nav.practiceKeys"},
                     ],
                 },
+                {to: PIANO_PATHS.play, key: "instrument.piano", icon: MusicIcon},
             ],
         },
     ],

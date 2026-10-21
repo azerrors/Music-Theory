@@ -274,5 +274,10 @@
       "needTwo": "Qulaqla rejimi üçün ən az 2 interval seç.",
       "needOne": "Ən az 1 interval seç."
     }
+  },
+  "play": {
+    "lastNote": "Son çalınan not",
+    "guitarHint": "Qrifdə istənilən yerə toxun və sərbəst çal.",
+    "pianoHint": "Klavişlərə toxun və sərbəst çal. Kompüter klaviaturasında A W S E D F T G Y H U J K düymələri də çalır."
   }
 }
