@@ -39,7 +39,8 @@
     "practiceFind": "Find the note",
     "practiceCircle": "Circle drill",
     "practiceKeys": "Key puzzles",
-    "practiceIntervals": "Interval drill"
+    "practiceIntervals": "Interval drill",
+    "practiceLegato": "1‑3‑4 legato"
   },
   "actions": {
     "play": "Play",
@@ -279,5 +280,42 @@
     "lastNote": "Last note",
     "guitarHint": "Tap anywhere on the neck and play freely.",
     "pianoHint": "Tap the keys and play freely. On a computer keyboard, A W S E D F T G Y H U J K play too."
+  },
+  "legato": {
+    "title": "1‑3‑4 legato",
+    "description": "Hammer-ons and pull-offs: index finger on one fret, ring finger two frets up, pinky three. Click a bar of the tab to see the grip on the neck.",
+    "sections": {
+      "patterns": "Patterns",
+      "scales": "In scales"
+    },
+    "pattern": "Pattern",
+    "move": "Movement",
+    "moves": {
+      "alongString": "Along a string",
+      "acrossStrings": "Across strings",
+      "diagonal": "Diagonal",
+      "zigzag": "Whole neck"
+    },
+    "string": "String",
+    "fret": "Fret",
+    "from": "Start fret",
+    "to": "End fret",
+    "position": "Position",
+    "run": "Run",
+    "runs": {
+      "up": "Up",
+      "down": "Down",
+      "upDown": "Up and down",
+      "loop": "Loop each string"
+    },
+    "onlyGrip": "Only 1‑3‑4 strings",
+    "gripStrings": "Strings played 1‑3‑4: {{list}}",
+    "noGrip": "No string in this position is played 1‑3‑4.",
+    "step": "Step {{current}} / {{total}}",
+    "at": "string {{string}}, fret {{fret}}",
+    "prev": "Previous",
+    "next": "Next",
+    "tab": "Tab",
+    "legend": "H: hammer-on · P: pull-off · fingers below"
   }
 }

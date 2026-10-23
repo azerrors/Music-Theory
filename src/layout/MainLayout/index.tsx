@@ -47,6 +47,7 @@ const NAV: Record<Instrument, NavGroup[]> = {
                         {to: PATHS.practiceIntervals, key: "nav.practiceIntervals"},
                         {to: PATHS.practiceCircle, key: "nav.practiceCircle"},
                         {to: PATHS.practiceKeys, key: "nav.practiceKeys"},
+                        {to: PATHS.practiceLegato, key: "nav.practiceLegato"},
                     ],
                 },
                 {to: PATHS.play, key: "instrument.guitar", icon: MusicIcon},

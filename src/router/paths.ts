@@ -24,6 +24,7 @@ export const PATHS = {
     practiceCircle: "/guitar/practice/circle",
     practiceKeys: "/guitar/practice/keys",
     practiceIntervals: "/guitar/practice/intervals",
+    practiceLegato: "/guitar/practice/legato",
     settings: "/settings",
 } as const
 

@@ -39,7 +39,8 @@
     "practiceFind": "Not tapma",
     "practiceCircle": "Dairə məşqi",
     "practiceKeys": "Tonallıq tapmacası",
-    "practiceIntervals": "İnterval məşqi"
+    "practiceIntervals": "İnterval məşqi",
+    "practiceLegato": "1‑3‑4 legato"
   },
   "actions": {
     "play": "Səsləndir",
@@ -279,5 +280,42 @@
     "lastNote": "Son çalınan not",
     "guitarHint": "Qrifdə istənilən yerə toxun və sərbəst çal.",
     "pianoHint": "Klavişlərə toxun və sərbəst çal. Kompüter klaviaturasında A W S E D F T G Y H U J K düymələri də çalır."
+  },
+  "legato": {
+    "title": "1‑3‑4 legato",
+    "description": "Hammer on və pull off: 1-ci barmaq bir ladda, 3-cü ondan iki lad, 4-cü üç lad yuxarıda. Tabda bir xanaya klikləyin, qrif qolda görünəcək.",
+    "sections": {
+      "patterns": "Naxışlar",
+      "scales": "Qammalarda"
+    },
+    "pattern": "Naxış",
+    "move": "Hərəkət",
+    "moves": {
+      "alongString": "Sim boyu",
+      "acrossStrings": "Simlər arası",
+      "diagonal": "Diaqonal",
+      "zigzag": "Bütün qol"
+    },
+    "string": "Sim",
+    "fret": "Lad",
+    "from": "Başlanğıc lad",
+    "to": "Son lad",
+    "position": "Pozisiya",
+    "run": "Gediş",
+    "runs": {
+      "up": "Yuxarı",
+      "down": "Aşağı",
+      "upDown": "Yuxarı və aşağı",
+      "loop": "Hər simdə dövr"
+    },
+    "onlyGrip": "Yalnız 1‑3‑4 simləri",
+    "gripStrings": "1‑3‑4 ilə çalınan simlər: {{list}}",
+    "noGrip": "Bu pozisiyada 1‑3‑4 ilə çalınan sim yoxdur.",
+    "step": "Addım {{current}} / {{total}}",
+    "at": "sim {{string}}, lad {{fret}}",
+    "prev": "Əvvəlki",
+    "next": "Növbəti",
+    "tab": "Tab",
+    "legend": "H: hammer on · P: pull off · altda barmaq nömrələri"
   }
 }
