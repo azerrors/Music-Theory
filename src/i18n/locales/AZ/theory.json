@@ -553,6 +553,7 @@
     "label": "Pozisiya",
     "all": "Bütün qrif",
     "title": "Pozisiya {{n}}",
+    "shape": "{{mode}} forması",
     "frets": "{{from}}–{{to}}. lad",
     "play": "Pozisiyanı çal",
     "stretch": "bu pozisiyada barmaqları geniş açmaq lazımdır",

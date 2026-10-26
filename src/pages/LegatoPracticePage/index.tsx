@@ -23,7 +23,7 @@ import {
 } from "@/lib/practice/legato"
 import type {FretMarker} from "@/lib/theory/fretboard"
 import {formatNote, pitchAt} from "@/lib/theory/notes"
-import {scalePositions} from "@/lib/theory/positions"
+import {positionShape, scalePositions} from "@/lib/theory/positions"
 import {getScaleInfo} from "@/lib/theory/scales"
 import {Fretboard} from "@/widgets/Fretboard"
 import {LegatoTab} from "@/widgets/LegatoTab"
@@ -212,7 +212,10 @@ export default function LegatoPracticePage() {
                                 label={t("legato.position")}
                                 value={String(positionNumber)}
                                 onChange={value => reset(setPositionNumber)(Number(value))}
-                                options={positions.map(item => ({value: String(item.number), label: String(item.number)}))}
+                                options={positions.map(item => {
+                                    const shape = positionShape(scaleId, item.number)
+                                    return {value: String(item.number), label: shape ? `${item.number} · ${tTheory(`scales.${shape}`)}` : String(item.number)}
+                                })}
                             />
                         </Field>
                     </div>

@@ -26,6 +26,24 @@ export interface ScalePosition {
     maxFret: number
 }
 
+/** The seven three-notes-per-string shapes, named after the major-scale mode each one starts on, in order up the neck. */
+export const MODE_SHAPES = ["ionian", "dorian", "phrygian", "lydian", "mixolydian", "aeolian", "locrian"] as const
+export type ModeShape = (typeof MODE_SHAPES)[number]
+
+/** How far each major-scale mode sits from its parent major; other scales have no shape names. */
+const MODE_STEP: Record<string, number> = {major: 0, ionian: 0, dorian: 1, phrygian: 2, lydian: 3, mixolydian: 4, minor: 5, aeolian: 5, locrian: 6}
+
+/**
+ * The shape a position of the major scale or one of its modes is named after: the mode that
+ * starts on the position's first note. A minor position 1 starts on A, the 6th note of C major,
+ * so it is the Aeolian shape; position 3 starts on C, so it is the Ionian shape.
+ */
+export function positionShape(scaleId: string, positionNumber: number): ModeShape | null {
+    const step = MODE_STEP[scaleId]
+    if (step === undefined) return null
+    return MODE_SHAPES[(step + positionNumber - 1) % MODE_SHAPES.length]!
+}
+
 /** The blues scale's extra note; its boxes are the minor pentatonic ones with this added in. */
 const BLUE_NOTE = "♭5"
 

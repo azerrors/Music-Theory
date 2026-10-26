@@ -2,7 +2,7 @@ import {ROOT_NOTES} from "@/constants/notes"
 import {SCALES} from "@/constants/scales"
 import {STANDARD_TUNING} from "@/constants/tunings"
 import {chroma} from "@/lib/theory/notes"
-import {scalePositions} from "@/lib/theory/positions"
+import {positionShape, scalePositions} from "@/lib/theory/positions"
 import {getScaleInfo} from "@/lib/theory/scales"
 
 function fretsByString(scaleId: string, root: string, position: number): number[][] {
@@ -27,6 +27,18 @@ describe("scalePositions", () => {
     it("adds the blue note inside the box", () => {
         const blues = fretsByString("blues", "A", 1)
         expect(blues[1]).toEqual([5, 6, 7]) // D, E♭, E on the A string
+    })
+
+    it("names natural minor positions after the mode each one starts on", () => {
+        expect([1, 2, 3, 4, 5, 6, 7].map(n => positionShape("minor", n))).toEqual(["aeolian", "locrian", "ionian", "dorian", "phrygian", "lydian", "mixolydian"])
+    })
+
+    it("starts every mode on its own shape and leaves other scales unnamed", () => {
+        expect(positionShape("major", 1)).toBe("ionian")
+        expect(positionShape("dorian", 1)).toBe("dorian")
+        expect(positionShape("locrian", 2)).toBe("ionian")
+        expect(positionShape("harmonicMinor", 1)).toBeNull()
+        expect(positionShape("minorPentatonic", 1)).toBeNull()
     })
 
     const sizes = SCALES.map(def => def.id)

@@ -8,7 +8,7 @@ import {useSettings} from "@/hooks/useSettings"
 import {parseChordSymbol} from "@/lib/theory/chords"
 import {markersForTones, zipTones, type FretMarker} from "@/lib/theory/fretboard"
 import {formatNote, rootToSlug, slugToRoot} from "@/lib/theory/notes"
-import {COMFORTABLE_SPAN, scalePositions} from "@/lib/theory/positions"
+import {COMFORTABLE_SPAN, positionShape, scalePositions} from "@/lib/theory/positions"
 import {getDiatonicChords, getScaleInfo, scaleMidi} from "@/lib/theory/scales"
 import {PATHS} from "@/router/paths"
 import type {NoteName} from "@/types/music"
@@ -43,6 +43,12 @@ export default function ScalesPage() {
     // Positions are worked out for standard tuning, like the chord shapes.
     const positions = tuning.id === "standard" ? scalePositions(scale) : []
     const position = positions.find(item => String(item.number) === params.get("pos"))
+    // The major scale and its modes also name each position after the mode shape it starts on.
+    const shape = (number: number) => positionShape(scale.def.id, number)
+    const positionLabel = (number: number) => {
+        const name = shape(number)
+        return name ? `${number} · ${t(`scales.${name}`)}` : String(number)
+    }
     const fretCount = Math.max(15, position?.maxFret ?? 0)
     // The chosen position on top, the rest of the scale as small dots so the box can be placed on the neck.
     const positionMarkers: FretMarker[] | undefined = position && [
@@ -108,7 +114,7 @@ export default function ScalesPage() {
                             onChange={value => updateParams({pos: value})}
                             options={[
                                 {value: "all", label: t("positions.all")},
-                                ...positions.map(item => ({value: String(item.number), label: String(item.number)})),
+                                ...positions.map(item => ({value: String(item.number), label: positionLabel(item.number)})),
                             ]}
                         />
                     )}
@@ -120,6 +126,7 @@ export default function ScalesPage() {
                                 ? (
                                     <>
                                         <strong className="text-base-900 dark:text-base-100">{t("positions.title", {n: position.number})}</strong>
+                                        {shape(position.number) && <>{" · "}{t("positions.shape", {mode: t(`scales.${shape(position.number)}`)})}</>}
                                         {" · "}{t("positions.frets", {from: position.minFret, to: position.maxFret})}
                                         {" · "}{t(`positions.perString.${position.system}`)}
                                         {position.maxFret - position.minFret > COMFORTABLE_SPAN && <> · <span className="text-amber-700 dark:text-amber-400">{t("positions.stretch")}</span></>}
