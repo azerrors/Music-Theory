@@ -89,6 +89,18 @@ describe("presets", () => {
         expect(chords).toEqual(["GM", "DM", "Em", "CM"])
     })
 
+    it.each([
+        ["ragtime", "C", "major", ["V7/vi", "V7/ii", "V7/V", "V7", "I"]],
+        ["gospel", "C", "major", ["I", "I7", "IV", "iv"]],
+        ["backdoor", "C", "major", ["Imaj7", "iv7", "♭VII7", "Imaj7"]],
+        ["phrygian", "E", "minor", ["i", "♭II", "♭III", "♭II"]],
+        ["dorianVamp", "A", "minor", ["i7", "IV", "i7", "IV"]],
+    ] as const)("labels the %s progression in %s %s", (id, tonic, mode, romans) => {
+        const preset = PROGRESSION_PRESETS.find(item => item.id === id)!
+        const labels = presetSteps(preset, tonic).map(step => chordRoman(tonic, mode, resolveStep(tonic, step), step.type))
+        expect(labels).toEqual(romans)
+    })
+
     it("uses the major V from harmonic minor in the Andalusian cadence", () => {
         const andalusian = PROGRESSION_PRESETS.find(preset => preset.id === "andalusian")!
         const last = presetSteps(andalusian, "A").at(-1)!

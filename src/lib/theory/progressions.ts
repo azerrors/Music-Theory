@@ -73,6 +73,15 @@ export const PROGRESSION_PRESETS: ProgressionPreset[] = [
         ["4", "7"], ["4", "7"], ["1", "7"], ["1", "7"],
         ["5", "7"], ["4", "7"], ["1", "7"], ["5", "7"],
     ]},
+    {id: "rockAndRoll", mode: "major", steps: [["1"], ["4"], ["5"], ["4"]]},
+    {id: "turnaround", mode: "major", steps: [["1", "maj7"], ["6", "m7"], ["2", "m7"], ["5", "7"]]},
+    {id: "minorPlagal", mode: "major", steps: [["1"], ["4"], ["4", "m"], ["1"]]},
+    {id: "majorThree", mode: "major", steps: [["1"], ["3", "M"], ["4"], ["4", "m"]]},
+    {id: "majorTwo", mode: "major", steps: [["1"], ["2", "7"], ["4"], ["1"]]},
+    {id: "gospel", mode: "major", steps: [["1"], ["1", "7"], ["4"], ["4", "m"]]},
+    {id: "heroic", mode: "major", steps: [["1"], ["b6"], ["b7"], ["1"]]},
+    {id: "backdoor", mode: "major", steps: [["1", "maj7"], ["4", "m7"], ["b7", "7"], ["1", "maj7"]]},
+    {id: "ragtime", mode: "major", steps: [["3", "7"], ["6", "7"], ["2", "7"], ["5", "7"], ["1"]]},
 
     {id: "minorBasic", mode: "minor", steps: [["1"], ["4"], ["5"], ["1"]]},
     {id: "epic", mode: "minor", steps: [["1"], ["b6"], ["b3"], ["b7"]]},
@@ -82,6 +91,16 @@ export const PROGRESSION_PRESETS: ProgressionPreset[] = [
     {id: "circle", mode: "minor", steps: [["1", "m7"], ["4", "m7"], ["b7", "7"], ["b3", "maj7"]]},
     {id: "dramatic", mode: "minor", steps: [["1"], ["b6"], ["4"], ["5", "M"]]},
     {id: "lineCliche", mode: "minor", steps: [["1"], ["1", "m", "b7"], ["1", "m", "6"], ["b6"]]},
+    {id: "minorCadence", mode: "minor", steps: [["1"], ["4"], ["5", "7"], ["1"]]},
+    {id: "aeolianClimb", mode: "minor", steps: [["1"], ["b6"], ["b7"], ["1"]]},
+    {id: "minorCliche", mode: "minor", steps: [["1", "m"], ["1", "mMaj7"], ["1", "m7"], ["1", "m6"]]},
+    {id: "dorianVamp", mode: "minor", steps: [["1", "m7"], ["4", "M"], ["1", "m7"], ["4", "M"]]},
+    {id: "phrygian", mode: "minor", steps: [["1"], ["b2", "M"], ["b3"], ["b2", "M"]]},
+    {id: "minorBlues", mode: "minor", steps: [
+        ["1", "m7"], ["1", "m7"], ["1", "m7"], ["1", "m7"],
+        ["4", "m7"], ["4", "m7"], ["1", "m7"], ["1", "m7"],
+        ["b6", "7"], ["5", "7"], ["1", "m7"], ["5", "7"],
+    ]},
 ]
 
 export function presetsForMode(mode: KeyMode): ProgressionPreset[] {
