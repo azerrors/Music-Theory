@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "90f140a7-f1be-4053-a340-4d9bd4e64697"
+      }
+    },
+    "android": {
+      "package": "com.azerrorss.guitartheory"
+    }
+  }
+}
